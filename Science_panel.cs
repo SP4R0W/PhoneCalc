@@ -2,9 +2,8 @@ using Godot;
 using System;
 using Godot.Collections;
 
-public sealed class Normal_panel : Panel
+public class Science_panel : Panel
 {
-
     private string num1 = "0";
     private string num2 = "0";
     private string result = "0";
@@ -20,6 +19,9 @@ public sealed class Normal_panel : Panel
         SUBTRACT,
         MULTIPLY,
         DIVIDE,
+        MOD,
+        ROOT,
+        POWER,
         NONE
     }
 
@@ -27,7 +29,10 @@ public sealed class Normal_panel : Panel
         {operations.ADD,"+"},
         {operations.SUBTRACT,"-"},
         {operations.MULTIPLY,"x"},
-        {operations.DIVIDE,"/"}
+        {operations.DIVIDE,"/"},
+        {operations.MOD,"%"},
+	    {operations.ROOT,"RQT"},
+	    {operations.POWER,"POW"}
     };
 
     private numbers current_num = numbers.ONE;
@@ -35,9 +40,12 @@ public sealed class Normal_panel : Panel
 
     private Label label_action;
     private Label label_num;
+    private Random rnd;
 
     public override void _Ready()
     {
+        rnd = new Random();
+
         label_action = GetNode<Label>("Display_normal/label_action");
         label_num = GetNode<Label>("Display_normal/label_num");
     }
@@ -169,6 +177,39 @@ public sealed class Normal_panel : Panel
         }
     }
 
+    private void RandPressed()
+    {
+        if (current_num == numbers.RESULT)
+            ResetToDefault();
+
+        if (current_num == numbers.ONE)
+            num1 = Convert.ToString(rnd.NextDouble());
+        else if (current_num == numbers.TWO)
+            num2 = Convert.ToString(rnd.NextDouble());     
+    }
+
+    private void PIPressed()
+    {
+        if (current_num == numbers.RESULT)
+            ResetToDefault();
+
+        if (current_num == numbers.ONE)
+            num1 = Convert.ToString(Math.PI);
+        else if (current_num == numbers.TWO)
+            num2 = Convert.ToString(Math.PI);     
+    }
+
+    private void EPressed()
+    {
+        if (current_num == numbers.RESULT)
+            ResetToDefault();
+
+        if (current_num == numbers.ONE)
+            num1 = Convert.ToString(Math.E);
+        else if (current_num == numbers.TWO)
+            num2 = Convert.ToString(Math.E);     
+    }
+
     private void ZeroPressed()
     {
         AddNum("0");
@@ -277,8 +318,100 @@ public sealed class Normal_panel : Panel
     {
         SetEquasion(operations.DIVIDE);
     }
+    
+    private void AbsPressed()
+    {
+        if (current_num == numbers.RESULT)
+            num1 = GetResAsFirst();
 
-    private void SqrPressed()
+        if (current_num == numbers.ONE)
+            num1 = Convert.ToString(Math.Abs(Convert.ToDouble(num1)));
+        else if (current_num == numbers.TWO)
+            num2 = Convert.ToString(Math.Abs(Convert.ToDouble(num2)));           
+    }
+
+    private void NPressed()
+    {
+        if (current_num == numbers.RESULT)
+            num1 = GetResAsFirst();
+
+        if (current_num == numbers.ONE)
+        {
+            if (Convert.ToDouble(num1) < 0)
+                return;
+
+            double a = 1;
+            double fact = Convert.ToDouble(num1);
+
+            for (int i = 1;i<=fact;i++)
+            {
+                a *= i;
+            }
+
+            num1 = Convert.ToString(a);
+        }
+        else if (current_num == numbers.TWO)
+        {
+            if (Convert.ToDouble(num2) < 0)
+                return;
+
+            double a = 1;
+            double fact = Convert.ToDouble(num2);
+
+            for (int i = 1;i<=fact;i++)
+            {
+                a *= i;
+            }
+
+            num2 = Convert.ToString(a);
+        }    
+    }
+
+    private void Pow2Pressed()
+    {
+        if (current_num == numbers.RESULT)
+            num1 = GetResAsFirst();
+
+        if (current_num == numbers.ONE)
+            num1 = Convert.ToString(Math.Pow(Convert.ToDouble(num1),2));
+        else if (current_num == numbers.TWO)
+            num2 = Convert.ToString(Math.Pow(Convert.ToDouble(num2),2));        
+    }
+
+    private void Pow3Pressed()
+    {
+        if (current_num == numbers.RESULT)
+            num1 = GetResAsFirst();
+
+        if (current_num == numbers.ONE)
+            num1 = Convert.ToString(Math.Pow(Convert.ToDouble(num1),3));
+        else if (current_num == numbers.TWO)
+            num2 = Convert.ToString(Math.Pow(Convert.ToDouble(num2),3));        
+    }
+
+    private void DivXPressed()
+    {
+        if (current_num == numbers.RESULT)
+            num1 = GetResAsFirst();
+
+        if (current_num == numbers.ONE)
+            num1 = Convert.ToString(1/Convert.ToDouble(num1));
+        else if (current_num == numbers.TWO)
+            num2 = Convert.ToString(1/Convert.ToDouble(num2));        
+    }
+
+    private void CqrtPressed()
+    {
+        if (current_num == numbers.RESULT)
+            num1 = GetResAsFirst();
+
+        if (current_num == numbers.ONE)
+            num1 = Convert.ToString(Math.Pow(Convert.ToDouble(num1),(double) 1/3));
+        else if (current_num == numbers.TWO)
+            num2 = Convert.ToString(Math.Pow(Convert.ToDouble(num2),(double) 1/3));        
+    }
+
+    private void SqrtPressed()
     {
         if (current_num == numbers.RESULT)
             num1 = GetResAsFirst();
@@ -296,42 +429,114 @@ public sealed class Normal_panel : Panel
                 return;
 
             num2 = Convert.ToString(Math.Sqrt(Convert.ToDouble(num2))); 
-        }      
+        }             
     }
 
-    private void PowPressed()
+    private void TwoPowPressed()
     {
         if (current_num == numbers.RESULT)
             num1 = GetResAsFirst();
 
         if (current_num == numbers.ONE)
-            num1 = Convert.ToString(Math.Pow(Convert.ToDouble(num1),2));
+            num1 = Convert.ToString(Math.Pow(2,Convert.ToDouble(num1)));
         else if (current_num == numbers.TWO)
-            num2 = Convert.ToString(Math.Pow(Convert.ToDouble(num2),2));        
+            num2 = Convert.ToString(Math.Pow(2,Convert.ToDouble(num2)));        
     }
 
-    private void DivXPressed()
+    private void TenPowPressed()
     {
         if (current_num == numbers.RESULT)
             num1 = GetResAsFirst();
 
         if (current_num == numbers.ONE)
-            num1 = Convert.ToString(1/Convert.ToDouble(num1));
+            num1 = Convert.ToString(Math.Pow(10,Convert.ToDouble(num1)));
         else if (current_num == numbers.TWO)
-            num2 = Convert.ToString(1/Convert.ToDouble(num2));        
+            num2 = Convert.ToString(Math.Pow(10,Convert.ToDouble(num2)));        
     }
 
-    private void PercentagePressed()
+    private void LogPressed()
     {
+        if (current_num == numbers.RESULT)
+            num1 = GetResAsFirst();
+
         if (current_num == numbers.ONE)
-            num1 = "0";
-        else if (current_num == numbers.TWO)
-            num2 = Convert.ToString(Convert.ToDouble(num1) * (Convert.ToDouble(num2)/100));
-        else if (current_num == numbers.RESULT)
         {
-            string res = GetResAsFirst();
+            if (Convert.ToDouble(num1) <= 0)
+                return;
 
-            num1 = Convert.ToString(Convert.ToDouble(res) * (Convert.ToDouble(res)/100));
-        }        
+            num1 = Convert.ToString(Math.Log10(Convert.ToDouble(num1)));
+        }
+        else if (current_num == numbers.TWO)
+        {
+            if (Convert.ToDouble(num1) <= 0)
+                return;
+
+            num2 = Convert.ToString(Math.Log10(Convert.ToDouble(num2))); 
+        }               
+    }
+
+    private void LogEPressed()
+    {
+        if (current_num == numbers.RESULT)
+            num1 = GetResAsFirst();
+
+        if (current_num == numbers.ONE)
+        {
+            if (Convert.ToDouble(num1) <= 0)
+                return;
+
+            num1 = Convert.ToString(Math.Log(Convert.ToDouble(num1)));
+        }
+        else if (current_num == numbers.TWO)
+        {
+            if (Convert.ToDouble(num1) <= 0)
+                return;
+
+            num2 = Convert.ToString(Math.Log(Convert.ToDouble(num2))); 
+        }       
+    }
+
+    private void EXPressed()
+    {
+        if (current_num == numbers.RESULT)
+            num1 = GetResAsFirst();
+
+        if (current_num == numbers.ONE)
+            num1 = Convert.ToString(Math.Pow(Math.E,Convert.ToDouble(num1)));
+        else if (current_num == numbers.TWO)
+            num2 = Convert.ToString(Math.Pow(Math.E,Convert.ToDouble(num2)));    
+    }
+
+    private void RoundPressed()
+    {
+        if (current_num == numbers.RESULT)
+            num1 = GetResAsFirst();
+
+        if (current_num == numbers.ONE)
+            num1 = Convert.ToString(Math.Round(Convert.ToDouble(num1)));
+        else if (current_num == numbers.TWO)
+            num2 = Convert.ToString(Math.Round(Convert.ToDouble(num2)));        
+    }
+
+    private void CeilPressed()
+    {
+        if (current_num == numbers.RESULT)
+            num1 = GetResAsFirst();
+
+        if (current_num == numbers.ONE)
+            num1 = Convert.ToString(Math.Ceiling(Convert.ToDouble(num1)));
+        else if (current_num == numbers.TWO)
+            num2 = Convert.ToString(Math.Ceiling(Convert.ToDouble(num2)));        
+    }
+
+    private void FloorPressed()
+    {
+        if (current_num == numbers.RESULT)
+            num1 = GetResAsFirst();
+
+        if (current_num == numbers.ONE)
+            num1 = Convert.ToString(Math.Floor(Convert.ToDouble(num1)));
+        else if (current_num == numbers.TWO)
+            num2 = Convert.ToString(Math.Floor(Convert.ToDouble(num2)));        
     }
 }

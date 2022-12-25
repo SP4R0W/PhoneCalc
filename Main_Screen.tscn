@@ -6,7 +6,7 @@
 [ext_resource path="res://assets/Roboto-Regular.ttf" type="DynamicFontData" id=4]
 [ext_resource path="res://assets/hamburger.png" type="Texture" id=5]
 [ext_resource path="res://assets/Cambria Math.ttf" type="DynamicFontData" id=6]
-[ext_resource path="res://Science_panel.gd" type="Script" id=7]
+[ext_resource path="res://Science_panel.cs" type="Script" id=7]
 
 [sub_resource type="DynamicFont" id=1]
 size = 92
@@ -120,6 +120,7 @@ custom_fonts/font = SubResource( 3 )
 text = "0"
 align = 2
 valign = 2
+percent_visible = 15.0
 
 [node name="Button_panel_normal" type="GridContainer" parent="Normal_panel"]
 anchor_left = 0.5
@@ -340,7 +341,6 @@ custom_fonts/font = ExtResource( 3 )
 text = "="
 
 [node name="Science_panel" type="Panel" parent="."]
-visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -374,6 +374,7 @@ custom_fonts/font = SubResource( 3 )
 text = "0"
 align = 2
 valign = 2
+percent_visible = 15.0
 
 [node name="Button_panel_normal" type="GridContainer" parent="Science_panel"]
 anchor_left = 0.5
@@ -835,37 +836,43 @@ text = "Daty"
 [connection signal="pressed" from="Normal_panel/Button_panel_normal/0_button" to="Normal_panel" method="ZeroPressed"]
 [connection signal="pressed" from="Normal_panel/Button_panel_normal/dot_button" to="Normal_panel" method="DotPressed"]
 [connection signal="pressed" from="Normal_panel/Button_panel_normal/eql_button" to="Normal_panel" method="EqlPressed"]
-[connection signal="pressed" from="Science_panel/Button_panel_normal/rand_button" to="Science_panel" method="_on_rand_button_pressed"]
-[connection signal="pressed" from="Science_panel/Button_panel_normal/pi_button" to="Science_panel" method="_on_pi_button_pressed"]
-[connection signal="pressed" from="Science_panel/Button_panel_normal/e_button" to="Science_panel" method="_on_e_button_pressed"]
-[connection signal="pressed" from="Science_panel/Button_panel_normal/ce_button" to="Science_panel" method="_on_ce_button_pressed"]
-[connection signal="pressed" from="Science_panel/Button_panel_normal/c_button" to="Science_panel" method="_on_c_button_pressed"]
-[connection signal="pressed" from="Science_panel/Button_panel_normal/del_button" to="Science_panel" method="_on_del_button_pressed"]
-[connection signal="pressed" from="Science_panel/Button_panel_normal/pow_3_button" to="Science_panel" method="_on_pow_3_button_pressed"]
-[connection signal="pressed" from="Science_panel/Button_panel_normal/pow_2_button" to="Science_panel" method="_on_pow_2_button_pressed"]
-[connection signal="pressed" from="Science_panel/Button_panel_normal/abs_button" to="Science_panel" method="_on_abs_button_pressed"]
-[connection signal="pressed" from="Science_panel/Button_panel_normal/n_button" to="Science_panel" method="_on_n_button_pressed"]
-[connection signal="pressed" from="Science_panel/Button_panel_normal/divx_button" to="Science_panel" method="_on_divx_button_pressed"]
-[connection signal="pressed" from="Science_panel/Button_panel_normal/round_button" to="Science_panel" method="_on_round_button_pressed"]
-[connection signal="pressed" from="Science_panel/Button_panel_normal/ceil_button" to="Science_panel" method="_on_ceil_button_pressed"]
-[connection signal="pressed" from="Science_panel/Button_panel_normal/floor_button" to="Science_panel" method="_on_floor_button_pressed"]
-[connection signal="pressed" from="Science_panel/Button_panel_normal/div_button" to="Science_panel" method="_on_div_button_pressed"]
-[connection signal="pressed" from="Science_panel/Button_panel_normal/7_button" to="Science_panel" method="_on_7_button_pressed"]
-[connection signal="pressed" from="Science_panel/Button_panel_normal/8_button" to="Science_panel" method="_on_8_button_pressed"]
-[connection signal="pressed" from="Science_panel/Button_panel_normal/9_button" to="Science_panel" method="_on_9_button_pressed"]
-[connection signal="pressed" from="Science_panel/Button_panel_normal/mul_button" to="Science_panel" method="_on_mul_button_pressed"]
-[connection signal="pressed" from="Science_panel/Button_panel_normal/4_button" to="Science_panel" method="_on_4_button_pressed"]
-[connection signal="pressed" from="Science_panel/Button_panel_normal/5_button" to="Science_panel" method="_on_5_button_pressed"]
-[connection signal="pressed" from="Science_panel/Button_panel_normal/6_button" to="Science_panel" method="_on_6_button_pressed"]
-[connection signal="pressed" from="Science_panel/Button_panel_normal/sub_button" to="Normal_panel" method="_on_sub_button_pressed"]
-[connection signal="pressed" from="Science_panel/Button_panel_normal/1_button" to="Science_panel" method="_on_1_button_pressed"]
-[connection signal="pressed" from="Science_panel/Button_panel_normal/2_button" to="Science_panel" method="_on_2_button_pressed"]
-[connection signal="pressed" from="Science_panel/Button_panel_normal/3_button" to="Science_panel" method="_on_3_button_pressed"]
-[connection signal="pressed" from="Science_panel/Button_panel_normal/add_button" to="Science_panel" method="_on_add_button_pressed"]
-[connection signal="pressed" from="Science_panel/Button_panel_normal/ex_button" to="Science_panel" method="_on_ex_button_pressed"]
-[connection signal="pressed" from="Science_panel/Button_panel_normal/plusmin_button" to="Science_panel" method="_on_plusmin_button_pressed"]
-[connection signal="pressed" from="Science_panel/Button_panel_normal/0_button" to="Science_panel" method="_on_0_button_pressed"]
-[connection signal="pressed" from="Science_panel/Button_panel_normal/dot_button" to="Science_panel" method="_on_dot_button_pressed"]
-[connection signal="pressed" from="Science_panel/Button_panel_normal/equal_button" to="Science_panel" method="_on_equal_button_pressed"]
+[connection signal="pressed" from="Science_panel/Button_panel_normal/rand_button" to="Science_panel" method="RandPressed"]
+[connection signal="pressed" from="Science_panel/Button_panel_normal/pi_button" to="Science_panel" method="PIPressed"]
+[connection signal="pressed" from="Science_panel/Button_panel_normal/e_button" to="Science_panel" method="EPressed"]
+[connection signal="pressed" from="Science_panel/Button_panel_normal/ce_button" to="Science_panel" method="CEPressed"]
+[connection signal="pressed" from="Science_panel/Button_panel_normal/c_button" to="Science_panel" method="CPressed"]
+[connection signal="pressed" from="Science_panel/Button_panel_normal/del_button" to="Science_panel" method="DelPressed"]
+[connection signal="pressed" from="Science_panel/Button_panel_normal/pow_3_button" to="Science_panel" method="Pow3Pressed"]
+[connection signal="pressed" from="Science_panel/Button_panel_normal/pow_2_button" to="Science_panel" method="Pow2Pressed"]
+[connection signal="pressed" from="Science_panel/Button_panel_normal/abs_button" to="Science_panel" method="AbsPressed"]
+[connection signal="pressed" from="Science_panel/Button_panel_normal/n_button" to="Science_panel" method="NPressed"]
+[connection signal="pressed" from="Science_panel/Button_panel_normal/divx_button" to="Science_panel" method="DivXPressed"]
+[connection signal="pressed" from="Science_panel/Button_panel_normal/crqt_button" to="Science_panel" method="CqrtPressed"]
+[connection signal="pressed" from="Science_panel/Button_panel_normal/sqrt_button" to="Science_panel" method="SqrtPressed"]
+[connection signal="pressed" from="Science_panel/Button_panel_normal/round_button" to="Science_panel" method="RoundPressed"]
+[connection signal="pressed" from="Science_panel/Button_panel_normal/ceil_button" to="Science_panel" method="CeilPressed"]
+[connection signal="pressed" from="Science_panel/Button_panel_normal/floor_button" to="Science_panel" method="FloorPressed"]
+[connection signal="pressed" from="Science_panel/Button_panel_normal/div_button" to="Science_panel" method="DivPressed"]
+[connection signal="pressed" from="Science_panel/Button_panel_normal/7_button" to="Science_panel" method="SevenPressed"]
+[connection signal="pressed" from="Science_panel/Button_panel_normal/8_button" to="Science_panel" method="EightPressed"]
+[connection signal="pressed" from="Science_panel/Button_panel_normal/9_button" to="Science_panel" method="NinePressed"]
+[connection signal="pressed" from="Science_panel/Button_panel_normal/mul_button" to="Science_panel" method="MulPressed"]
+[connection signal="pressed" from="Science_panel/Button_panel_normal/2pow_button" to="Science_panel" method="TwoPowPressed"]
+[connection signal="pressed" from="Science_panel/Button_panel_normal/10x_button" to="Science_panel" method="TenPowPressed"]
+[connection signal="pressed" from="Science_panel/Button_panel_normal/4_button" to="Science_panel" method="FourPressed"]
+[connection signal="pressed" from="Science_panel/Button_panel_normal/5_button" to="Science_panel" method="FivePressed"]
+[connection signal="pressed" from="Science_panel/Button_panel_normal/6_button" to="Science_panel" method="SixPressed"]
+[connection signal="pressed" from="Science_panel/Button_panel_normal/sub_button" to="Science_panel" method="SubPressed"]
+[connection signal="pressed" from="Science_panel/Button_panel_normal/log_button" to="Science_panel" method="LogPressed"]
+[connection signal="pressed" from="Science_panel/Button_panel_normal/1_button" to="Science_panel" method="OnePressed"]
+[connection signal="pressed" from="Science_panel/Button_panel_normal/2_button" to="Science_panel" method="TwoPressed"]
+[connection signal="pressed" from="Science_panel/Button_panel_normal/3_button" to="Science_panel" method="ThreePressed"]
+[connection signal="pressed" from="Science_panel/Button_panel_normal/add_button" to="Science_panel" method="AddPressed"]
+[connection signal="pressed" from="Science_panel/Button_panel_normal/ex_button" to="Science_panel" method="EXPressed"]
+[connection signal="pressed" from="Science_panel/Button_panel_normal/ln_button" to="Science_panel" method="LogEPressed"]
+[connection signal="pressed" from="Science_panel/Button_panel_normal/plusmin_button" to="Science_panel" method="PlusMinPressed"]
+[connection signal="pressed" from="Science_panel/Button_panel_normal/0_button" to="Science_panel" method="ZeroPressed"]
+[connection signal="pressed" from="Science_panel/Button_panel_normal/dot_button" to="Science_panel" method="DotPressed"]
+[connection signal="pressed" from="Science_panel/Button_panel_normal/equal_button" to="Science_panel" method="EqlPressed"]
 [connection signal="pressed" from="Hamburger_panel/Container/Calculator_buttons/Standard" to="." method="_on_Standard_pressed"]
 [connection signal="pressed" from="Hamburger_panel/Container/Calculator_buttons/Science" to="." method="_on_Science_pressed"]
