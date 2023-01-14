@@ -163,7 +163,7 @@ public sealed class Normal_panel : Panel
         }
         else if (current_num == numbers.TWO)
         {
-            num2 = StringExtensions.Substr(num2,0,num1.Length - 1);
+            num2 = StringExtensions.Substr(num2,0,num2.Length - 1);
             if (num2 == "")
                 num2 = "0";
         }
@@ -226,13 +226,13 @@ public sealed class Normal_panel : Panel
 
         if (current_num == numbers.ONE)
         {
-            if (StringExtensions.Find(num1,".") == -1)
-                num1 += ".";
+            if (StringExtensions.Find(num1,",") == -1)
+                num1 += ",";
         }
         else if (current_num == numbers.TWO)
         {
-            if (StringExtensions.Find(num2,".") == -1)
-                num2 += ".";
+            if (StringExtensions.Find(num2,",") == -1)
+                num2 += ",";
         }
     }
 

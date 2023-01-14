@@ -22,6 +22,7 @@ public class Science_panel : Panel
         MOD,
         ROOT,
         POWER,
+        LOG,
         NONE
     }
 
@@ -30,9 +31,10 @@ public class Science_panel : Panel
         {operations.SUBTRACT,"-"},
         {operations.MULTIPLY,"x"},
         {operations.DIVIDE,"/"},
-        {operations.MOD,"%"},
-	    {operations.ROOT,"RQT"},
-	    {operations.POWER,"POW"}
+        {operations.MOD,"reszta z dzielenia"},
+	    {operations.ROOT,"pierwiastek stopnia"},
+	    {operations.POWER,"^"},
+        {operations.LOG,"logarytm o podstawie"},
     };
 
     private numbers current_num = numbers.ONE;
@@ -97,6 +99,15 @@ public class Science_panel : Panel
             return Convert.ToString(Convert.ToDouble(num1) * Convert.ToDouble(num2));
         else if (current_operation == operations.DIVIDE)
             return Convert.ToString(Convert.ToDouble(num1) / Convert.ToDouble(num2));
+        else if (current_operation == operations.MOD)
+            return Convert.ToString(Convert.ToDouble(num1) % Convert.ToDouble(num2));
+        else if (current_operation == operations.POWER)
+            return Convert.ToString(Math.Pow(Convert.ToDouble(num1),Convert.ToDouble(num2)));
+        else if (current_operation == operations.ROOT)
+            return Convert.ToString(Math.Pow(Convert.ToDouble(num1),(double) 1/Convert.ToDouble(num2)));
+        else if (current_operation == operations.LOG)
+            return Convert.ToString(Math.Log(Convert.ToDouble(num1),Convert.ToDouble(num2)));
+
 
         return "0";
     }
@@ -171,7 +182,7 @@ public class Science_panel : Panel
         }
         else if (current_num == numbers.TWO)
         {
-            num2 = StringExtensions.Substr(num2,0,num1.Length - 1);
+            num2 = StringExtensions.Substr(num2,0,num2.Length - 1);
             if (num2 == "")
                 num2 = "0";
         }
@@ -267,13 +278,13 @@ public class Science_panel : Panel
 
         if (current_num == numbers.ONE)
         {
-            if (StringExtensions.Find(num1,".") == -1)
-                num1 += ".";
+            if (StringExtensions.Find(num1,",") == -1)
+                num1 += ",";
         }
         else if (current_num == numbers.TWO)
         {
-            if (StringExtensions.Find(num2,".") == -1)
-                num2 += ".";
+            if (StringExtensions.Find(num2,",") == -1)
+                num2 += ",";
         }
     }
 
@@ -318,7 +329,27 @@ public class Science_panel : Panel
     {
         SetEquasion(operations.DIVIDE);
     }
-    
+
+    private void ModPressed()
+    {
+        SetEquasion(operations.MOD);
+    }
+
+    private void PowPressed()
+    {
+        SetEquasion(operations.POWER);
+    }
+
+    private void RootPressed()
+    {
+        SetEquasion(operations.ROOT);
+    }
+
+    private void LogPressed()
+    {
+        SetEquasion(operations.LOG);
+    }
+
     private void AbsPressed()
     {
         if (current_num == numbers.RESULT)
@@ -454,7 +485,7 @@ public class Science_panel : Panel
             num2 = Convert.ToString(Math.Pow(10,Convert.ToDouble(num2)));        
     }
 
-    private void LogPressed()
+    private void Log10Pressed()
     {
         if (current_num == numbers.RESULT)
             num1 = GetResAsFirst();

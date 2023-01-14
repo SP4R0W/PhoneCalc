@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://Main_Screen.gd" type="Script" id=1]
 [ext_resource path="res://Normal_panel.cs" type="Script" id=2]
@@ -7,6 +7,20 @@
 [ext_resource path="res://assets/hamburger.png" type="Texture" id=5]
 [ext_resource path="res://assets/Cambria Math.ttf" type="DynamicFontData" id=6]
 [ext_resource path="res://Science_panel.cs" type="Script" id=7]
+[ext_resource path="res://Temperature_Panel.cs" type="Script" id=8]
+[ext_resource path="res://Length_Panel.cs" type="Script" id=9]
+[ext_resource path="res://Angle_Panel.cs" type="Script" id=10]
+[ext_resource path="res://Pressure_Panel.cs" type="Script" id=11]
+[ext_resource path="res://Power_Panel.cs" type="Script" id=12]
+[ext_resource path="res://Data_Panel.cs" type="Script" id=13]
+[ext_resource path="res://Volume_Panel.cs" type="Script" id=14]
+[ext_resource path="res://Time_Panel.cs" type="Script" id=15]
+[ext_resource path="res://Velocity_Panel.cs" type="Script" id=16]
+[ext_resource path="res://Area_Panel.cs" type="Script" id=17]
+[ext_resource path="res://Energy_Panel.cs" type="Script" id=18]
+[ext_resource path="res://Mass_Panel.cs" type="Script" id=19]
+[ext_resource path="res://Date_Panel.cs" type="Script" id=20]
+[ext_resource path="res://Currency_Panel.cs" type="Script" id=21]
 
 [sub_resource type="DynamicFont" id=1]
 size = 92
@@ -40,6 +54,36 @@ font_data = ExtResource( 6 )
 
 [sub_resource type="DynamicFont" id=6]
 size = 48
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=10]
+size = 72
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=11]
+size = 32
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=12]
+size = 32
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=13]
+size = 72
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=9]
+size = 64
 use_mipmaps = true
 use_filter = true
 font_data = ExtResource( 4 )
@@ -87,6 +131,7 @@ custom_fonts/font = SubResource( 1 )
 text = "Standard"
 
 [node name="Normal_panel" type="Panel" parent="."]
+visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -120,7 +165,6 @@ custom_fonts/font = SubResource( 3 )
 text = "0"
 align = 2
 valign = 2
-percent_visible = 15.0
 
 [node name="Button_panel_normal" type="GridContainer" parent="Normal_panel"]
 anchor_left = 0.5
@@ -341,6 +385,7 @@ custom_fonts/font = ExtResource( 3 )
 text = "="
 
 [node name="Science_panel" type="Panel" parent="."]
+visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -374,7 +419,6 @@ custom_fonts/font = SubResource( 3 )
 text = "0"
 align = 2
 valign = 2
-percent_visible = 15.0
 
 [node name="Button_panel_normal" type="GridContainer" parent="Science_panel"]
 anchor_left = 0.5
@@ -754,6 +798,2900 @@ rect_min_size = Vector2( 145, 117 )
 custom_fonts/font = SubResource( 4 )
 text = "="
 
+[node name="Date_Panel" type="Panel" parent="."]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -540.0
+margin_top = -830.0
+margin_right = 540.0
+margin_bottom = 960.0
+script = ExtResource( 20 )
+
+[node name="Display_normal" type="VBoxContainer" parent="Date_Panel"]
+margin_left = 60.0
+margin_top = 50.0
+margin_right = 1020.0
+margin_bottom = 1650.0
+custom_constants/separation = 10
+
+[node name="HSeparator2" type="HSeparator" parent="Date_Panel/Display_normal"]
+modulate = Color( 1, 1, 1, 0 )
+margin_right = 960.0
+margin_bottom = 100.0
+custom_constants/separation = 100
+
+[node name="Labels1" type="Panel" parent="Date_Panel/Display_normal"]
+margin_top = 110.0
+margin_right = 960.0
+margin_bottom = 210.0
+rect_min_size = Vector2( 0, 100 )
+
+[node name="Day1" type="Label" parent="Date_Panel/Display_normal/Labels1"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 80.0
+margin_top = -36.0
+margin_right = 160.0
+margin_bottom = 36.0
+custom_fonts/font = SubResource( 10 )
+text = "30"
+align = 1
+valign = 1
+
+[node name="Month1" type="Label" parent="Date_Panel/Display_normal/Labels1"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -199.5
+margin_top = -36.0
+margin_right = 199.5
+margin_bottom = 36.0
+custom_fonts/font = SubResource( 10 )
+text = "Października"
+align = 1
+valign = 1
+
+[node name="Year1" type="Label" parent="Date_Panel/Display_normal/Labels1"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -215.0
+margin_top = -36.0
+margin_right = -55.0
+margin_bottom = 36.0
+custom_fonts/font = SubResource( 10 )
+text = "2023"
+align = 1
+valign = 1
+
+[node name="SpinBox1" type="HBoxContainer" parent="Date_Panel/Display_normal"]
+margin_top = 220.0
+margin_right = 960.0
+margin_bottom = 320.0
+custom_constants/separation = 150
+alignment = 1
+
+[node name="Day1" type="SpinBox" parent="Date_Panel/Display_normal/SpinBox1"]
+margin_left = 30.0
+margin_right = 230.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 200, 100 )
+min_value = 1.0
+max_value = 30.0
+value = 30.0
+align = 1
+prefix = "Dzien"
+
+[node name="Month1" type="SpinBox" parent="Date_Panel/Display_normal/SpinBox1"]
+margin_left = 380.0
+margin_right = 580.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 200, 100 )
+min_value = 1.0
+max_value = 12.0
+value = 12.0
+align = 1
+prefix = "Miesiac"
+
+[node name="Year1" type="SpinBox" parent="Date_Panel/Display_normal/SpinBox1"]
+margin_left = 730.0
+margin_right = 930.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 200, 100 )
+min_value = 1601.0
+max_value = 2550.0
+value = 2023.0
+align = 1
+prefix = "Rok"
+
+[node name="HSeparator" type="HSeparator" parent="Date_Panel/Display_normal"]
+modulate = Color( 1, 1, 1, 0 )
+margin_top = 330.0
+margin_right = 960.0
+margin_bottom = 380.0
+custom_constants/separation = 50
+
+[node name="Labels2" type="Panel" parent="Date_Panel/Display_normal"]
+margin_top = 390.0
+margin_right = 960.0
+margin_bottom = 490.0
+rect_min_size = Vector2( 0, 100 )
+
+[node name="Day2" type="Label" parent="Date_Panel/Display_normal/Labels2"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 80.0
+margin_top = -36.0
+margin_right = 160.0
+margin_bottom = 36.0
+custom_fonts/font = SubResource( 10 )
+text = "30"
+align = 1
+valign = 1
+
+[node name="Month2" type="Label" parent="Date_Panel/Display_normal/Labels2"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -199.5
+margin_top = -36.0
+margin_right = 199.5
+margin_bottom = 36.0
+custom_fonts/font = SubResource( 10 )
+text = "Października"
+align = 1
+valign = 1
+
+[node name="Year2" type="Label" parent="Date_Panel/Display_normal/Labels2"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -215.0
+margin_top = -36.0
+margin_right = -55.0
+margin_bottom = 36.0
+custom_fonts/font = SubResource( 10 )
+text = "2023"
+align = 1
+valign = 1
+
+[node name="SpinBox2" type="HBoxContainer" parent="Date_Panel/Display_normal"]
+margin_top = 500.0
+margin_right = 960.0
+margin_bottom = 600.0
+custom_constants/separation = 150
+alignment = 1
+
+[node name="Day2" type="SpinBox" parent="Date_Panel/Display_normal/SpinBox2"]
+margin_left = 30.0
+margin_right = 230.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 200, 100 )
+min_value = 1.0
+max_value = 30.0
+value = 30.0
+align = 1
+prefix = "Dzien"
+
+[node name="Month2" type="SpinBox" parent="Date_Panel/Display_normal/SpinBox2"]
+margin_left = 380.0
+margin_right = 580.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 200, 100 )
+min_value = 1.0
+max_value = 12.0
+value = 12.0
+align = 1
+prefix = "Miesiac"
+
+[node name="Year2" type="SpinBox" parent="Date_Panel/Display_normal/SpinBox2"]
+margin_left = 730.0
+margin_right = 930.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 200, 100 )
+min_value = 1601.0
+max_value = 2550.0
+value = 2023.0
+align = 1
+prefix = "Rok"
+
+[node name="Labels3" type="Panel" parent="Date_Panel/Display_normal"]
+margin_top = 610.0
+margin_right = 960.0
+margin_bottom = 710.0
+rect_min_size = Vector2( 0, 100 )
+
+[node name="Years" type="Label" parent="Date_Panel/Display_normal/Labels3"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 55.0
+margin_top = -36.0
+margin_right = 188.0
+margin_bottom = 36.0
+custom_fonts/font = SubResource( 10 )
+text = "Lata"
+align = 1
+valign = 1
+
+[node name="Months" type="Label" parent="Date_Panel/Display_normal/Labels3"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -145.0
+margin_top = -36.0
+margin_right = 122.0
+margin_bottom = 36.0
+custom_fonts/font = SubResource( 10 )
+text = "Miesiące"
+align = 1
+valign = 1
+
+[node name="Days" type="Label" parent="Date_Panel/Display_normal/Labels3"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -190.0
+margin_top = -36.0
+margin_right = -82.0
+margin_bottom = 36.0
+custom_fonts/font = SubResource( 10 )
+text = "Dni"
+align = 1
+valign = 1
+
+[node name="SpinBox3" type="HBoxContainer" parent="Date_Panel/Display_normal"]
+margin_top = 720.0
+margin_right = 960.0
+margin_bottom = 820.0
+custom_constants/separation = 150
+alignment = 1
+
+[node name="Years" type="SpinBox" parent="Date_Panel/Display_normal/SpinBox3"]
+margin_left = 30.0
+margin_right = 230.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 200, 100 )
+max_value = 999.0
+align = 1
+
+[node name="Months" type="SpinBox" parent="Date_Panel/Display_normal/SpinBox3"]
+margin_left = 380.0
+margin_right = 580.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 200, 100 )
+max_value = 999.0
+align = 1
+
+[node name="Days" type="SpinBox" parent="Date_Panel/Display_normal/SpinBox3"]
+margin_left = 730.0
+margin_right = 930.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 200, 100 )
+max_value = 999.0
+align = 1
+
+[node name="HSeparator3" type="HSeparator" parent="Date_Panel/Display_normal"]
+modulate = Color( 1, 1, 1, 0 )
+margin_top = 830.0
+margin_right = 960.0
+margin_bottom = 880.0
+custom_constants/separation = 50
+
+[node name="Options" type="Panel" parent="Date_Panel/Display_normal"]
+margin_top = 890.0
+margin_right = 960.0
+margin_bottom = 990.0
+rect_min_size = Vector2( 0, 100 )
+
+[node name="Difference" type="CheckButton" parent="Date_Panel/Display_normal/Options"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_top = -20.0
+margin_right = 76.0
+margin_bottom = 20.0
+custom_fonts/font = SubResource( 11 )
+text = "Różnica dat "
+
+[node name="Add" type="CheckButton" parent="Date_Panel/Display_normal/Options"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -84.0
+margin_top = -20.5
+margin_right = 84.0
+margin_bottom = 20.5
+custom_fonts/font = SubResource( 11 )
+text = "Dodaj "
+
+[node name="Sub" type="CheckButton" parent="Date_Panel/Display_normal/Options"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -203.0
+margin_top = -20.5
+margin_bottom = 20.5
+custom_fonts/font = SubResource( 11 )
+text = "Odejmij  "
+
+[node name="HSeparator4" type="HSeparator" parent="Date_Panel/Display_normal"]
+modulate = Color( 1, 1, 1, 0 )
+margin_top = 1000.0
+margin_right = 960.0
+margin_bottom = 1100.0
+custom_constants/separation = 100
+
+[node name="Value_Panel" type="Panel" parent="Date_Panel/Display_normal"]
+margin_top = 1110.0
+margin_right = 960.0
+margin_bottom = 1210.0
+rect_min_size = Vector2( 0, 100 )
+
+[node name="Value" type="Label" parent="Date_Panel/Display_normal/Value_Panel"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_top = -16.5
+margin_right = 434.0
+margin_bottom = 16.5
+custom_fonts/font = SubResource( 12 )
+text = "Różnica między datami wynosi:"
+
+[node name="HSeparator5" type="HSeparator" parent="Date_Panel/Display_normal"]
+modulate = Color( 1, 1, 1, 0 )
+margin_top = 1220.0
+margin_right = 960.0
+margin_bottom = 1320.0
+custom_constants/separation = 100
+
+[node name="CurrentDate" type="Button" parent="Date_Panel/Display_normal"]
+margin_top = 1330.0
+margin_right = 960.0
+margin_bottom = 1408.0
+custom_fonts/font = SubResource( 13 )
+text = "Ustaw datę 1 na dzisiejszą"
+
+[node name="HSeparator6" type="HSeparator" parent="Date_Panel/Display_normal"]
+modulate = Color( 1, 1, 1, 0 )
+margin_top = 1418.0
+margin_right = 960.0
+margin_bottom = 1443.0
+custom_constants/separation = 25
+
+[node name="CurrentDate2" type="Button" parent="Date_Panel/Display_normal"]
+margin_top = 1453.0
+margin_right = 960.0
+margin_bottom = 1531.0
+custom_fonts/font = SubResource( 13 )
+text = "Ustaw datę 2 na dzisiejszą"
+
+[node name="Currency_Panel" type="Panel" parent="."]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -540.0
+margin_top = -830.0
+margin_right = 540.0
+margin_bottom = 960.0
+script = ExtResource( 21 )
+
+[node name="HTTPRequest" type="HTTPRequest" parent="Currency_Panel"]
+
+[node name="Display_normal" type="VBoxContainer" parent="Currency_Panel"]
+margin_left = 60.0
+margin_top = 50.0
+margin_right = 1020.0
+margin_bottom = 768.0
+custom_constants/separation = 10
+alignment = 2
+
+[node name="label_cur" type="Label" parent="Currency_Panel/Display_normal"]
+margin_top = 202.0
+margin_right = 960.0
+margin_bottom = 320.0
+custom_fonts/font = SubResource( 3 )
+text = "0"
+align = 2
+valign = 2
+
+[node name="OptionButton" type="OptionButton" parent="Currency_Panel/Display_normal"]
+margin_top = 330.0
+margin_right = 960.0
+margin_bottom = 412.0
+custom_fonts/font = SubResource( 9 )
+text = "Polska - Złoty"
+align = 2
+items = [ "Polska - Złoty", null, false, 0, null, "USA - Dolar Amerykański", null, false, 1, null, "Unia Europejska - Euro", null, false, 2, null, "Wielka Brytania - Funt", null, false, 3, null, "Chiny - Juan", null, false, 4, null, "Japonia - Jen", null, false, 5, null, "Rosja - Rubel", null, false, 6, null, "Ukraina - Hrywna", null, false, 7, null ]
+selected = 0
+
+[node name="label_convert" type="Label" parent="Currency_Panel/Display_normal"]
+margin_top = 422.0
+margin_right = 960.0
+margin_bottom = 540.0
+custom_fonts/font = SubResource( 3 )
+text = "0"
+align = 2
+valign = 2
+
+[node name="OptionButton2" type="OptionButton" parent="Currency_Panel/Display_normal"]
+margin_top = 550.0
+margin_right = 960.0
+margin_bottom = 632.0
+custom_fonts/font = SubResource( 9 )
+text = "USA - Dolar Amerykański"
+align = 2
+items = [ "Polska - Złoty", null, false, 0, null, "USA - Dolar Amerykański", null, false, 1, null, "Unia Europejska - Euro", null, false, 2, null, "Wielka Brytania - Funt", null, false, 3, null, "Chiny - Juan", null, false, 4, null, "Japonia - Jen", null, false, 5, null, "Rosja - Rubel", null, false, 6, null, "Ukraina - Hrywna", null, false, 7, null ]
+selected = 1
+
+[node name="Value" type="Label" parent="Currency_Panel/Display_normal"]
+margin_top = 642.0
+margin_right = 960.0
+margin_bottom = 718.0
+custom_fonts/font = SubResource( 9 )
+text = "1 PLN = 1 PLN"
+align = 2
+valign = 2
+
+[node name="Update_button" type="Button" parent="Currency_Panel"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -380.0
+margin_top = -95.0
+margin_right = 370.0
+margin_bottom = 12.0
+custom_fonts/font = ExtResource( 3 )
+text = "Zaktualizuj kursy"
+
+[node name="Button_panel_normal" type="GridContainer" parent="Currency_Panel"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -480.0
+margin_top = -852.0
+margin_right = 490.0
+custom_constants/vseparation = 20
+custom_constants/hseparation = 20
+columns = 3
+
+[node name="Control" type="Control" parent="Currency_Panel/Button_panel_normal"]
+margin_right = 310.0
+margin_bottom = 140.0
+
+[node name="C_button" type="Button" parent="Currency_Panel/Button_panel_normal"]
+margin_left = 330.0
+margin_right = 640.0
+margin_bottom = 140.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "C"
+
+[node name="Del_button" type="Button" parent="Currency_Panel/Button_panel_normal"]
+margin_left = 660.0
+margin_right = 970.0
+margin_bottom = 140.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "Del"
+
+[node name="7_button" type="Button" parent="Currency_Panel/Button_panel_normal"]
+margin_top = 160.0
+margin_right = 310.0
+margin_bottom = 300.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "7"
+
+[node name="8_button" type="Button" parent="Currency_Panel/Button_panel_normal"]
+margin_left = 330.0
+margin_top = 160.0
+margin_right = 640.0
+margin_bottom = 300.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "8"
+
+[node name="9_button" type="Button" parent="Currency_Panel/Button_panel_normal"]
+margin_left = 660.0
+margin_top = 160.0
+margin_right = 970.0
+margin_bottom = 300.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "9"
+
+[node name="4_button" type="Button" parent="Currency_Panel/Button_panel_normal"]
+margin_top = 320.0
+margin_right = 310.0
+margin_bottom = 460.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "4"
+
+[node name="5_button" type="Button" parent="Currency_Panel/Button_panel_normal"]
+margin_left = 330.0
+margin_top = 320.0
+margin_right = 640.0
+margin_bottom = 460.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "5"
+
+[node name="6_button" type="Button" parent="Currency_Panel/Button_panel_normal"]
+margin_left = 660.0
+margin_top = 320.0
+margin_right = 970.0
+margin_bottom = 460.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "6"
+
+[node name="1_button" type="Button" parent="Currency_Panel/Button_panel_normal"]
+margin_top = 480.0
+margin_right = 310.0
+margin_bottom = 620.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "1"
+
+[node name="2_button" type="Button" parent="Currency_Panel/Button_panel_normal"]
+margin_left = 330.0
+margin_top = 480.0
+margin_right = 640.0
+margin_bottom = 620.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "2"
+
+[node name="3_button" type="Button" parent="Currency_Panel/Button_panel_normal"]
+margin_left = 660.0
+margin_top = 480.0
+margin_right = 970.0
+margin_bottom = 620.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "3"
+
+[node name="Control2" type="Control" parent="Currency_Panel/Button_panel_normal"]
+margin_top = 640.0
+margin_right = 310.0
+margin_bottom = 780.0
+
+[node name="0_button" type="Button" parent="Currency_Panel/Button_panel_normal"]
+margin_left = 330.0
+margin_top = 640.0
+margin_right = 640.0
+margin_bottom = 780.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "0"
+
+[node name="dot_button" type="Button" parent="Currency_Panel/Button_panel_normal"]
+margin_left = 660.0
+margin_top = 640.0
+margin_right = 970.0
+margin_bottom = 780.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "."
+
+[node name="Volume_Panel" type="Panel" parent="."]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -540.0
+margin_top = -830.0
+margin_right = 540.0
+margin_bottom = 960.0
+script = ExtResource( 14 )
+
+[node name="Display_normal" type="VBoxContainer" parent="Volume_Panel"]
+margin_left = 60.0
+margin_top = 50.0
+margin_right = 1020.0
+margin_bottom = 768.0
+custom_constants/separation = 10
+alignment = 2
+
+[node name="label_cur" type="Label" parent="Volume_Panel/Display_normal"]
+margin_top = 288.0
+margin_right = 960.0
+margin_bottom = 406.0
+custom_fonts/font = SubResource( 3 )
+text = "0"
+align = 2
+valign = 2
+
+[node name="OptionButton" type="OptionButton" parent="Volume_Panel/Display_normal"]
+margin_top = 416.0
+margin_right = 960.0
+margin_bottom = 498.0
+custom_fonts/font = SubResource( 9 )
+text = "Mililitry"
+align = 2
+items = [ "Mililitry", null, false, 0, null, "Cm sześcienne", null, false, 1, null, "Litry", null, false, 2, null, "Metry sześcienne", null, false, 3, null, "Łyżeczki (USA)", null, false, 4, null, "Łyżki stołowe (USA)", null, false, 5, null, "Kubki (USA)", null, false, 6, null, "Galony (USA)", null, false, 7, null, "Łyżeczki (UK)", null, false, 8, null, "Łyżki stołowe (UK)", null, false, 9, null, "Galony (UK)", null, false, 10, null, "Uncje (US)", null, false, 11, null, "Uncje (UK)", null, false, 12, null ]
+selected = 0
+
+[node name="label_convert" type="Label" parent="Volume_Panel/Display_normal"]
+margin_top = 508.0
+margin_right = 960.0
+margin_bottom = 626.0
+custom_fonts/font = SubResource( 3 )
+text = "0"
+align = 2
+valign = 2
+
+[node name="OptionButton2" type="OptionButton" parent="Volume_Panel/Display_normal"]
+margin_top = 636.0
+margin_right = 960.0
+margin_bottom = 718.0
+custom_fonts/font = SubResource( 9 )
+text = "Cm sześcienne"
+align = 2
+items = [ "Mililitry", null, false, 0, null, "Cm sześcienne", null, false, 1, null, "Litry", null, false, 2, null, "Metry sześcienne", null, false, 3, null, "Łyżeczki (USA)", null, false, 4, null, "Łyżki stołowe (USA)", null, false, 5, null, "Kubki (USA)", null, false, 6, null, "Galony (USA)", null, false, 7, null, "Łyżeczki (UK)", null, false, 8, null, "Łyżki stołowe (UK)", null, false, 9, null, "Galony (UK)", null, false, 10, null, "Uncje (US)", null, false, 11, null, "Uncje (UK)", null, false, 12, null ]
+selected = 1
+
+[node name="Button_panel_normal" type="GridContainer" parent="Volume_Panel"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -480.0
+margin_top = -852.0
+margin_right = 490.0
+custom_constants/vseparation = 20
+custom_constants/hseparation = 20
+columns = 3
+
+[node name="Control" type="Control" parent="Volume_Panel/Button_panel_normal"]
+margin_right = 310.0
+margin_bottom = 140.0
+
+[node name="C_button" type="Button" parent="Volume_Panel/Button_panel_normal"]
+margin_left = 330.0
+margin_right = 640.0
+margin_bottom = 140.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "C"
+
+[node name="Del_button" type="Button" parent="Volume_Panel/Button_panel_normal"]
+margin_left = 660.0
+margin_right = 970.0
+margin_bottom = 140.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "Del"
+
+[node name="7_button" type="Button" parent="Volume_Panel/Button_panel_normal"]
+margin_top = 160.0
+margin_right = 310.0
+margin_bottom = 300.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "7"
+
+[node name="8_button" type="Button" parent="Volume_Panel/Button_panel_normal"]
+margin_left = 330.0
+margin_top = 160.0
+margin_right = 640.0
+margin_bottom = 300.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "8"
+
+[node name="9_button" type="Button" parent="Volume_Panel/Button_panel_normal"]
+margin_left = 660.0
+margin_top = 160.0
+margin_right = 970.0
+margin_bottom = 300.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "9"
+
+[node name="4_button" type="Button" parent="Volume_Panel/Button_panel_normal"]
+margin_top = 320.0
+margin_right = 310.0
+margin_bottom = 460.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "4"
+
+[node name="5_button" type="Button" parent="Volume_Panel/Button_panel_normal"]
+margin_left = 330.0
+margin_top = 320.0
+margin_right = 640.0
+margin_bottom = 460.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "5"
+
+[node name="6_button" type="Button" parent="Volume_Panel/Button_panel_normal"]
+margin_left = 660.0
+margin_top = 320.0
+margin_right = 970.0
+margin_bottom = 460.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "6"
+
+[node name="1_button" type="Button" parent="Volume_Panel/Button_panel_normal"]
+margin_top = 480.0
+margin_right = 310.0
+margin_bottom = 620.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "1"
+
+[node name="2_button" type="Button" parent="Volume_Panel/Button_panel_normal"]
+margin_left = 330.0
+margin_top = 480.0
+margin_right = 640.0
+margin_bottom = 620.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "2"
+
+[node name="3_button" type="Button" parent="Volume_Panel/Button_panel_normal"]
+margin_left = 660.0
+margin_top = 480.0
+margin_right = 970.0
+margin_bottom = 620.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "3"
+
+[node name="Control2" type="Control" parent="Volume_Panel/Button_panel_normal"]
+margin_top = 640.0
+margin_right = 310.0
+margin_bottom = 780.0
+
+[node name="0_button" type="Button" parent="Volume_Panel/Button_panel_normal"]
+margin_left = 330.0
+margin_top = 640.0
+margin_right = 640.0
+margin_bottom = 780.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "0"
+
+[node name="dot_button" type="Button" parent="Volume_Panel/Button_panel_normal"]
+margin_left = 660.0
+margin_top = 640.0
+margin_right = 970.0
+margin_bottom = 780.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "."
+
+[node name="Length_Panel" type="Panel" parent="."]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -540.0
+margin_top = -830.0
+margin_right = 540.0
+margin_bottom = 960.0
+script = ExtResource( 9 )
+
+[node name="Display_normal" type="VBoxContainer" parent="Length_Panel"]
+margin_left = 60.0
+margin_top = 50.0
+margin_right = 1020.0
+margin_bottom = 768.0
+custom_constants/separation = 10
+alignment = 2
+
+[node name="label_cur" type="Label" parent="Length_Panel/Display_normal"]
+margin_top = 288.0
+margin_right = 960.0
+margin_bottom = 406.0
+custom_fonts/font = SubResource( 3 )
+text = "0"
+align = 2
+valign = 2
+
+[node name="OptionButton" type="OptionButton" parent="Length_Panel/Display_normal"]
+margin_top = 416.0
+margin_right = 960.0
+margin_bottom = 498.0
+custom_fonts/font = SubResource( 9 )
+text = "Nanometry"
+align = 2
+items = [ "Nanometry", null, false, 0, null, "Mikrony", null, false, 1, null, "Milimetry", null, false, 2, null, "Centymetry", null, false, 3, null, "Metry", null, false, 4, null, "Kilometry", null, false, 5, null, "Cale", null, false, 6, null, "Stopy", null, false, 7, null, "Jardy", null, false, 8, null, "Mile", null, false, 9, null, "Mile morskie", null, false, 10, null ]
+selected = 0
+
+[node name="label_convert" type="Label" parent="Length_Panel/Display_normal"]
+margin_top = 508.0
+margin_right = 960.0
+margin_bottom = 626.0
+custom_fonts/font = SubResource( 3 )
+text = "0"
+align = 2
+valign = 2
+
+[node name="OptionButton2" type="OptionButton" parent="Length_Panel/Display_normal"]
+margin_top = 636.0
+margin_right = 960.0
+margin_bottom = 718.0
+custom_fonts/font = SubResource( 9 )
+text = "Mikrony"
+align = 2
+items = [ "Nanometry", null, false, 0, null, "Mikrony", null, false, 1, null, "Milimetry", null, false, 2, null, "Centymetry", null, false, 3, null, "Metry", null, false, 4, null, "Kilometry", null, false, 5, null, "Cale", null, false, 6, null, "Stopy", null, false, 7, null, "Jardy", null, false, 8, null, "Mile", null, false, 9, null, "Mile morskie", null, false, 10, null ]
+selected = 1
+
+[node name="Button_panel_normal" type="GridContainer" parent="Length_Panel"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -480.0
+margin_top = -852.0
+margin_right = 490.0
+custom_constants/vseparation = 20
+custom_constants/hseparation = 20
+columns = 3
+
+[node name="Control" type="Control" parent="Length_Panel/Button_panel_normal"]
+margin_right = 310.0
+margin_bottom = 140.0
+
+[node name="C_button" type="Button" parent="Length_Panel/Button_panel_normal"]
+margin_left = 330.0
+margin_right = 640.0
+margin_bottom = 140.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "C"
+
+[node name="Del_button" type="Button" parent="Length_Panel/Button_panel_normal"]
+margin_left = 660.0
+margin_right = 970.0
+margin_bottom = 140.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "Del"
+
+[node name="7_button" type="Button" parent="Length_Panel/Button_panel_normal"]
+margin_top = 160.0
+margin_right = 310.0
+margin_bottom = 300.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "7"
+
+[node name="8_button" type="Button" parent="Length_Panel/Button_panel_normal"]
+margin_left = 330.0
+margin_top = 160.0
+margin_right = 640.0
+margin_bottom = 300.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "8"
+
+[node name="9_button" type="Button" parent="Length_Panel/Button_panel_normal"]
+margin_left = 660.0
+margin_top = 160.0
+margin_right = 970.0
+margin_bottom = 300.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "9"
+
+[node name="4_button" type="Button" parent="Length_Panel/Button_panel_normal"]
+margin_top = 320.0
+margin_right = 310.0
+margin_bottom = 460.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "4"
+
+[node name="5_button" type="Button" parent="Length_Panel/Button_panel_normal"]
+margin_left = 330.0
+margin_top = 320.0
+margin_right = 640.0
+margin_bottom = 460.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "5"
+
+[node name="6_button" type="Button" parent="Length_Panel/Button_panel_normal"]
+margin_left = 660.0
+margin_top = 320.0
+margin_right = 970.0
+margin_bottom = 460.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "6"
+
+[node name="1_button" type="Button" parent="Length_Panel/Button_panel_normal"]
+margin_top = 480.0
+margin_right = 310.0
+margin_bottom = 620.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "1"
+
+[node name="2_button" type="Button" parent="Length_Panel/Button_panel_normal"]
+margin_left = 330.0
+margin_top = 480.0
+margin_right = 640.0
+margin_bottom = 620.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "2"
+
+[node name="3_button" type="Button" parent="Length_Panel/Button_panel_normal"]
+margin_left = 660.0
+margin_top = 480.0
+margin_right = 970.0
+margin_bottom = 620.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "3"
+
+[node name="Control2" type="Control" parent="Length_Panel/Button_panel_normal"]
+margin_top = 640.0
+margin_right = 310.0
+margin_bottom = 780.0
+
+[node name="0_button" type="Button" parent="Length_Panel/Button_panel_normal"]
+margin_left = 330.0
+margin_top = 640.0
+margin_right = 640.0
+margin_bottom = 780.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "0"
+
+[node name="dot_button" type="Button" parent="Length_Panel/Button_panel_normal"]
+margin_left = 660.0
+margin_top = 640.0
+margin_right = 970.0
+margin_bottom = 780.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "."
+
+[node name="Mass_Panel" type="Panel" parent="."]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -540.0
+margin_top = -830.0
+margin_right = 540.0
+margin_bottom = 960.0
+script = ExtResource( 19 )
+
+[node name="Display_normal" type="VBoxContainer" parent="Mass_Panel"]
+margin_left = 60.0
+margin_top = 50.0
+margin_right = 1020.0
+margin_bottom = 768.0
+custom_constants/separation = 10
+alignment = 2
+
+[node name="label_cur" type="Label" parent="Mass_Panel/Display_normal"]
+margin_top = 288.0
+margin_right = 960.0
+margin_bottom = 406.0
+custom_fonts/font = SubResource( 3 )
+text = "0"
+align = 2
+valign = 2
+
+[node name="OptionButton3" type="OptionButton" parent="Mass_Panel/Display_normal"]
+margin_top = 416.0
+margin_right = 960.0
+margin_bottom = 498.0
+custom_fonts/font = SubResource( 9 )
+text = "Karaty"
+align = 2
+items = [ "Karaty", null, false, 0, null, "Gramy", null, false, 1, null, "Kilogramy", null, false, 2, null, "Tony", null, false, 3, null, "Uncje", null, false, 4, null, "Funty", null, false, 5, null ]
+selected = 0
+
+[node name="label_convert" type="Label" parent="Mass_Panel/Display_normal"]
+margin_top = 508.0
+margin_right = 960.0
+margin_bottom = 626.0
+custom_fonts/font = SubResource( 3 )
+text = "0"
+align = 2
+valign = 2
+
+[node name="OptionButton4" type="OptionButton" parent="Mass_Panel/Display_normal"]
+margin_top = 636.0
+margin_right = 960.0
+margin_bottom = 718.0
+custom_fonts/font = SubResource( 9 )
+text = "Kilodżule"
+align = 2
+items = [ "Dżule", null, false, 0, null, "Kilodżule", null, false, 1, null, "Kalorie", null, false, 2, null, "Kilokalorie", null, false, 3, null, "Stopofunty", null, false, 4, null, "Jednostki BTU", null, false, 5, null ]
+selected = 1
+
+[node name="Button_panel_normal" type="GridContainer" parent="Mass_Panel"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -480.0
+margin_top = -852.0
+margin_right = 490.0
+custom_constants/vseparation = 20
+custom_constants/hseparation = 20
+columns = 3
+
+[node name="Control" type="Control" parent="Mass_Panel/Button_panel_normal"]
+margin_right = 310.0
+margin_bottom = 140.0
+
+[node name="C_button" type="Button" parent="Mass_Panel/Button_panel_normal"]
+margin_left = 330.0
+margin_right = 640.0
+margin_bottom = 140.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "C"
+
+[node name="Del_button" type="Button" parent="Mass_Panel/Button_panel_normal"]
+margin_left = 660.0
+margin_right = 970.0
+margin_bottom = 140.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "Del"
+
+[node name="7_button" type="Button" parent="Mass_Panel/Button_panel_normal"]
+margin_top = 160.0
+margin_right = 310.0
+margin_bottom = 300.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "7"
+
+[node name="8_button" type="Button" parent="Mass_Panel/Button_panel_normal"]
+margin_left = 330.0
+margin_top = 160.0
+margin_right = 640.0
+margin_bottom = 300.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "8"
+
+[node name="9_button" type="Button" parent="Mass_Panel/Button_panel_normal"]
+margin_left = 660.0
+margin_top = 160.0
+margin_right = 970.0
+margin_bottom = 300.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "9"
+
+[node name="4_button" type="Button" parent="Mass_Panel/Button_panel_normal"]
+margin_top = 320.0
+margin_right = 310.0
+margin_bottom = 460.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "4"
+
+[node name="5_button" type="Button" parent="Mass_Panel/Button_panel_normal"]
+margin_left = 330.0
+margin_top = 320.0
+margin_right = 640.0
+margin_bottom = 460.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "5"
+
+[node name="6_button" type="Button" parent="Mass_Panel/Button_panel_normal"]
+margin_left = 660.0
+margin_top = 320.0
+margin_right = 970.0
+margin_bottom = 460.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "6"
+
+[node name="1_button" type="Button" parent="Mass_Panel/Button_panel_normal"]
+margin_top = 480.0
+margin_right = 310.0
+margin_bottom = 620.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "1"
+
+[node name="2_button" type="Button" parent="Mass_Panel/Button_panel_normal"]
+margin_left = 330.0
+margin_top = 480.0
+margin_right = 640.0
+margin_bottom = 620.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "2"
+
+[node name="3_button" type="Button" parent="Mass_Panel/Button_panel_normal"]
+margin_left = 660.0
+margin_top = 480.0
+margin_right = 970.0
+margin_bottom = 620.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "3"
+
+[node name="Control2" type="Control" parent="Mass_Panel/Button_panel_normal"]
+margin_top = 640.0
+margin_right = 310.0
+margin_bottom = 780.0
+
+[node name="0_button" type="Button" parent="Mass_Panel/Button_panel_normal"]
+margin_left = 330.0
+margin_top = 640.0
+margin_right = 640.0
+margin_bottom = 780.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "0"
+
+[node name="dot_button" type="Button" parent="Mass_Panel/Button_panel_normal"]
+margin_left = 660.0
+margin_top = 640.0
+margin_right = 970.0
+margin_bottom = 780.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "."
+
+[node name="Temperature_Panel" type="Panel" parent="."]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -540.0
+margin_top = -830.0
+margin_right = 540.0
+margin_bottom = 960.0
+script = ExtResource( 8 )
+
+[node name="Display_normal" type="VBoxContainer" parent="Temperature_Panel"]
+margin_left = 60.0
+margin_top = 50.0
+margin_right = 1020.0
+margin_bottom = 768.0
+custom_constants/separation = 10
+alignment = 2
+
+[node name="label_cur" type="Label" parent="Temperature_Panel/Display_normal"]
+margin_top = 288.0
+margin_right = 960.0
+margin_bottom = 406.0
+custom_fonts/font = SubResource( 3 )
+text = "0"
+align = 2
+valign = 2
+
+[node name="OptionButton" type="OptionButton" parent="Temperature_Panel/Display_normal"]
+margin_top = 416.0
+margin_right = 960.0
+margin_bottom = 498.0
+custom_fonts/font = SubResource( 9 )
+text = "Celsjusz"
+align = 2
+items = [ "Celsjusz", null, false, 0, null, "Fahrenheit", null, false, 1, null, "Kelwin", null, false, 2, null ]
+selected = 0
+
+[node name="label_convert" type="Label" parent="Temperature_Panel/Display_normal"]
+margin_top = 508.0
+margin_right = 960.0
+margin_bottom = 626.0
+custom_fonts/font = SubResource( 3 )
+text = "0"
+align = 2
+valign = 2
+
+[node name="OptionButton2" type="OptionButton" parent="Temperature_Panel/Display_normal"]
+margin_top = 636.0
+margin_right = 960.0
+margin_bottom = 718.0
+custom_fonts/font = SubResource( 9 )
+text = "Fahrenheit"
+align = 2
+items = [ "Celsjusz", null, false, 0, null, "Fahrenheit", null, false, 1, null, "Kelwin", null, false, 2, null ]
+selected = 1
+
+[node name="Button_panel_normal" type="GridContainer" parent="Temperature_Panel"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -480.0
+margin_top = -852.0
+margin_right = 490.0
+custom_constants/vseparation = 20
+custom_constants/hseparation = 20
+columns = 3
+
+[node name="Control" type="Control" parent="Temperature_Panel/Button_panel_normal"]
+margin_right = 310.0
+margin_bottom = 140.0
+
+[node name="C_button" type="Button" parent="Temperature_Panel/Button_panel_normal"]
+margin_left = 330.0
+margin_right = 640.0
+margin_bottom = 140.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "C"
+
+[node name="Del_button" type="Button" parent="Temperature_Panel/Button_panel_normal"]
+margin_left = 660.0
+margin_right = 970.0
+margin_bottom = 140.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "Del"
+
+[node name="7_button" type="Button" parent="Temperature_Panel/Button_panel_normal"]
+margin_top = 160.0
+margin_right = 310.0
+margin_bottom = 300.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "7"
+
+[node name="8_button" type="Button" parent="Temperature_Panel/Button_panel_normal"]
+margin_left = 330.0
+margin_top = 160.0
+margin_right = 640.0
+margin_bottom = 300.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "8"
+
+[node name="9_button" type="Button" parent="Temperature_Panel/Button_panel_normal"]
+margin_left = 660.0
+margin_top = 160.0
+margin_right = 970.0
+margin_bottom = 300.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "9"
+
+[node name="4_button" type="Button" parent="Temperature_Panel/Button_panel_normal"]
+margin_top = 320.0
+margin_right = 310.0
+margin_bottom = 460.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "4"
+
+[node name="5_button" type="Button" parent="Temperature_Panel/Button_panel_normal"]
+margin_left = 330.0
+margin_top = 320.0
+margin_right = 640.0
+margin_bottom = 460.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "5"
+
+[node name="6_button" type="Button" parent="Temperature_Panel/Button_panel_normal"]
+margin_left = 660.0
+margin_top = 320.0
+margin_right = 970.0
+margin_bottom = 460.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "6"
+
+[node name="1_button" type="Button" parent="Temperature_Panel/Button_panel_normal"]
+margin_top = 480.0
+margin_right = 310.0
+margin_bottom = 620.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "1"
+
+[node name="2_button" type="Button" parent="Temperature_Panel/Button_panel_normal"]
+margin_left = 330.0
+margin_top = 480.0
+margin_right = 640.0
+margin_bottom = 620.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "2"
+
+[node name="3_button" type="Button" parent="Temperature_Panel/Button_panel_normal"]
+margin_left = 660.0
+margin_top = 480.0
+margin_right = 970.0
+margin_bottom = 620.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "3"
+
+[node name="plusmin_button" type="Button" parent="Temperature_Panel/Button_panel_normal"]
+margin_top = 640.0
+margin_right = 310.0
+margin_bottom = 780.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "+/-"
+
+[node name="0_button" type="Button" parent="Temperature_Panel/Button_panel_normal"]
+margin_left = 330.0
+margin_top = 640.0
+margin_right = 640.0
+margin_bottom = 780.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "0"
+
+[node name="dot_button" type="Button" parent="Temperature_Panel/Button_panel_normal"]
+margin_left = 660.0
+margin_top = 640.0
+margin_right = 970.0
+margin_bottom = 780.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "."
+
+[node name="Energy_Panel" type="Panel" parent="."]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -540.0
+margin_top = -830.0
+margin_right = 540.0
+margin_bottom = 960.0
+script = ExtResource( 18 )
+
+[node name="Display_normal" type="VBoxContainer" parent="Energy_Panel"]
+margin_left = 60.0
+margin_top = 50.0
+margin_right = 1020.0
+margin_bottom = 768.0
+custom_constants/separation = 10
+alignment = 2
+
+[node name="label_cur" type="Label" parent="Energy_Panel/Display_normal"]
+margin_top = 288.0
+margin_right = 960.0
+margin_bottom = 406.0
+custom_fonts/font = SubResource( 3 )
+text = "0"
+align = 2
+valign = 2
+
+[node name="OptionButton3" type="OptionButton" parent="Energy_Panel/Display_normal"]
+margin_top = 416.0
+margin_right = 960.0
+margin_bottom = 498.0
+custom_fonts/font = SubResource( 9 )
+text = "Dżule"
+align = 2
+items = [ "Dżule", null, false, 0, null, "Kilodżule", null, false, 1, null, "Kalorie", null, false, 2, null, "Kilokalorie", null, false, 3, null, "Stopofunty", null, false, 4, null, "Jednostki BTU", null, false, 5, null ]
+selected = 0
+
+[node name="label_convert" type="Label" parent="Energy_Panel/Display_normal"]
+margin_top = 508.0
+margin_right = 960.0
+margin_bottom = 626.0
+custom_fonts/font = SubResource( 3 )
+text = "0"
+align = 2
+valign = 2
+
+[node name="OptionButton4" type="OptionButton" parent="Energy_Panel/Display_normal"]
+margin_top = 636.0
+margin_right = 960.0
+margin_bottom = 718.0
+custom_fonts/font = SubResource( 9 )
+text = "Kilodżule"
+align = 2
+items = [ "Dżule", null, false, 0, null, "Kilodżule", null, false, 1, null, "Kalorie", null, false, 2, null, "Kilokalorie", null, false, 3, null, "Stopofunty", null, false, 4, null, "Jednostki BTU", null, false, 5, null ]
+selected = 1
+
+[node name="Button_panel_normal" type="GridContainer" parent="Energy_Panel"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -480.0
+margin_top = -852.0
+margin_right = 490.0
+custom_constants/vseparation = 20
+custom_constants/hseparation = 20
+columns = 3
+
+[node name="Control" type="Control" parent="Energy_Panel/Button_panel_normal"]
+margin_right = 310.0
+margin_bottom = 140.0
+
+[node name="C_button" type="Button" parent="Energy_Panel/Button_panel_normal"]
+margin_left = 330.0
+margin_right = 640.0
+margin_bottom = 140.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "C"
+
+[node name="Del_button" type="Button" parent="Energy_Panel/Button_panel_normal"]
+margin_left = 660.0
+margin_right = 970.0
+margin_bottom = 140.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "Del"
+
+[node name="7_button" type="Button" parent="Energy_Panel/Button_panel_normal"]
+margin_top = 160.0
+margin_right = 310.0
+margin_bottom = 300.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "7"
+
+[node name="8_button" type="Button" parent="Energy_Panel/Button_panel_normal"]
+margin_left = 330.0
+margin_top = 160.0
+margin_right = 640.0
+margin_bottom = 300.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "8"
+
+[node name="9_button" type="Button" parent="Energy_Panel/Button_panel_normal"]
+margin_left = 660.0
+margin_top = 160.0
+margin_right = 970.0
+margin_bottom = 300.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "9"
+
+[node name="4_button" type="Button" parent="Energy_Panel/Button_panel_normal"]
+margin_top = 320.0
+margin_right = 310.0
+margin_bottom = 460.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "4"
+
+[node name="5_button" type="Button" parent="Energy_Panel/Button_panel_normal"]
+margin_left = 330.0
+margin_top = 320.0
+margin_right = 640.0
+margin_bottom = 460.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "5"
+
+[node name="6_button" type="Button" parent="Energy_Panel/Button_panel_normal"]
+margin_left = 660.0
+margin_top = 320.0
+margin_right = 970.0
+margin_bottom = 460.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "6"
+
+[node name="1_button" type="Button" parent="Energy_Panel/Button_panel_normal"]
+margin_top = 480.0
+margin_right = 310.0
+margin_bottom = 620.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "1"
+
+[node name="2_button" type="Button" parent="Energy_Panel/Button_panel_normal"]
+margin_left = 330.0
+margin_top = 480.0
+margin_right = 640.0
+margin_bottom = 620.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "2"
+
+[node name="3_button" type="Button" parent="Energy_Panel/Button_panel_normal"]
+margin_left = 660.0
+margin_top = 480.0
+margin_right = 970.0
+margin_bottom = 620.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "3"
+
+[node name="Control2" type="Control" parent="Energy_Panel/Button_panel_normal"]
+margin_top = 640.0
+margin_right = 310.0
+margin_bottom = 780.0
+
+[node name="0_button" type="Button" parent="Energy_Panel/Button_panel_normal"]
+margin_left = 330.0
+margin_top = 640.0
+margin_right = 640.0
+margin_bottom = 780.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "0"
+
+[node name="dot_button" type="Button" parent="Energy_Panel/Button_panel_normal"]
+margin_left = 660.0
+margin_top = 640.0
+margin_right = 970.0
+margin_bottom = 780.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "."
+
+[node name="Area_Panel" type="Panel" parent="."]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -540.0
+margin_top = -830.0
+margin_right = 540.0
+margin_bottom = 960.0
+script = ExtResource( 17 )
+
+[node name="Display_normal" type="VBoxContainer" parent="Area_Panel"]
+margin_left = 60.0
+margin_top = 50.0
+margin_right = 1020.0
+margin_bottom = 768.0
+custom_constants/separation = 10
+alignment = 2
+
+[node name="label_cur" type="Label" parent="Area_Panel/Display_normal"]
+margin_top = 288.0
+margin_right = 960.0
+margin_bottom = 406.0
+custom_fonts/font = SubResource( 3 )
+text = "0"
+align = 2
+valign = 2
+
+[node name="OptionButton3" type="OptionButton" parent="Area_Panel/Display_normal"]
+margin_top = 416.0
+margin_right = 960.0
+margin_bottom = 498.0
+custom_fonts/font = SubResource( 9 )
+text = "Milimetry kwadratowe"
+align = 2
+items = [ "Milimetry kwadratowe", null, false, 0, null, "Centymentry kwadratowe", null, false, 1, null, "Metry kwadratowe", null, false, 2, null, "Kilometry kwadratowe", null, false, 3, null, "Mile kwadratowe", null, false, 4, null, "Ary", null, false, 5, null, "Hektary", null, false, 6, null ]
+selected = 0
+
+[node name="label_convert" type="Label" parent="Area_Panel/Display_normal"]
+margin_top = 508.0
+margin_right = 960.0
+margin_bottom = 626.0
+custom_fonts/font = SubResource( 3 )
+text = "0"
+align = 2
+valign = 2
+
+[node name="OptionButton4" type="OptionButton" parent="Area_Panel/Display_normal"]
+margin_top = 636.0
+margin_right = 960.0
+margin_bottom = 718.0
+custom_fonts/font = SubResource( 9 )
+text = "Centymentry kwadratowe"
+align = 2
+items = [ "Milimetry kwadratowe", null, false, 0, null, "Centymentry kwadratowe", null, false, 1, null, "Metry kwadratowe", null, false, 2, null, "Kilometry kwadratowe", null, false, 3, null, "Mile kwadratowe", null, false, 4, null, "Ary", null, false, 5, null, "Hektary", null, false, 6, null ]
+selected = 1
+
+[node name="Button_panel_normal" type="GridContainer" parent="Area_Panel"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -480.0
+margin_top = -852.0
+margin_right = 490.0
+custom_constants/vseparation = 20
+custom_constants/hseparation = 20
+columns = 3
+
+[node name="Control" type="Control" parent="Area_Panel/Button_panel_normal"]
+margin_right = 310.0
+margin_bottom = 140.0
+
+[node name="C_button" type="Button" parent="Area_Panel/Button_panel_normal"]
+margin_left = 330.0
+margin_right = 640.0
+margin_bottom = 140.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "C"
+
+[node name="Del_button" type="Button" parent="Area_Panel/Button_panel_normal"]
+margin_left = 660.0
+margin_right = 970.0
+margin_bottom = 140.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "Del"
+
+[node name="7_button" type="Button" parent="Area_Panel/Button_panel_normal"]
+margin_top = 160.0
+margin_right = 310.0
+margin_bottom = 300.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "7"
+
+[node name="8_button" type="Button" parent="Area_Panel/Button_panel_normal"]
+margin_left = 330.0
+margin_top = 160.0
+margin_right = 640.0
+margin_bottom = 300.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "8"
+
+[node name="9_button" type="Button" parent="Area_Panel/Button_panel_normal"]
+margin_left = 660.0
+margin_top = 160.0
+margin_right = 970.0
+margin_bottom = 300.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "9"
+
+[node name="4_button" type="Button" parent="Area_Panel/Button_panel_normal"]
+margin_top = 320.0
+margin_right = 310.0
+margin_bottom = 460.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "4"
+
+[node name="5_button" type="Button" parent="Area_Panel/Button_panel_normal"]
+margin_left = 330.0
+margin_top = 320.0
+margin_right = 640.0
+margin_bottom = 460.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "5"
+
+[node name="6_button" type="Button" parent="Area_Panel/Button_panel_normal"]
+margin_left = 660.0
+margin_top = 320.0
+margin_right = 970.0
+margin_bottom = 460.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "6"
+
+[node name="1_button" type="Button" parent="Area_Panel/Button_panel_normal"]
+margin_top = 480.0
+margin_right = 310.0
+margin_bottom = 620.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "1"
+
+[node name="2_button" type="Button" parent="Area_Panel/Button_panel_normal"]
+margin_left = 330.0
+margin_top = 480.0
+margin_right = 640.0
+margin_bottom = 620.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "2"
+
+[node name="3_button" type="Button" parent="Area_Panel/Button_panel_normal"]
+margin_left = 660.0
+margin_top = 480.0
+margin_right = 970.0
+margin_bottom = 620.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "3"
+
+[node name="Control2" type="Control" parent="Area_Panel/Button_panel_normal"]
+margin_top = 640.0
+margin_right = 310.0
+margin_bottom = 780.0
+
+[node name="0_button" type="Button" parent="Area_Panel/Button_panel_normal"]
+margin_left = 330.0
+margin_top = 640.0
+margin_right = 640.0
+margin_bottom = 780.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "0"
+
+[node name="dot_button" type="Button" parent="Area_Panel/Button_panel_normal"]
+margin_left = 660.0
+margin_top = 640.0
+margin_right = 970.0
+margin_bottom = 780.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "."
+
+[node name="Velocity_Panel" type="Panel" parent="."]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -540.0
+margin_top = -830.0
+margin_right = 540.0
+margin_bottom = 960.0
+script = ExtResource( 16 )
+
+[node name="Display_normal" type="VBoxContainer" parent="Velocity_Panel"]
+margin_left = 60.0
+margin_top = 50.0
+margin_right = 1020.0
+margin_bottom = 768.0
+custom_constants/separation = 10
+alignment = 2
+
+[node name="label_cur" type="Label" parent="Velocity_Panel/Display_normal"]
+margin_top = 288.0
+margin_right = 960.0
+margin_bottom = 406.0
+custom_fonts/font = SubResource( 3 )
+text = "0"
+align = 2
+valign = 2
+
+[node name="OptionButton3" type="OptionButton" parent="Velocity_Panel/Display_normal"]
+margin_top = 416.0
+margin_right = 960.0
+margin_bottom = 498.0
+custom_fonts/font = SubResource( 9 )
+text = "Cm/s"
+align = 2
+items = [ "Cm/s", null, false, 0, null, "m/s", null, false, 1, null, "Km/h", null, false, 2, null, "Stopy/s", null, false, 3, null, "Mile/h", null, false, 4, null ]
+selected = 0
+
+[node name="label_convert" type="Label" parent="Velocity_Panel/Display_normal"]
+margin_top = 508.0
+margin_right = 960.0
+margin_bottom = 626.0
+custom_fonts/font = SubResource( 3 )
+text = "0"
+align = 2
+valign = 2
+
+[node name="OptionButton4" type="OptionButton" parent="Velocity_Panel/Display_normal"]
+margin_top = 636.0
+margin_right = 960.0
+margin_bottom = 718.0
+custom_fonts/font = SubResource( 9 )
+text = "m/s"
+align = 2
+items = [ "Cm/s", null, false, 0, null, "m/s", null, false, 1, null, "Km/h", null, false, 2, null, "Stopy/s", null, false, 3, null, "Mile/h", null, false, 4, null ]
+selected = 1
+
+[node name="Button_panel_normal" type="GridContainer" parent="Velocity_Panel"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -480.0
+margin_top = -852.0
+margin_right = 490.0
+custom_constants/vseparation = 20
+custom_constants/hseparation = 20
+columns = 3
+
+[node name="Control" type="Control" parent="Velocity_Panel/Button_panel_normal"]
+margin_right = 310.0
+margin_bottom = 140.0
+
+[node name="C_button" type="Button" parent="Velocity_Panel/Button_panel_normal"]
+margin_left = 330.0
+margin_right = 640.0
+margin_bottom = 140.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "C"
+
+[node name="Del_button" type="Button" parent="Velocity_Panel/Button_panel_normal"]
+margin_left = 660.0
+margin_right = 970.0
+margin_bottom = 140.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "Del"
+
+[node name="7_button" type="Button" parent="Velocity_Panel/Button_panel_normal"]
+margin_top = 160.0
+margin_right = 310.0
+margin_bottom = 300.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "7"
+
+[node name="8_button" type="Button" parent="Velocity_Panel/Button_panel_normal"]
+margin_left = 330.0
+margin_top = 160.0
+margin_right = 640.0
+margin_bottom = 300.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "8"
+
+[node name="9_button" type="Button" parent="Velocity_Panel/Button_panel_normal"]
+margin_left = 660.0
+margin_top = 160.0
+margin_right = 970.0
+margin_bottom = 300.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "9"
+
+[node name="4_button" type="Button" parent="Velocity_Panel/Button_panel_normal"]
+margin_top = 320.0
+margin_right = 310.0
+margin_bottom = 460.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "4"
+
+[node name="5_button" type="Button" parent="Velocity_Panel/Button_panel_normal"]
+margin_left = 330.0
+margin_top = 320.0
+margin_right = 640.0
+margin_bottom = 460.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "5"
+
+[node name="6_button" type="Button" parent="Velocity_Panel/Button_panel_normal"]
+margin_left = 660.0
+margin_top = 320.0
+margin_right = 970.0
+margin_bottom = 460.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "6"
+
+[node name="1_button" type="Button" parent="Velocity_Panel/Button_panel_normal"]
+margin_top = 480.0
+margin_right = 310.0
+margin_bottom = 620.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "1"
+
+[node name="2_button" type="Button" parent="Velocity_Panel/Button_panel_normal"]
+margin_left = 330.0
+margin_top = 480.0
+margin_right = 640.0
+margin_bottom = 620.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "2"
+
+[node name="3_button" type="Button" parent="Velocity_Panel/Button_panel_normal"]
+margin_left = 660.0
+margin_top = 480.0
+margin_right = 970.0
+margin_bottom = 620.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "3"
+
+[node name="plusmin_button" type="Button" parent="Velocity_Panel/Button_panel_normal"]
+margin_top = 640.0
+margin_right = 310.0
+margin_bottom = 780.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "+/-"
+
+[node name="0_button" type="Button" parent="Velocity_Panel/Button_panel_normal"]
+margin_left = 330.0
+margin_top = 640.0
+margin_right = 640.0
+margin_bottom = 780.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "0"
+
+[node name="dot_button" type="Button" parent="Velocity_Panel/Button_panel_normal"]
+margin_left = 660.0
+margin_top = 640.0
+margin_right = 970.0
+margin_bottom = 780.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "."
+
+[node name="Time_Panel" type="Panel" parent="."]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -540.0
+margin_top = -830.0
+margin_right = 540.0
+margin_bottom = 960.0
+script = ExtResource( 15 )
+
+[node name="Display_normal" type="VBoxContainer" parent="Time_Panel"]
+margin_left = 60.0
+margin_top = 50.0
+margin_right = 1020.0
+margin_bottom = 768.0
+custom_constants/separation = 10
+alignment = 2
+
+[node name="label_cur" type="Label" parent="Time_Panel/Display_normal"]
+margin_top = 288.0
+margin_right = 960.0
+margin_bottom = 406.0
+custom_fonts/font = SubResource( 3 )
+text = "0"
+align = 2
+valign = 2
+
+[node name="OptionButton5" type="OptionButton" parent="Time_Panel/Display_normal"]
+margin_top = 416.0
+margin_right = 960.0
+margin_bottom = 498.0
+custom_fonts/font = SubResource( 9 )
+text = "Mikrosekundy"
+align = 2
+items = [ "Mikrosekundy", null, false, 0, null, "Milisekundy", null, false, 1, null, "Sekundy", null, false, 2, null, "Minuty", null, false, 3, null, "Godziny", null, false, 4, null, "Dni", null, false, 5, null, "Tygodnie", null, false, 6, null, "Lata", null, false, 7, null ]
+selected = 0
+
+[node name="label_convert" type="Label" parent="Time_Panel/Display_normal"]
+margin_top = 508.0
+margin_right = 960.0
+margin_bottom = 626.0
+custom_fonts/font = SubResource( 3 )
+text = "0"
+align = 2
+valign = 2
+
+[node name="OptionButton6" type="OptionButton" parent="Time_Panel/Display_normal"]
+margin_top = 636.0
+margin_right = 960.0
+margin_bottom = 718.0
+custom_fonts/font = SubResource( 9 )
+text = "Milisekundy"
+align = 2
+items = [ "Mikrosekundy", null, false, 0, null, "Milisekundy", null, false, 1, null, "Sekundy", null, false, 2, null, "Minuty", null, false, 3, null, "Godziny", null, false, 4, null, "Dni", null, false, 5, null, "Tygodnie", null, false, 6, null, "Lata", null, false, 7, null ]
+selected = 1
+
+[node name="Button_panel_normal" type="GridContainer" parent="Time_Panel"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -480.0
+margin_top = -852.0
+margin_right = 490.0
+custom_constants/vseparation = 20
+custom_constants/hseparation = 20
+columns = 3
+
+[node name="Control" type="Control" parent="Time_Panel/Button_panel_normal"]
+margin_right = 310.0
+margin_bottom = 140.0
+
+[node name="C_button" type="Button" parent="Time_Panel/Button_panel_normal"]
+margin_left = 330.0
+margin_right = 640.0
+margin_bottom = 140.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "C"
+
+[node name="Del_button" type="Button" parent="Time_Panel/Button_panel_normal"]
+margin_left = 660.0
+margin_right = 970.0
+margin_bottom = 140.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "Del"
+
+[node name="7_button" type="Button" parent="Time_Panel/Button_panel_normal"]
+margin_top = 160.0
+margin_right = 310.0
+margin_bottom = 300.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "7"
+
+[node name="8_button" type="Button" parent="Time_Panel/Button_panel_normal"]
+margin_left = 330.0
+margin_top = 160.0
+margin_right = 640.0
+margin_bottom = 300.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "8"
+
+[node name="9_button" type="Button" parent="Time_Panel/Button_panel_normal"]
+margin_left = 660.0
+margin_top = 160.0
+margin_right = 970.0
+margin_bottom = 300.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "9"
+
+[node name="4_button" type="Button" parent="Time_Panel/Button_panel_normal"]
+margin_top = 320.0
+margin_right = 310.0
+margin_bottom = 460.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "4"
+
+[node name="5_button" type="Button" parent="Time_Panel/Button_panel_normal"]
+margin_left = 330.0
+margin_top = 320.0
+margin_right = 640.0
+margin_bottom = 460.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "5"
+
+[node name="6_button" type="Button" parent="Time_Panel/Button_panel_normal"]
+margin_left = 660.0
+margin_top = 320.0
+margin_right = 970.0
+margin_bottom = 460.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "6"
+
+[node name="1_button" type="Button" parent="Time_Panel/Button_panel_normal"]
+margin_top = 480.0
+margin_right = 310.0
+margin_bottom = 620.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "1"
+
+[node name="2_button" type="Button" parent="Time_Panel/Button_panel_normal"]
+margin_left = 330.0
+margin_top = 480.0
+margin_right = 640.0
+margin_bottom = 620.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "2"
+
+[node name="3_button" type="Button" parent="Time_Panel/Button_panel_normal"]
+margin_left = 660.0
+margin_top = 480.0
+margin_right = 970.0
+margin_bottom = 620.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "3"
+
+[node name="Control2" type="Control" parent="Time_Panel/Button_panel_normal"]
+margin_top = 640.0
+margin_right = 310.0
+margin_bottom = 780.0
+
+[node name="0_button" type="Button" parent="Time_Panel/Button_panel_normal"]
+margin_left = 330.0
+margin_top = 640.0
+margin_right = 640.0
+margin_bottom = 780.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "0"
+
+[node name="dot_button" type="Button" parent="Time_Panel/Button_panel_normal"]
+margin_left = 660.0
+margin_top = 640.0
+margin_right = 970.0
+margin_bottom = 780.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "."
+
+[node name="Power_Panel" type="Panel" parent="."]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -540.0
+margin_top = -830.0
+margin_right = 540.0
+margin_bottom = 960.0
+script = ExtResource( 12 )
+
+[node name="Display_normal" type="VBoxContainer" parent="Power_Panel"]
+margin_left = 60.0
+margin_top = 50.0
+margin_right = 1020.0
+margin_bottom = 768.0
+custom_constants/separation = 10
+alignment = 2
+
+[node name="label_cur" type="Label" parent="Power_Panel/Display_normal"]
+margin_top = 288.0
+margin_right = 960.0
+margin_bottom = 406.0
+custom_fonts/font = SubResource( 3 )
+text = "0"
+align = 2
+valign = 2
+
+[node name="OptionButton" type="OptionButton" parent="Power_Panel/Display_normal"]
+margin_top = 416.0
+margin_right = 960.0
+margin_bottom = 498.0
+custom_fonts/font = SubResource( 9 )
+text = "Waty"
+align = 2
+items = [ "Waty", null, false, 0, null, "Kilowaty", null, false, 1, null, "Koń mechaniczny", null, false, 2, null, "Stopofunty/minutę", null, false, 3, null, "BTU/min", null, false, 4, null ]
+selected = 0
+
+[node name="label_convert" type="Label" parent="Power_Panel/Display_normal"]
+margin_top = 508.0
+margin_right = 960.0
+margin_bottom = 626.0
+custom_fonts/font = SubResource( 3 )
+text = "0"
+align = 2
+valign = 2
+
+[node name="OptionButton2" type="OptionButton" parent="Power_Panel/Display_normal"]
+margin_top = 636.0
+margin_right = 960.0
+margin_bottom = 718.0
+custom_fonts/font = SubResource( 9 )
+text = "Kilowaty"
+align = 2
+items = [ "Waty", null, false, 0, null, "Kilowaty", null, false, 1, null, "Koń mechaniczny", null, false, 2, null, "Stopofunty/minutę", null, false, 3, null, "BTU/min", null, false, 4, null ]
+selected = 1
+
+[node name="Button_panel_normal" type="GridContainer" parent="Power_Panel"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -480.0
+margin_top = -852.0
+margin_right = 490.0
+custom_constants/vseparation = 20
+custom_constants/hseparation = 20
+columns = 3
+
+[node name="Control" type="Control" parent="Power_Panel/Button_panel_normal"]
+margin_right = 310.0
+margin_bottom = 140.0
+
+[node name="C_button" type="Button" parent="Power_Panel/Button_panel_normal"]
+margin_left = 330.0
+margin_right = 640.0
+margin_bottom = 140.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "C"
+
+[node name="Del_button" type="Button" parent="Power_Panel/Button_panel_normal"]
+margin_left = 660.0
+margin_right = 970.0
+margin_bottom = 140.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "Del"
+
+[node name="7_button" type="Button" parent="Power_Panel/Button_panel_normal"]
+margin_top = 160.0
+margin_right = 310.0
+margin_bottom = 300.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "7"
+
+[node name="8_button" type="Button" parent="Power_Panel/Button_panel_normal"]
+margin_left = 330.0
+margin_top = 160.0
+margin_right = 640.0
+margin_bottom = 300.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "8"
+
+[node name="9_button" type="Button" parent="Power_Panel/Button_panel_normal"]
+margin_left = 660.0
+margin_top = 160.0
+margin_right = 970.0
+margin_bottom = 300.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "9"
+
+[node name="4_button" type="Button" parent="Power_Panel/Button_panel_normal"]
+margin_top = 320.0
+margin_right = 310.0
+margin_bottom = 460.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "4"
+
+[node name="5_button" type="Button" parent="Power_Panel/Button_panel_normal"]
+margin_left = 330.0
+margin_top = 320.0
+margin_right = 640.0
+margin_bottom = 460.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "5"
+
+[node name="6_button" type="Button" parent="Power_Panel/Button_panel_normal"]
+margin_left = 660.0
+margin_top = 320.0
+margin_right = 970.0
+margin_bottom = 460.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "6"
+
+[node name="1_button" type="Button" parent="Power_Panel/Button_panel_normal"]
+margin_top = 480.0
+margin_right = 310.0
+margin_bottom = 620.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "1"
+
+[node name="2_button" type="Button" parent="Power_Panel/Button_panel_normal"]
+margin_left = 330.0
+margin_top = 480.0
+margin_right = 640.0
+margin_bottom = 620.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "2"
+
+[node name="3_button" type="Button" parent="Power_Panel/Button_panel_normal"]
+margin_left = 660.0
+margin_top = 480.0
+margin_right = 970.0
+margin_bottom = 620.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "3"
+
+[node name="plusmin_button" type="Button" parent="Power_Panel/Button_panel_normal"]
+margin_top = 640.0
+margin_right = 310.0
+margin_bottom = 780.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "+/-"
+
+[node name="0_button" type="Button" parent="Power_Panel/Button_panel_normal"]
+margin_left = 330.0
+margin_top = 640.0
+margin_right = 640.0
+margin_bottom = 780.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "0"
+
+[node name="dot_button" type="Button" parent="Power_Panel/Button_panel_normal"]
+margin_left = 660.0
+margin_top = 640.0
+margin_right = 970.0
+margin_bottom = 780.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "."
+
+[node name="Data_Panel" type="Panel" parent="."]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -540.0
+margin_top = -830.0
+margin_right = 540.0
+margin_bottom = 960.0
+script = ExtResource( 13 )
+
+[node name="Display_normal" type="VBoxContainer" parent="Data_Panel"]
+margin_left = 60.0
+margin_top = 50.0
+margin_right = 1020.0
+margin_bottom = 768.0
+custom_constants/separation = 10
+alignment = 2
+
+[node name="label_cur" type="Label" parent="Data_Panel/Display_normal"]
+margin_top = 288.0
+margin_right = 960.0
+margin_bottom = 406.0
+custom_fonts/font = SubResource( 3 )
+text = "0"
+align = 2
+valign = 2
+
+[node name="OptionButton3" type="OptionButton" parent="Data_Panel/Display_normal"]
+margin_top = 416.0
+margin_right = 960.0
+margin_bottom = 498.0
+custom_fonts/font = SubResource( 9 )
+text = "Bity"
+align = 2
+items = [ "Bity", null, false, 0, null, "Bajty", null, false, 1, null, "Kilobity", null, false, 2, null, "Kibibity", null, false, 3, null, "Kilobajty", null, false, 4, null, "Kibibajty", null, false, 5, null, "Megabity", null, false, 6, null, "Mebibity", null, false, 7, null, "Megabajty", null, false, 8, null, "Mebibajty", null, false, 9, null, "Gigabity", null, false, 10, null, "Gibibity", null, false, 11, null, "Gigabajty", null, false, 12, null, "Gibibajty", null, false, 13, null, "Terabity", null, false, 14, null, "Tebibity", null, false, 15, null, "Terabajty", null, false, 16, null, "Tebibajty", null, false, 17, null ]
+selected = 0
+
+[node name="label_convert" type="Label" parent="Data_Panel/Display_normal"]
+margin_top = 508.0
+margin_right = 960.0
+margin_bottom = 626.0
+custom_fonts/font = SubResource( 3 )
+text = "0"
+align = 2
+valign = 2
+
+[node name="OptionButton5" type="OptionButton" parent="Data_Panel/Display_normal"]
+margin_top = 636.0
+margin_right = 960.0
+margin_bottom = 718.0
+custom_fonts/font = SubResource( 9 )
+text = "Bajty"
+align = 2
+items = [ "Bity", null, false, 0, null, "Bajty", null, false, 1, null, "Kilobity", null, false, 2, null, "Kibibity", null, false, 3, null, "Kilobajty", null, false, 4, null, "Kibibajty", null, false, 5, null, "Megabity", null, false, 6, null, "Mebibity", null, false, 7, null, "Megabajty", null, false, 8, null, "Mebibajty", null, false, 9, null, "Gigabity", null, false, 10, null, "Gibibity", null, false, 11, null, "Gigabajty", null, false, 12, null, "Gibibajty", null, false, 13, null, "Terabity", null, false, 14, null, "Tebibity", null, false, 15, null, "Terabajty", null, false, 16, null, "Tebibajty", null, false, 17, null ]
+selected = 1
+
+[node name="Button_panel_normal" type="GridContainer" parent="Data_Panel"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -480.0
+margin_top = -852.0
+margin_right = 490.0
+custom_constants/vseparation = 20
+custom_constants/hseparation = 20
+columns = 3
+
+[node name="Control" type="Control" parent="Data_Panel/Button_panel_normal"]
+margin_right = 310.0
+margin_bottom = 140.0
+
+[node name="C_button" type="Button" parent="Data_Panel/Button_panel_normal"]
+margin_left = 330.0
+margin_right = 640.0
+margin_bottom = 140.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "C"
+
+[node name="Del_button" type="Button" parent="Data_Panel/Button_panel_normal"]
+margin_left = 660.0
+margin_right = 970.0
+margin_bottom = 140.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "Del"
+
+[node name="7_button" type="Button" parent="Data_Panel/Button_panel_normal"]
+margin_top = 160.0
+margin_right = 310.0
+margin_bottom = 300.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "7"
+
+[node name="8_button" type="Button" parent="Data_Panel/Button_panel_normal"]
+margin_left = 330.0
+margin_top = 160.0
+margin_right = 640.0
+margin_bottom = 300.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "8"
+
+[node name="9_button" type="Button" parent="Data_Panel/Button_panel_normal"]
+margin_left = 660.0
+margin_top = 160.0
+margin_right = 970.0
+margin_bottom = 300.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "9"
+
+[node name="4_button" type="Button" parent="Data_Panel/Button_panel_normal"]
+margin_top = 320.0
+margin_right = 310.0
+margin_bottom = 460.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "4"
+
+[node name="5_button" type="Button" parent="Data_Panel/Button_panel_normal"]
+margin_left = 330.0
+margin_top = 320.0
+margin_right = 640.0
+margin_bottom = 460.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "5"
+
+[node name="6_button" type="Button" parent="Data_Panel/Button_panel_normal"]
+margin_left = 660.0
+margin_top = 320.0
+margin_right = 970.0
+margin_bottom = 460.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "6"
+
+[node name="1_button" type="Button" parent="Data_Panel/Button_panel_normal"]
+margin_top = 480.0
+margin_right = 310.0
+margin_bottom = 620.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "1"
+
+[node name="2_button" type="Button" parent="Data_Panel/Button_panel_normal"]
+margin_left = 330.0
+margin_top = 480.0
+margin_right = 640.0
+margin_bottom = 620.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "2"
+
+[node name="3_button" type="Button" parent="Data_Panel/Button_panel_normal"]
+margin_left = 660.0
+margin_top = 480.0
+margin_right = 970.0
+margin_bottom = 620.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "3"
+
+[node name="Control2" type="Control" parent="Data_Panel/Button_panel_normal"]
+margin_top = 640.0
+margin_right = 310.0
+margin_bottom = 780.0
+
+[node name="0_button" type="Button" parent="Data_Panel/Button_panel_normal"]
+margin_left = 330.0
+margin_top = 640.0
+margin_right = 640.0
+margin_bottom = 780.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "0"
+
+[node name="dot_button" type="Button" parent="Data_Panel/Button_panel_normal"]
+margin_left = 660.0
+margin_top = 640.0
+margin_right = 970.0
+margin_bottom = 780.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "."
+
+[node name="Pressure_Panel" type="Panel" parent="."]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -540.0
+margin_top = -830.0
+margin_right = 540.0
+margin_bottom = 960.0
+script = ExtResource( 11 )
+
+[node name="Display_normal" type="VBoxContainer" parent="Pressure_Panel"]
+margin_left = 60.0
+margin_top = 50.0
+margin_right = 1020.0
+margin_bottom = 768.0
+custom_constants/separation = 10
+alignment = 2
+
+[node name="label_cur" type="Label" parent="Pressure_Panel/Display_normal"]
+margin_top = 288.0
+margin_right = 960.0
+margin_bottom = 406.0
+custom_fonts/font = SubResource( 3 )
+text = "0"
+align = 2
+valign = 2
+
+[node name="OptionButton" type="OptionButton" parent="Pressure_Panel/Display_normal"]
+margin_top = 416.0
+margin_right = 960.0
+margin_bottom = 498.0
+custom_fonts/font = SubResource( 9 )
+text = "Atmosfery"
+align = 2
+items = [ "Atmosfery", null, false, 0, null, "Bary", null, false, 1, null, "Kilopaskale", null, false, 2, null, "Milimetry słupa rtęci", null, false, 3, null, "Paskale", null, false, 4, null, "Funty na cal kwadratowy", null, false, 5, null ]
+selected = 0
+
+[node name="label_convert" type="Label" parent="Pressure_Panel/Display_normal"]
+margin_top = 508.0
+margin_right = 960.0
+margin_bottom = 626.0
+custom_fonts/font = SubResource( 3 )
+text = "0"
+align = 2
+valign = 2
+
+[node name="OptionButton2" type="OptionButton" parent="Pressure_Panel/Display_normal"]
+margin_top = 636.0
+margin_right = 960.0
+margin_bottom = 718.0
+custom_fonts/font = SubResource( 9 )
+text = "Bary"
+align = 2
+items = [ "Atmosfery", null, false, 0, null, "Bary", null, false, 1, null, "Kilopaskale", null, false, 2, null, "Milimetry słupa rtęci", null, false, 3, null, "Paskale", null, false, 4, null, "Funty na cal kwadratowy", null, false, 5, null ]
+selected = 1
+
+[node name="Button_panel_normal" type="GridContainer" parent="Pressure_Panel"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -480.0
+margin_top = -852.0
+margin_right = 490.0
+custom_constants/vseparation = 20
+custom_constants/hseparation = 20
+columns = 3
+
+[node name="Control" type="Control" parent="Pressure_Panel/Button_panel_normal"]
+margin_right = 310.0
+margin_bottom = 140.0
+
+[node name="C_button" type="Button" parent="Pressure_Panel/Button_panel_normal"]
+margin_left = 330.0
+margin_right = 640.0
+margin_bottom = 140.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "C"
+
+[node name="Del_button" type="Button" parent="Pressure_Panel/Button_panel_normal"]
+margin_left = 660.0
+margin_right = 970.0
+margin_bottom = 140.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "Del"
+
+[node name="7_button" type="Button" parent="Pressure_Panel/Button_panel_normal"]
+margin_top = 160.0
+margin_right = 310.0
+margin_bottom = 300.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "7"
+
+[node name="8_button" type="Button" parent="Pressure_Panel/Button_panel_normal"]
+margin_left = 330.0
+margin_top = 160.0
+margin_right = 640.0
+margin_bottom = 300.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "8"
+
+[node name="9_button" type="Button" parent="Pressure_Panel/Button_panel_normal"]
+margin_left = 660.0
+margin_top = 160.0
+margin_right = 970.0
+margin_bottom = 300.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "9"
+
+[node name="4_button" type="Button" parent="Pressure_Panel/Button_panel_normal"]
+margin_top = 320.0
+margin_right = 310.0
+margin_bottom = 460.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "4"
+
+[node name="5_button" type="Button" parent="Pressure_Panel/Button_panel_normal"]
+margin_left = 330.0
+margin_top = 320.0
+margin_right = 640.0
+margin_bottom = 460.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "5"
+
+[node name="6_button" type="Button" parent="Pressure_Panel/Button_panel_normal"]
+margin_left = 660.0
+margin_top = 320.0
+margin_right = 970.0
+margin_bottom = 460.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "6"
+
+[node name="1_button" type="Button" parent="Pressure_Panel/Button_panel_normal"]
+margin_top = 480.0
+margin_right = 310.0
+margin_bottom = 620.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "1"
+
+[node name="2_button" type="Button" parent="Pressure_Panel/Button_panel_normal"]
+margin_left = 330.0
+margin_top = 480.0
+margin_right = 640.0
+margin_bottom = 620.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "2"
+
+[node name="3_button" type="Button" parent="Pressure_Panel/Button_panel_normal"]
+margin_left = 660.0
+margin_top = 480.0
+margin_right = 970.0
+margin_bottom = 620.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "3"
+
+[node name="Control2" type="Control" parent="Pressure_Panel/Button_panel_normal"]
+margin_top = 640.0
+margin_right = 310.0
+margin_bottom = 780.0
+
+[node name="0_button" type="Button" parent="Pressure_Panel/Button_panel_normal"]
+margin_left = 330.0
+margin_top = 640.0
+margin_right = 640.0
+margin_bottom = 780.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "0"
+
+[node name="dot_button" type="Button" parent="Pressure_Panel/Button_panel_normal"]
+margin_left = 660.0
+margin_top = 640.0
+margin_right = 970.0
+margin_bottom = 780.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "."
+
+[node name="Angle_Panel" type="Panel" parent="."]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -540.0
+margin_top = -830.0
+margin_right = 540.0
+margin_bottom = 960.0
+script = ExtResource( 10 )
+
+[node name="Display_normal" type="VBoxContainer" parent="Angle_Panel"]
+margin_left = 60.0
+margin_top = 50.0
+margin_right = 1020.0
+margin_bottom = 768.0
+custom_constants/separation = 10
+alignment = 2
+
+[node name="label_cur" type="Label" parent="Angle_Panel/Display_normal"]
+margin_top = 288.0
+margin_right = 960.0
+margin_bottom = 406.0
+custom_fonts/font = SubResource( 3 )
+text = "0"
+align = 2
+valign = 2
+
+[node name="OptionButton1" type="OptionButton" parent="Angle_Panel/Display_normal"]
+margin_top = 416.0
+margin_right = 960.0
+margin_bottom = 498.0
+custom_fonts/font = SubResource( 9 )
+text = "Stopnie"
+align = 2
+items = [ "Stopnie", null, false, 0, null, "Radiany", null, false, 1, null, "Gradiany", null, false, 2, null ]
+selected = 0
+
+[node name="label_convert" type="Label" parent="Angle_Panel/Display_normal"]
+margin_top = 508.0
+margin_right = 960.0
+margin_bottom = 626.0
+custom_fonts/font = SubResource( 3 )
+text = "0"
+align = 2
+valign = 2
+
+[node name="OptionButton2" type="OptionButton" parent="Angle_Panel/Display_normal"]
+margin_top = 636.0
+margin_right = 960.0
+margin_bottom = 718.0
+custom_fonts/font = SubResource( 9 )
+text = "Radiany"
+align = 2
+items = [ "Stopnie", null, false, 0, null, "Radiany", null, false, 1, null, "Gradiany", null, false, 2, null ]
+selected = 1
+
+[node name="Button_panel_normal" type="GridContainer" parent="Angle_Panel"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -480.0
+margin_top = -852.0
+margin_right = 490.0
+custom_constants/vseparation = 20
+custom_constants/hseparation = 20
+columns = 3
+
+[node name="Control" type="Control" parent="Angle_Panel/Button_panel_normal"]
+margin_right = 310.0
+margin_bottom = 140.0
+
+[node name="C_button" type="Button" parent="Angle_Panel/Button_panel_normal"]
+margin_left = 330.0
+margin_right = 640.0
+margin_bottom = 140.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "C"
+
+[node name="Del_button" type="Button" parent="Angle_Panel/Button_panel_normal"]
+margin_left = 660.0
+margin_right = 970.0
+margin_bottom = 140.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "Del"
+
+[node name="7_button" type="Button" parent="Angle_Panel/Button_panel_normal"]
+margin_top = 160.0
+margin_right = 310.0
+margin_bottom = 300.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "7"
+
+[node name="8_button" type="Button" parent="Angle_Panel/Button_panel_normal"]
+margin_left = 330.0
+margin_top = 160.0
+margin_right = 640.0
+margin_bottom = 300.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "8"
+
+[node name="9_button" type="Button" parent="Angle_Panel/Button_panel_normal"]
+margin_left = 660.0
+margin_top = 160.0
+margin_right = 970.0
+margin_bottom = 300.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "9"
+
+[node name="4_button" type="Button" parent="Angle_Panel/Button_panel_normal"]
+margin_top = 320.0
+margin_right = 310.0
+margin_bottom = 460.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "4"
+
+[node name="5_button" type="Button" parent="Angle_Panel/Button_panel_normal"]
+margin_left = 330.0
+margin_top = 320.0
+margin_right = 640.0
+margin_bottom = 460.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "5"
+
+[node name="6_button" type="Button" parent="Angle_Panel/Button_panel_normal"]
+margin_left = 660.0
+margin_top = 320.0
+margin_right = 970.0
+margin_bottom = 460.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "6"
+
+[node name="1_button" type="Button" parent="Angle_Panel/Button_panel_normal"]
+margin_top = 480.0
+margin_right = 310.0
+margin_bottom = 620.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "1"
+
+[node name="2_button" type="Button" parent="Angle_Panel/Button_panel_normal"]
+margin_left = 330.0
+margin_top = 480.0
+margin_right = 640.0
+margin_bottom = 620.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "2"
+
+[node name="3_button" type="Button" parent="Angle_Panel/Button_panel_normal"]
+margin_left = 660.0
+margin_top = 480.0
+margin_right = 970.0
+margin_bottom = 620.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "3"
+
+[node name="plusmin_button" type="Button" parent="Angle_Panel/Button_panel_normal"]
+margin_top = 640.0
+margin_right = 310.0
+margin_bottom = 780.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "+/-"
+
+[node name="0_button" type="Button" parent="Angle_Panel/Button_panel_normal"]
+margin_left = 330.0
+margin_top = 640.0
+margin_right = 640.0
+margin_bottom = 780.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "0"
+
+[node name="dot_button" type="Button" parent="Angle_Panel/Button_panel_normal"]
+margin_left = 660.0
+margin_top = 640.0
+margin_right = 970.0
+margin_bottom = 780.0
+rect_min_size = Vector2( 310, 140 )
+custom_fonts/font = ExtResource( 3 )
+text = "."
+
 [node name="Hamburger_panel" type="Panel" parent="."]
 anchor_left = 0.5
 anchor_top = 1.0
@@ -764,12 +3702,18 @@ margin_top = -1790.0
 margin_right = -540.0
 
 [node name="Container" type="VBoxContainer" parent="Hamburger_panel"]
-margin_right = 540.0
-margin_bottom = 1790.0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -226.0
+margin_top = -895.0
+margin_right = 226.0
+margin_bottom = 895.0
 custom_constants/separation = 50
 
 [node name="Label" type="Label" parent="Hamburger_panel/Container"]
-margin_right = 540.0
+margin_right = 464.0
 margin_bottom = 85.0
 custom_fonts/font = SubResource( 7 )
 text = "Kalkulatory:"
@@ -778,36 +3722,141 @@ valign = 1
 
 [node name="Calculator_buttons" type="VBoxContainer" parent="Hamburger_panel/Container"]
 margin_top = 135.0
-margin_right = 540.0
-margin_bottom = 494.0
+margin_right = 464.0
+margin_bottom = 398.0
 custom_constants/separation = 25
 
 [node name="Standard" type="Button" parent="Hamburger_panel/Container/Calculator_buttons"]
-margin_right = 540.0
+margin_right = 464.0
 margin_bottom = 71.0
 custom_fonts/font = SubResource( 8 )
 text = "Standardowy"
 
 [node name="Science" type="Button" parent="Hamburger_panel/Container/Calculator_buttons"]
 margin_top = 96.0
-margin_right = 540.0
+margin_right = 464.0
 margin_bottom = 167.0
 custom_fonts/font = SubResource( 8 )
 text = "Naukowy"
 
-[node name="Programmer" type="Button" parent="Hamburger_panel/Container/Calculator_buttons"]
+[node name="Date" type="Button" parent="Hamburger_panel/Container/Calculator_buttons"]
 margin_top = 192.0
-margin_right = 540.0
+margin_right = 464.0
 margin_bottom = 263.0
 custom_fonts/font = SubResource( 8 )
-text = "Programisty"
-
-[node name="Date" type="Button" parent="Hamburger_panel/Container/Calculator_buttons"]
-margin_top = 288.0
-margin_right = 540.0
-margin_bottom = 359.0
-custom_fonts/font = SubResource( 8 )
 text = "Daty"
+
+[node name="Label2" type="Label" parent="Hamburger_panel/Container"]
+margin_top = 448.0
+margin_right = 464.0
+margin_bottom = 533.0
+custom_fonts/font = SubResource( 7 )
+text = "Konwertery:"
+align = 1
+valign = 1
+
+[node name="Converters" type="ScrollContainer" parent="Hamburger_panel/Container"]
+margin_top = 583.0
+margin_right = 464.0
+margin_bottom = 1583.0
+rect_min_size = Vector2( 452, 1000 )
+scroll_horizontal_enabled = false
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Hamburger_panel/Container/Converters"]
+margin_right = 452.0
+margin_bottom = 1283.0
+rect_min_size = Vector2( 452, 1000 )
+custom_constants/separation = 30
+
+[node name="Currency" type="Button" parent="Hamburger_panel/Container/Converters/VBoxContainer"]
+margin_right = 452.0
+margin_bottom = 71.0
+custom_fonts/font = SubResource( 8 )
+text = "Waluta"
+
+[node name="Volume" type="Button" parent="Hamburger_panel/Container/Converters/VBoxContainer"]
+margin_top = 101.0
+margin_right = 452.0
+margin_bottom = 172.0
+custom_fonts/font = SubResource( 8 )
+text = "Objętość"
+
+[node name="Length" type="Button" parent="Hamburger_panel/Container/Converters/VBoxContainer"]
+margin_top = 202.0
+margin_right = 452.0
+margin_bottom = 273.0
+custom_fonts/font = SubResource( 8 )
+text = "Długość"
+
+[node name="Mass" type="Button" parent="Hamburger_panel/Container/Converters/VBoxContainer"]
+margin_top = 303.0
+margin_right = 452.0
+margin_bottom = 374.0
+custom_fonts/font = SubResource( 8 )
+text = "Ciężar i masa"
+
+[node name="Temperature" type="Button" parent="Hamburger_panel/Container/Converters/VBoxContainer"]
+margin_top = 404.0
+margin_right = 452.0
+margin_bottom = 475.0
+custom_fonts/font = SubResource( 8 )
+text = "Temperatura"
+
+[node name="Energy" type="Button" parent="Hamburger_panel/Container/Converters/VBoxContainer"]
+margin_top = 505.0
+margin_right = 452.0
+margin_bottom = 576.0
+custom_fonts/font = SubResource( 8 )
+text = "Energia"
+
+[node name="Surface" type="Button" parent="Hamburger_panel/Container/Converters/VBoxContainer"]
+margin_top = 606.0
+margin_right = 452.0
+margin_bottom = 677.0
+custom_fonts/font = SubResource( 8 )
+text = "Powierzchnia"
+
+[node name="Velocity" type="Button" parent="Hamburger_panel/Container/Converters/VBoxContainer"]
+margin_top = 707.0
+margin_right = 452.0
+margin_bottom = 778.0
+custom_fonts/font = SubResource( 8 )
+text = "Prędkość"
+
+[node name="Time" type="Button" parent="Hamburger_panel/Container/Converters/VBoxContainer"]
+margin_top = 808.0
+margin_right = 452.0
+margin_bottom = 879.0
+custom_fonts/font = SubResource( 8 )
+text = "Czas"
+
+[node name="Power" type="Button" parent="Hamburger_panel/Container/Converters/VBoxContainer"]
+margin_top = 909.0
+margin_right = 452.0
+margin_bottom = 980.0
+custom_fonts/font = SubResource( 8 )
+text = "Zasilanie"
+
+[node name="Data" type="Button" parent="Hamburger_panel/Container/Converters/VBoxContainer"]
+margin_top = 1010.0
+margin_right = 452.0
+margin_bottom = 1081.0
+custom_fonts/font = SubResource( 8 )
+text = "Dane"
+
+[node name="Pressure" type="Button" parent="Hamburger_panel/Container/Converters/VBoxContainer"]
+margin_top = 1111.0
+margin_right = 452.0
+margin_bottom = 1182.0
+custom_fonts/font = SubResource( 8 )
+text = "Ciśnienie"
+
+[node name="Angle" type="Button" parent="Hamburger_panel/Container/Converters/VBoxContainer"]
+margin_top = 1212.0
+margin_right = 452.0
+margin_bottom = 1283.0
+custom_fonts/font = SubResource( 8 )
+text = "Kąt"
 
 [node name="Tween" type="Tween" parent="Hamburger_panel"]
 
@@ -847,12 +3896,15 @@ text = "Daty"
 [connection signal="pressed" from="Science_panel/Button_panel_normal/abs_button" to="Science_panel" method="AbsPressed"]
 [connection signal="pressed" from="Science_panel/Button_panel_normal/n_button" to="Science_panel" method="NPressed"]
 [connection signal="pressed" from="Science_panel/Button_panel_normal/divx_button" to="Science_panel" method="DivXPressed"]
+[connection signal="pressed" from="Science_panel/Button_panel_normal/mod_button" to="Science_panel" method="ModPressed"]
 [connection signal="pressed" from="Science_panel/Button_panel_normal/crqt_button" to="Science_panel" method="CqrtPressed"]
 [connection signal="pressed" from="Science_panel/Button_panel_normal/sqrt_button" to="Science_panel" method="SqrtPressed"]
 [connection signal="pressed" from="Science_panel/Button_panel_normal/round_button" to="Science_panel" method="RoundPressed"]
 [connection signal="pressed" from="Science_panel/Button_panel_normal/ceil_button" to="Science_panel" method="CeilPressed"]
 [connection signal="pressed" from="Science_panel/Button_panel_normal/floor_button" to="Science_panel" method="FloorPressed"]
 [connection signal="pressed" from="Science_panel/Button_panel_normal/div_button" to="Science_panel" method="DivPressed"]
+[connection signal="pressed" from="Science_panel/Button_panel_normal/rqt_button" to="Science_panel" method="RootPressed"]
+[connection signal="pressed" from="Science_panel/Button_panel_normal/pow_button" to="Science_panel" method="PowPressed"]
 [connection signal="pressed" from="Science_panel/Button_panel_normal/7_button" to="Science_panel" method="SevenPressed"]
 [connection signal="pressed" from="Science_panel/Button_panel_normal/8_button" to="Science_panel" method="EightPressed"]
 [connection signal="pressed" from="Science_panel/Button_panel_normal/9_button" to="Science_panel" method="NinePressed"]
@@ -863,7 +3915,8 @@ text = "Daty"
 [connection signal="pressed" from="Science_panel/Button_panel_normal/5_button" to="Science_panel" method="FivePressed"]
 [connection signal="pressed" from="Science_panel/Button_panel_normal/6_button" to="Science_panel" method="SixPressed"]
 [connection signal="pressed" from="Science_panel/Button_panel_normal/sub_button" to="Science_panel" method="SubPressed"]
-[connection signal="pressed" from="Science_panel/Button_panel_normal/log_button" to="Science_panel" method="LogPressed"]
+[connection signal="pressed" from="Science_panel/Button_panel_normal/logyx_button" to="Science_panel" method="LogPressed"]
+[connection signal="pressed" from="Science_panel/Button_panel_normal/log_button" to="Science_panel" method="Log10Pressed"]
 [connection signal="pressed" from="Science_panel/Button_panel_normal/1_button" to="Science_panel" method="OnePressed"]
 [connection signal="pressed" from="Science_panel/Button_panel_normal/2_button" to="Science_panel" method="TwoPressed"]
 [connection signal="pressed" from="Science_panel/Button_panel_normal/3_button" to="Science_panel" method="ThreePressed"]
@@ -874,5 +3927,225 @@ text = "Daty"
 [connection signal="pressed" from="Science_panel/Button_panel_normal/0_button" to="Science_panel" method="ZeroPressed"]
 [connection signal="pressed" from="Science_panel/Button_panel_normal/dot_button" to="Science_panel" method="DotPressed"]
 [connection signal="pressed" from="Science_panel/Button_panel_normal/equal_button" to="Science_panel" method="EqlPressed"]
+[connection signal="pressed" from="Date_Panel/Display_normal/Options/Difference" to="Date_Panel" method="Difference"]
+[connection signal="pressed" from="Date_Panel/Display_normal/Options/Add" to="Date_Panel" method="Add"]
+[connection signal="pressed" from="Date_Panel/Display_normal/Options/Sub" to="Date_Panel" method="Sub"]
+[connection signal="pressed" from="Date_Panel/Display_normal/CurrentDate" to="Date_Panel" method="SetCurrentDate1"]
+[connection signal="pressed" from="Date_Panel/Display_normal/CurrentDate2" to="Date_Panel" method="SetCurrentDate2"]
+[connection signal="request_completed" from="Currency_Panel/HTTPRequest" to="Currency_Panel" method="GetCurrencyData"]
+[connection signal="item_selected" from="Currency_Panel/Display_normal/OptionButton" to="Currency_Panel" method="SelectCur1"]
+[connection signal="item_selected" from="Currency_Panel/Display_normal/OptionButton2" to="Currency_Panel" method="SelectCur2"]
+[connection signal="pressed" from="Currency_Panel/Update_button" to="Currency_Panel" method="UpdateCurrency"]
+[connection signal="pressed" from="Currency_Panel/Button_panel_normal/C_button" to="Currency_Panel" method="CPressed"]
+[connection signal="pressed" from="Currency_Panel/Button_panel_normal/Del_button" to="Currency_Panel" method="DelPressed"]
+[connection signal="pressed" from="Currency_Panel/Button_panel_normal/7_button" to="Currency_Panel" method="SevenPressed"]
+[connection signal="pressed" from="Currency_Panel/Button_panel_normal/8_button" to="Currency_Panel" method="EightPressed"]
+[connection signal="pressed" from="Currency_Panel/Button_panel_normal/9_button" to="Currency_Panel" method="NinePressed"]
+[connection signal="pressed" from="Currency_Panel/Button_panel_normal/4_button" to="Currency_Panel" method="FourPressed"]
+[connection signal="pressed" from="Currency_Panel/Button_panel_normal/5_button" to="Currency_Panel" method="FivePressed"]
+[connection signal="pressed" from="Currency_Panel/Button_panel_normal/6_button" to="Currency_Panel" method="SixPressed"]
+[connection signal="pressed" from="Currency_Panel/Button_panel_normal/1_button" to="Currency_Panel" method="OnePressed"]
+[connection signal="pressed" from="Currency_Panel/Button_panel_normal/2_button" to="Currency_Panel" method="TwoPressed"]
+[connection signal="pressed" from="Currency_Panel/Button_panel_normal/3_button" to="Currency_Panel" method="ThreePressed"]
+[connection signal="pressed" from="Currency_Panel/Button_panel_normal/0_button" to="Currency_Panel" method="ZeroPressed"]
+[connection signal="pressed" from="Currency_Panel/Button_panel_normal/dot_button" to="Currency_Panel" method="DotPressed"]
+[connection signal="item_selected" from="Volume_Panel/Display_normal/OptionButton" to="Volume_Panel" method="SelectCur1"]
+[connection signal="item_selected" from="Volume_Panel/Display_normal/OptionButton2" to="Volume_Panel" method="SelectCur2"]
+[connection signal="pressed" from="Volume_Panel/Button_panel_normal/C_button" to="Volume_Panel" method="CPressed"]
+[connection signal="pressed" from="Volume_Panel/Button_panel_normal/Del_button" to="Volume_Panel" method="DelPressed"]
+[connection signal="pressed" from="Volume_Panel/Button_panel_normal/7_button" to="Volume_Panel" method="SevenPressed"]
+[connection signal="pressed" from="Volume_Panel/Button_panel_normal/8_button" to="Volume_Panel" method="EightPressed"]
+[connection signal="pressed" from="Volume_Panel/Button_panel_normal/9_button" to="Volume_Panel" method="NinePressed"]
+[connection signal="pressed" from="Volume_Panel/Button_panel_normal/4_button" to="Volume_Panel" method="FourPressed"]
+[connection signal="pressed" from="Volume_Panel/Button_panel_normal/5_button" to="Volume_Panel" method="FivePressed"]
+[connection signal="pressed" from="Volume_Panel/Button_panel_normal/6_button" to="Volume_Panel" method="SixPressed"]
+[connection signal="pressed" from="Volume_Panel/Button_panel_normal/1_button" to="Volume_Panel" method="OnePressed"]
+[connection signal="pressed" from="Volume_Panel/Button_panel_normal/2_button" to="Volume_Panel" method="TwoPressed"]
+[connection signal="pressed" from="Volume_Panel/Button_panel_normal/3_button" to="Volume_Panel" method="ThreePressed"]
+[connection signal="pressed" from="Volume_Panel/Button_panel_normal/0_button" to="Volume_Panel" method="ZeroPressed"]
+[connection signal="pressed" from="Volume_Panel/Button_panel_normal/dot_button" to="Volume_Panel" method="DotPressed"]
+[connection signal="item_selected" from="Length_Panel/Display_normal/OptionButton" to="Length_Panel" method="SelectCur1"]
+[connection signal="item_selected" from="Length_Panel/Display_normal/OptionButton2" to="Length_Panel" method="SelectCur2"]
+[connection signal="pressed" from="Length_Panel/Button_panel_normal/C_button" to="Length_Panel" method="CPressed"]
+[connection signal="pressed" from="Length_Panel/Button_panel_normal/Del_button" to="Length_Panel" method="DelPressed"]
+[connection signal="pressed" from="Length_Panel/Button_panel_normal/7_button" to="Length_Panel" method="SevenPressed"]
+[connection signal="pressed" from="Length_Panel/Button_panel_normal/8_button" to="Length_Panel" method="EightPressed"]
+[connection signal="pressed" from="Length_Panel/Button_panel_normal/9_button" to="Length_Panel" method="NinePressed"]
+[connection signal="pressed" from="Length_Panel/Button_panel_normal/4_button" to="Length_Panel" method="FourPressed"]
+[connection signal="pressed" from="Length_Panel/Button_panel_normal/5_button" to="Length_Panel" method="FivePressed"]
+[connection signal="pressed" from="Length_Panel/Button_panel_normal/6_button" to="Length_Panel" method="SixPressed"]
+[connection signal="pressed" from="Length_Panel/Button_panel_normal/1_button" to="Length_Panel" method="OnePressed"]
+[connection signal="pressed" from="Length_Panel/Button_panel_normal/2_button" to="Length_Panel" method="TwoPressed"]
+[connection signal="pressed" from="Length_Panel/Button_panel_normal/3_button" to="Length_Panel" method="ThreePressed"]
+[connection signal="pressed" from="Length_Panel/Button_panel_normal/0_button" to="Length_Panel" method="ZeroPressed"]
+[connection signal="pressed" from="Length_Panel/Button_panel_normal/dot_button" to="Length_Panel" method="DotPressed"]
+[connection signal="item_selected" from="Mass_Panel/Display_normal/OptionButton3" to="Mass_Panel" method="SelectCur1"]
+[connection signal="item_selected" from="Mass_Panel/Display_normal/OptionButton4" to="Mass_Panel" method="SelectCur2"]
+[connection signal="pressed" from="Mass_Panel/Button_panel_normal/C_button" to="Mass_Panel" method="CPressed"]
+[connection signal="pressed" from="Mass_Panel/Button_panel_normal/Del_button" to="Mass_Panel" method="DelPressed"]
+[connection signal="pressed" from="Mass_Panel/Button_panel_normal/7_button" to="Mass_Panel" method="SevenPressed"]
+[connection signal="pressed" from="Mass_Panel/Button_panel_normal/8_button" to="Mass_Panel" method="EightPressed"]
+[connection signal="pressed" from="Mass_Panel/Button_panel_normal/9_button" to="Mass_Panel" method="NinePressed"]
+[connection signal="pressed" from="Mass_Panel/Button_panel_normal/4_button" to="Mass_Panel" method="FourPressed"]
+[connection signal="pressed" from="Mass_Panel/Button_panel_normal/5_button" to="Mass_Panel" method="FivePressed"]
+[connection signal="pressed" from="Mass_Panel/Button_panel_normal/6_button" to="Mass_Panel" method="SixPressed"]
+[connection signal="pressed" from="Mass_Panel/Button_panel_normal/1_button" to="Mass_Panel" method="OnePressed"]
+[connection signal="pressed" from="Mass_Panel/Button_panel_normal/2_button" to="Mass_Panel" method="TwoPressed"]
+[connection signal="pressed" from="Mass_Panel/Button_panel_normal/3_button" to="Mass_Panel" method="ThreePressed"]
+[connection signal="pressed" from="Mass_Panel/Button_panel_normal/0_button" to="Mass_Panel" method="ZeroPressed"]
+[connection signal="pressed" from="Mass_Panel/Button_panel_normal/dot_button" to="Mass_Panel" method="DotPressed"]
+[connection signal="item_selected" from="Temperature_Panel/Display_normal/OptionButton" to="Temperature_Panel" method="SelectCur1"]
+[connection signal="item_selected" from="Temperature_Panel/Display_normal/OptionButton2" to="Temperature_Panel" method="SelectCur2"]
+[connection signal="pressed" from="Temperature_Panel/Button_panel_normal/C_button" to="Temperature_Panel" method="CPressed"]
+[connection signal="pressed" from="Temperature_Panel/Button_panel_normal/Del_button" to="Temperature_Panel" method="DelPressed"]
+[connection signal="pressed" from="Temperature_Panel/Button_panel_normal/7_button" to="Temperature_Panel" method="SevenPressed"]
+[connection signal="pressed" from="Temperature_Panel/Button_panel_normal/8_button" to="Temperature_Panel" method="EightPressed"]
+[connection signal="pressed" from="Temperature_Panel/Button_panel_normal/9_button" to="Temperature_Panel" method="NinePressed"]
+[connection signal="pressed" from="Temperature_Panel/Button_panel_normal/4_button" to="Temperature_Panel" method="FourPressed"]
+[connection signal="pressed" from="Temperature_Panel/Button_panel_normal/5_button" to="Temperature_Panel" method="FivePressed"]
+[connection signal="pressed" from="Temperature_Panel/Button_panel_normal/6_button" to="Temperature_Panel" method="SixPressed"]
+[connection signal="pressed" from="Temperature_Panel/Button_panel_normal/1_button" to="Temperature_Panel" method="OnePressed"]
+[connection signal="pressed" from="Temperature_Panel/Button_panel_normal/2_button" to="Temperature_Panel" method="TwoPressed"]
+[connection signal="pressed" from="Temperature_Panel/Button_panel_normal/3_button" to="Temperature_Panel" method="ThreePressed"]
+[connection signal="pressed" from="Temperature_Panel/Button_panel_normal/plusmin_button" to="Temperature_Panel" method="PlusMinPressed"]
+[connection signal="pressed" from="Temperature_Panel/Button_panel_normal/0_button" to="Temperature_Panel" method="ZeroPressed"]
+[connection signal="pressed" from="Temperature_Panel/Button_panel_normal/dot_button" to="Temperature_Panel" method="DotPressed"]
+[connection signal="item_selected" from="Energy_Panel/Display_normal/OptionButton3" to="Energy_Panel" method="SelectCur1"]
+[connection signal="item_selected" from="Energy_Panel/Display_normal/OptionButton4" to="Energy_Panel" method="SelectCur2"]
+[connection signal="pressed" from="Energy_Panel/Button_panel_normal/C_button" to="Energy_Panel" method="CPressed"]
+[connection signal="pressed" from="Energy_Panel/Button_panel_normal/Del_button" to="Energy_Panel" method="DelPressed"]
+[connection signal="pressed" from="Energy_Panel/Button_panel_normal/7_button" to="Energy_Panel" method="SevenPressed"]
+[connection signal="pressed" from="Energy_Panel/Button_panel_normal/8_button" to="Energy_Panel" method="EightPressed"]
+[connection signal="pressed" from="Energy_Panel/Button_panel_normal/9_button" to="Energy_Panel" method="NinePressed"]
+[connection signal="pressed" from="Energy_Panel/Button_panel_normal/4_button" to="Energy_Panel" method="FourPressed"]
+[connection signal="pressed" from="Energy_Panel/Button_panel_normal/5_button" to="Energy_Panel" method="FivePressed"]
+[connection signal="pressed" from="Energy_Panel/Button_panel_normal/6_button" to="Energy_Panel" method="SixPressed"]
+[connection signal="pressed" from="Energy_Panel/Button_panel_normal/1_button" to="Energy_Panel" method="OnePressed"]
+[connection signal="pressed" from="Energy_Panel/Button_panel_normal/2_button" to="Energy_Panel" method="TwoPressed"]
+[connection signal="pressed" from="Energy_Panel/Button_panel_normal/3_button" to="Energy_Panel" method="ThreePressed"]
+[connection signal="pressed" from="Energy_Panel/Button_panel_normal/0_button" to="Energy_Panel" method="ZeroPressed"]
+[connection signal="pressed" from="Energy_Panel/Button_panel_normal/dot_button" to="Energy_Panel" method="DotPressed"]
+[connection signal="item_selected" from="Area_Panel/Display_normal/OptionButton3" to="Area_Panel" method="SelectCur1"]
+[connection signal="item_selected" from="Area_Panel/Display_normal/OptionButton4" to="Area_Panel" method="SelectCur2"]
+[connection signal="pressed" from="Area_Panel/Button_panel_normal/C_button" to="Area_Panel" method="CPressed"]
+[connection signal="pressed" from="Area_Panel/Button_panel_normal/Del_button" to="Area_Panel" method="DelPressed"]
+[connection signal="pressed" from="Area_Panel/Button_panel_normal/7_button" to="Area_Panel" method="SevenPressed"]
+[connection signal="pressed" from="Area_Panel/Button_panel_normal/8_button" to="Area_Panel" method="EightPressed"]
+[connection signal="pressed" from="Area_Panel/Button_panel_normal/9_button" to="Area_Panel" method="NinePressed"]
+[connection signal="pressed" from="Area_Panel/Button_panel_normal/4_button" to="Area_Panel" method="FourPressed"]
+[connection signal="pressed" from="Area_Panel/Button_panel_normal/5_button" to="Area_Panel" method="FivePressed"]
+[connection signal="pressed" from="Area_Panel/Button_panel_normal/6_button" to="Area_Panel" method="SixPressed"]
+[connection signal="pressed" from="Area_Panel/Button_panel_normal/1_button" to="Area_Panel" method="OnePressed"]
+[connection signal="pressed" from="Area_Panel/Button_panel_normal/2_button" to="Area_Panel" method="TwoPressed"]
+[connection signal="pressed" from="Area_Panel/Button_panel_normal/3_button" to="Area_Panel" method="ThreePressed"]
+[connection signal="pressed" from="Area_Panel/Button_panel_normal/0_button" to="Area_Panel" method="ZeroPressed"]
+[connection signal="pressed" from="Area_Panel/Button_panel_normal/dot_button" to="Area_Panel" method="DotPressed"]
+[connection signal="item_selected" from="Velocity_Panel/Display_normal/OptionButton3" to="Velocity_Panel" method="SelectCur1"]
+[connection signal="item_selected" from="Velocity_Panel/Display_normal/OptionButton4" to="Velocity_Panel" method="SelectCur2"]
+[connection signal="pressed" from="Velocity_Panel/Button_panel_normal/C_button" to="Velocity_Panel" method="CPressed"]
+[connection signal="pressed" from="Velocity_Panel/Button_panel_normal/Del_button" to="Velocity_Panel" method="DelPressed"]
+[connection signal="pressed" from="Velocity_Panel/Button_panel_normal/7_button" to="Velocity_Panel" method="SevenPressed"]
+[connection signal="pressed" from="Velocity_Panel/Button_panel_normal/8_button" to="Velocity_Panel" method="EightPressed"]
+[connection signal="pressed" from="Velocity_Panel/Button_panel_normal/9_button" to="Velocity_Panel" method="NinePressed"]
+[connection signal="pressed" from="Velocity_Panel/Button_panel_normal/4_button" to="Velocity_Panel" method="FourPressed"]
+[connection signal="pressed" from="Velocity_Panel/Button_panel_normal/5_button" to="Velocity_Panel" method="FivePressed"]
+[connection signal="pressed" from="Velocity_Panel/Button_panel_normal/6_button" to="Velocity_Panel" method="SixPressed"]
+[connection signal="pressed" from="Velocity_Panel/Button_panel_normal/1_button" to="Velocity_Panel" method="OnePressed"]
+[connection signal="pressed" from="Velocity_Panel/Button_panel_normal/2_button" to="Velocity_Panel" method="TwoPressed"]
+[connection signal="pressed" from="Velocity_Panel/Button_panel_normal/3_button" to="Velocity_Panel" method="ThreePressed"]
+[connection signal="pressed" from="Velocity_Panel/Button_panel_normal/plusmin_button" to="Velocity_Panel" method="PlusMinPressed"]
+[connection signal="pressed" from="Velocity_Panel/Button_panel_normal/0_button" to="Velocity_Panel" method="ZeroPressed"]
+[connection signal="pressed" from="Velocity_Panel/Button_panel_normal/dot_button" to="Velocity_Panel" method="DotPressed"]
+[connection signal="item_selected" from="Time_Panel/Display_normal/OptionButton5" to="Time_Panel" method="SelectCur1"]
+[connection signal="item_selected" from="Time_Panel/Display_normal/OptionButton6" to="Time_Panel" method="SelectCur2"]
+[connection signal="pressed" from="Time_Panel/Button_panel_normal/C_button" to="Time_Panel" method="CPressed"]
+[connection signal="pressed" from="Time_Panel/Button_panel_normal/Del_button" to="Time_Panel" method="DelPressed"]
+[connection signal="pressed" from="Time_Panel/Button_panel_normal/7_button" to="Time_Panel" method="SevenPressed"]
+[connection signal="pressed" from="Time_Panel/Button_panel_normal/8_button" to="Time_Panel" method="EightPressed"]
+[connection signal="pressed" from="Time_Panel/Button_panel_normal/9_button" to="Time_Panel" method="NinePressed"]
+[connection signal="pressed" from="Time_Panel/Button_panel_normal/4_button" to="Time_Panel" method="FourPressed"]
+[connection signal="pressed" from="Time_Panel/Button_panel_normal/5_button" to="Time_Panel" method="FivePressed"]
+[connection signal="pressed" from="Time_Panel/Button_panel_normal/6_button" to="Time_Panel" method="SixPressed"]
+[connection signal="pressed" from="Time_Panel/Button_panel_normal/1_button" to="Time_Panel" method="OnePressed"]
+[connection signal="pressed" from="Time_Panel/Button_panel_normal/2_button" to="Time_Panel" method="TwoPressed"]
+[connection signal="pressed" from="Time_Panel/Button_panel_normal/3_button" to="Time_Panel" method="ThreePressed"]
+[connection signal="pressed" from="Time_Panel/Button_panel_normal/0_button" to="Time_Panel" method="ZeroPressed"]
+[connection signal="pressed" from="Time_Panel/Button_panel_normal/dot_button" to="Time_Panel" method="DotPressed"]
+[connection signal="item_selected" from="Power_Panel/Display_normal/OptionButton" to="Power_Panel" method="SelectCur1"]
+[connection signal="item_selected" from="Power_Panel/Display_normal/OptionButton2" to="Power_Panel" method="SelectCur2"]
+[connection signal="pressed" from="Power_Panel/Button_panel_normal/C_button" to="Power_Panel" method="CPressed"]
+[connection signal="pressed" from="Power_Panel/Button_panel_normal/Del_button" to="Power_Panel" method="DelPressed"]
+[connection signal="pressed" from="Power_Panel/Button_panel_normal/7_button" to="Power_Panel" method="SevenPressed"]
+[connection signal="pressed" from="Power_Panel/Button_panel_normal/8_button" to="Power_Panel" method="EightPressed"]
+[connection signal="pressed" from="Power_Panel/Button_panel_normal/9_button" to="Power_Panel" method="NinePressed"]
+[connection signal="pressed" from="Power_Panel/Button_panel_normal/4_button" to="Power_Panel" method="FourPressed"]
+[connection signal="pressed" from="Power_Panel/Button_panel_normal/5_button" to="Power_Panel" method="FivePressed"]
+[connection signal="pressed" from="Power_Panel/Button_panel_normal/6_button" to="Power_Panel" method="SixPressed"]
+[connection signal="pressed" from="Power_Panel/Button_panel_normal/1_button" to="Power_Panel" method="OnePressed"]
+[connection signal="pressed" from="Power_Panel/Button_panel_normal/2_button" to="Power_Panel" method="TwoPressed"]
+[connection signal="pressed" from="Power_Panel/Button_panel_normal/3_button" to="Power_Panel" method="ThreePressed"]
+[connection signal="pressed" from="Power_Panel/Button_panel_normal/plusmin_button" to="Power_Panel" method="PlusMinPressed"]
+[connection signal="pressed" from="Power_Panel/Button_panel_normal/0_button" to="Power_Panel" method="ZeroPressed"]
+[connection signal="pressed" from="Power_Panel/Button_panel_normal/dot_button" to="Power_Panel" method="DotPressed"]
+[connection signal="item_selected" from="Data_Panel/Display_normal/OptionButton3" to="Data_Panel" method="SelectCur1"]
+[connection signal="item_selected" from="Data_Panel/Display_normal/OptionButton5" to="Data_Panel" method="SelectCur2"]
+[connection signal="pressed" from="Data_Panel/Button_panel_normal/C_button" to="Data_Panel" method="CPressed"]
+[connection signal="pressed" from="Data_Panel/Button_panel_normal/Del_button" to="Data_Panel" method="DelPressed"]
+[connection signal="pressed" from="Data_Panel/Button_panel_normal/7_button" to="Data_Panel" method="SevenPressed"]
+[connection signal="pressed" from="Data_Panel/Button_panel_normal/8_button" to="Data_Panel" method="EightPressed"]
+[connection signal="pressed" from="Data_Panel/Button_panel_normal/9_button" to="Data_Panel" method="NinePressed"]
+[connection signal="pressed" from="Data_Panel/Button_panel_normal/4_button" to="Data_Panel" method="FourPressed"]
+[connection signal="pressed" from="Data_Panel/Button_panel_normal/5_button" to="Data_Panel" method="FivePressed"]
+[connection signal="pressed" from="Data_Panel/Button_panel_normal/6_button" to="Data_Panel" method="SixPressed"]
+[connection signal="pressed" from="Data_Panel/Button_panel_normal/1_button" to="Data_Panel" method="OnePressed"]
+[connection signal="pressed" from="Data_Panel/Button_panel_normal/2_button" to="Data_Panel" method="TwoPressed"]
+[connection signal="pressed" from="Data_Panel/Button_panel_normal/3_button" to="Data_Panel" method="ThreePressed"]
+[connection signal="pressed" from="Data_Panel/Button_panel_normal/0_button" to="Data_Panel" method="ZeroPressed"]
+[connection signal="pressed" from="Data_Panel/Button_panel_normal/dot_button" to="Data_Panel" method="DotPressed"]
+[connection signal="item_selected" from="Pressure_Panel/Display_normal/OptionButton" to="Pressure_Panel" method="SelectCur1"]
+[connection signal="item_selected" from="Pressure_Panel/Display_normal/OptionButton2" to="Pressure_Panel" method="SelectCur2"]
+[connection signal="pressed" from="Pressure_Panel/Button_panel_normal/C_button" to="Pressure_Panel" method="CPressed"]
+[connection signal="pressed" from="Pressure_Panel/Button_panel_normal/Del_button" to="Pressure_Panel" method="DelPressed"]
+[connection signal="pressed" from="Pressure_Panel/Button_panel_normal/7_button" to="Pressure_Panel" method="SevenPressed"]
+[connection signal="pressed" from="Pressure_Panel/Button_panel_normal/8_button" to="Pressure_Panel" method="EightPressed"]
+[connection signal="pressed" from="Pressure_Panel/Button_panel_normal/9_button" to="Pressure_Panel" method="NinePressed"]
+[connection signal="pressed" from="Pressure_Panel/Button_panel_normal/4_button" to="Pressure_Panel" method="FourPressed"]
+[connection signal="pressed" from="Pressure_Panel/Button_panel_normal/5_button" to="Pressure_Panel" method="FivePressed"]
+[connection signal="pressed" from="Pressure_Panel/Button_panel_normal/6_button" to="Pressure_Panel" method="SixPressed"]
+[connection signal="pressed" from="Pressure_Panel/Button_panel_normal/1_button" to="Pressure_Panel" method="OnePressed"]
+[connection signal="pressed" from="Pressure_Panel/Button_panel_normal/2_button" to="Pressure_Panel" method="TwoPressed"]
+[connection signal="pressed" from="Pressure_Panel/Button_panel_normal/3_button" to="Pressure_Panel" method="ThreePressed"]
+[connection signal="pressed" from="Pressure_Panel/Button_panel_normal/0_button" to="Pressure_Panel" method="ZeroPressed"]
+[connection signal="pressed" from="Pressure_Panel/Button_panel_normal/dot_button" to="Pressure_Panel" method="DotPressed"]
+[connection signal="item_selected" from="Angle_Panel/Display_normal/OptionButton1" to="Angle_Panel" method="SelectCur1"]
+[connection signal="item_selected" from="Angle_Panel/Display_normal/OptionButton2" to="Angle_Panel" method="SelectCur2"]
+[connection signal="pressed" from="Angle_Panel/Button_panel_normal/C_button" to="Angle_Panel" method="CPressed"]
+[connection signal="pressed" from="Angle_Panel/Button_panel_normal/Del_button" to="Angle_Panel" method="DelPressed"]
+[connection signal="pressed" from="Angle_Panel/Button_panel_normal/7_button" to="Angle_Panel" method="SevenPressed"]
+[connection signal="pressed" from="Angle_Panel/Button_panel_normal/8_button" to="Angle_Panel" method="EightPressed"]
+[connection signal="pressed" from="Angle_Panel/Button_panel_normal/9_button" to="Angle_Panel" method="NinePressed"]
+[connection signal="pressed" from="Angle_Panel/Button_panel_normal/4_button" to="Angle_Panel" method="FourPressed"]
+[connection signal="pressed" from="Angle_Panel/Button_panel_normal/5_button" to="Angle_Panel" method="FivePressed"]
+[connection signal="pressed" from="Angle_Panel/Button_panel_normal/6_button" to="Angle_Panel" method="SixPressed"]
+[connection signal="pressed" from="Angle_Panel/Button_panel_normal/1_button" to="Angle_Panel" method="OnePressed"]
+[connection signal="pressed" from="Angle_Panel/Button_panel_normal/2_button" to="Angle_Panel" method="TwoPressed"]
+[connection signal="pressed" from="Angle_Panel/Button_panel_normal/3_button" to="Angle_Panel" method="ThreePressed"]
+[connection signal="pressed" from="Angle_Panel/Button_panel_normal/plusmin_button" to="Angle_Panel" method="PlusMinPressed"]
+[connection signal="pressed" from="Angle_Panel/Button_panel_normal/0_button" to="Angle_Panel" method="ZeroPressed"]
+[connection signal="pressed" from="Angle_Panel/Button_panel_normal/dot_button" to="Angle_Panel" method="DotPressed"]
 [connection signal="pressed" from="Hamburger_panel/Container/Calculator_buttons/Standard" to="." method="_on_Standard_pressed"]
 [connection signal="pressed" from="Hamburger_panel/Container/Calculator_buttons/Science" to="." method="_on_Science_pressed"]
+[connection signal="pressed" from="Hamburger_panel/Container/Calculator_buttons/Date" to="." method="_on_Date_pressed"]
+[connection signal="pressed" from="Hamburger_panel/Container/Converters/VBoxContainer/Currency" to="." method="_on_Currency_pressed"]
+[connection signal="pressed" from="Hamburger_panel/Container/Converters/VBoxContainer/Volume" to="." method="_on_Volume_pressed"]
+[connection signal="pressed" from="Hamburger_panel/Container/Converters/VBoxContainer/Length" to="." method="_on_Length_pressed"]
+[connection signal="pressed" from="Hamburger_panel/Container/Converters/VBoxContainer/Mass" to="." method="_on_Mass_pressed"]
+[connection signal="pressed" from="Hamburger_panel/Container/Converters/VBoxContainer/Temperature" to="." method="_on_Temperature_pressed"]
+[connection signal="pressed" from="Hamburger_panel/Container/Converters/VBoxContainer/Energy" to="." method="_on_Energy_pressed"]
+[connection signal="pressed" from="Hamburger_panel/Container/Converters/VBoxContainer/Surface" to="." method="_on_Surface_pressed"]
+[connection signal="pressed" from="Hamburger_panel/Container/Converters/VBoxContainer/Velocity" to="." method="_on_Velocity_pressed"]
+[connection signal="pressed" from="Hamburger_panel/Container/Converters/VBoxContainer/Time" to="." method="_on_Time_pressed"]
+[connection signal="pressed" from="Hamburger_panel/Container/Converters/VBoxContainer/Power" to="." method="_on_Power_pressed"]
+[connection signal="pressed" from="Hamburger_panel/Container/Converters/VBoxContainer/Data" to="." method="_on_Data_pressed"]
+[connection signal="pressed" from="Hamburger_panel/Container/Converters/VBoxContainer/Pressure" to="." method="_on_Pressure_pressed"]
+[connection signal="pressed" from="Hamburger_panel/Container/Converters/VBoxContainer/Angle" to="." method="_on_Angle_pressed"]
