@@ -150,9 +150,9 @@ margin_bottom = 800.0
 alignment = 2
 
 [node name="label_action" type="Label" parent="Normal_panel/Display_normal"]
-margin_top = 539.0
+margin_top = 523.0
 margin_right = 960.0
-margin_bottom = 628.0
+margin_bottom = 612.0
 custom_colors/font_color = Color( 0.631373, 0.631373, 0.631373, 1 )
 custom_fonts/font = SubResource( 2 )
 align = 2
@@ -404,9 +404,9 @@ margin_bottom = 800.0
 alignment = 2
 
 [node name="label_action" type="Label" parent="Science_panel/Display_normal"]
-margin_top = 539.0
+margin_top = 523.0
 margin_right = 960.0
-margin_bottom = 628.0
+margin_bottom = 612.0
 custom_colors/font_color = Color( 0.631373, 0.631373, 0.631373, 1 )
 custom_fonts/font = SubResource( 2 )
 align = 2
@@ -1156,21 +1156,21 @@ custom_constants/separation = 100
 [node name="CurrentDate" type="Button" parent="Date_Panel/Display_normal"]
 margin_top = 1330.0
 margin_right = 960.0
-margin_bottom = 1408.0
+margin_bottom = 1421.0
 custom_fonts/font = SubResource( 13 )
 text = "Ustaw datę 1 na dzisiejszą"
 
 [node name="HSeparator6" type="HSeparator" parent="Date_Panel/Display_normal"]
 modulate = Color( 1, 1, 1, 0 )
-margin_top = 1418.0
+margin_top = 1431.0
 margin_right = 960.0
-margin_bottom = 1443.0
+margin_bottom = 1456.0
 custom_constants/separation = 25
 
 [node name="CurrentDate2" type="Button" parent="Date_Panel/Display_normal"]
-margin_top = 1453.0
+margin_top = 1466.0
 margin_right = 960.0
-margin_bottom = 1531.0
+margin_bottom = 1557.0
 custom_fonts/font = SubResource( 13 )
 text = "Ustaw datę 2 na dzisiejszą"
 
