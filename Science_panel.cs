@@ -196,7 +196,7 @@ public class Science_panel : Panel
         if (current_num == numbers.ONE)
             num1 = Convert.ToString(rnd.NextDouble());
         else if (current_num == numbers.TWO)
-            num2 = Convert.ToString(rnd.NextDouble());     
+            num2 = Convert.ToString(rnd.NextDouble());
     }
 
     private void PIPressed()
@@ -207,7 +207,7 @@ public class Science_panel : Panel
         if (current_num == numbers.ONE)
             num1 = Convert.ToString(Math.PI);
         else if (current_num == numbers.TWO)
-            num2 = Convert.ToString(Math.PI);     
+            num2 = Convert.ToString(Math.PI);
     }
 
     private void EPressed()
@@ -218,7 +218,7 @@ public class Science_panel : Panel
         if (current_num == numbers.ONE)
             num1 = Convert.ToString(Math.E);
         else if (current_num == numbers.TWO)
-            num2 = Convert.ToString(Math.E);     
+            num2 = Convert.ToString(Math.E);
     }
 
     private void ZeroPressed()
@@ -298,7 +298,7 @@ public class Science_panel : Panel
         else if (current_num == numbers.TWO)
         {
             num2 = Convert.ToString(Convert.ToDouble(num2) * -1);
-        }        
+        }
     }
 
     private void EqlPressed()
@@ -358,7 +358,7 @@ public class Science_panel : Panel
         if (current_num == numbers.ONE)
             num1 = Convert.ToString(Math.Abs(Convert.ToDouble(num1)));
         else if (current_num == numbers.TWO)
-            num2 = Convert.ToString(Math.Abs(Convert.ToDouble(num2)));           
+            num2 = Convert.ToString(Math.Abs(Convert.ToDouble(num2)));
     }
 
     private void NPressed()
@@ -395,7 +395,7 @@ public class Science_panel : Panel
             }
 
             num2 = Convert.ToString(a);
-        }    
+        }
     }
 
     private void Pow2Pressed()
@@ -406,7 +406,7 @@ public class Science_panel : Panel
         if (current_num == numbers.ONE)
             num1 = Convert.ToString(Math.Pow(Convert.ToDouble(num1),2));
         else if (current_num == numbers.TWO)
-            num2 = Convert.ToString(Math.Pow(Convert.ToDouble(num2),2));        
+            num2 = Convert.ToString(Math.Pow(Convert.ToDouble(num2),2));
     }
 
     private void Pow3Pressed()
@@ -417,7 +417,7 @@ public class Science_panel : Panel
         if (current_num == numbers.ONE)
             num1 = Convert.ToString(Math.Pow(Convert.ToDouble(num1),3));
         else if (current_num == numbers.TWO)
-            num2 = Convert.ToString(Math.Pow(Convert.ToDouble(num2),3));        
+            num2 = Convert.ToString(Math.Pow(Convert.ToDouble(num2),3));
     }
 
     private void DivXPressed()
@@ -428,7 +428,7 @@ public class Science_panel : Panel
         if (current_num == numbers.ONE)
             num1 = Convert.ToString(1/Convert.ToDouble(num1));
         else if (current_num == numbers.TWO)
-            num2 = Convert.ToString(1/Convert.ToDouble(num2));        
+            num2 = Convert.ToString(1/Convert.ToDouble(num2));
     }
 
     private void CqrtPressed()
@@ -439,7 +439,7 @@ public class Science_panel : Panel
         if (current_num == numbers.ONE)
             num1 = Convert.ToString(Math.Pow(Convert.ToDouble(num1),(double) 1/3));
         else if (current_num == numbers.TWO)
-            num2 = Convert.ToString(Math.Pow(Convert.ToDouble(num2),(double) 1/3));        
+            num2 = Convert.ToString(Math.Pow(Convert.ToDouble(num2),(double) 1/3));
     }
 
     private void SqrtPressed()
@@ -459,8 +459,8 @@ public class Science_panel : Panel
             if (Convert.ToDouble(num1) < 0)
                 return;
 
-            num2 = Convert.ToString(Math.Sqrt(Convert.ToDouble(num2))); 
-        }             
+            num2 = Convert.ToString(Math.Sqrt(Convert.ToDouble(num2)));
+        }
     }
 
     private void TwoPowPressed()
@@ -471,7 +471,7 @@ public class Science_panel : Panel
         if (current_num == numbers.ONE)
             num1 = Convert.ToString(Math.Pow(2,Convert.ToDouble(num1)));
         else if (current_num == numbers.TWO)
-            num2 = Convert.ToString(Math.Pow(2,Convert.ToDouble(num2)));        
+            num2 = Convert.ToString(Math.Pow(2,Convert.ToDouble(num2)));
     }
 
     private void TenPowPressed()
@@ -482,7 +482,7 @@ public class Science_panel : Panel
         if (current_num == numbers.ONE)
             num1 = Convert.ToString(Math.Pow(10,Convert.ToDouble(num1)));
         else if (current_num == numbers.TWO)
-            num2 = Convert.ToString(Math.Pow(10,Convert.ToDouble(num2)));        
+            num2 = Convert.ToString(Math.Pow(10,Convert.ToDouble(num2)));
     }
 
     private void Log10Pressed()
@@ -502,8 +502,8 @@ public class Science_panel : Panel
             if (Convert.ToDouble(num1) <= 0)
                 return;
 
-            num2 = Convert.ToString(Math.Log10(Convert.ToDouble(num2))); 
-        }               
+            num2 = Convert.ToString(Math.Log10(Convert.ToDouble(num2)));
+        }
     }
 
     private void LogEPressed()
@@ -523,8 +523,8 @@ public class Science_panel : Panel
             if (Convert.ToDouble(num1) <= 0)
                 return;
 
-            num2 = Convert.ToString(Math.Log(Convert.ToDouble(num2))); 
-        }       
+            num2 = Convert.ToString(Math.Log(Convert.ToDouble(num2)));
+        }
     }
 
     private void EXPressed()
@@ -535,7 +535,7 @@ public class Science_panel : Panel
         if (current_num == numbers.ONE)
             num1 = Convert.ToString(Math.Pow(Math.E,Convert.ToDouble(num1)));
         else if (current_num == numbers.TWO)
-            num2 = Convert.ToString(Math.Pow(Math.E,Convert.ToDouble(num2)));    
+            num2 = Convert.ToString(Math.Pow(Math.E,Convert.ToDouble(num2)));
     }
 
     private void RoundPressed()
@@ -546,7 +546,7 @@ public class Science_panel : Panel
         if (current_num == numbers.ONE)
             num1 = Convert.ToString(Math.Round(Convert.ToDouble(num1)));
         else if (current_num == numbers.TWO)
-            num2 = Convert.ToString(Math.Round(Convert.ToDouble(num2)));        
+            num2 = Convert.ToString(Math.Round(Convert.ToDouble(num2)));
     }
 
     private void CeilPressed()
@@ -555,9 +555,17 @@ public class Science_panel : Panel
             num1 = GetResAsFirst();
 
         if (current_num == numbers.ONE)
-            num1 = Convert.ToString(Math.Ceiling(Convert.ToDouble(num1)));
+        {
+            var numDecimal = Convert.ToDouble(String.Concat("0,",num1.Split(",")[1]));
+            var add = 1 - numDecimal;
+            num1 = Convert.ToString(Convert.ToDouble(num1) + add);
+        }
         else if (current_num == numbers.TWO)
-            num2 = Convert.ToString(Math.Ceiling(Convert.ToDouble(num2)));        
+        {
+            var numDecimal = Convert.ToDouble(String.Concat("0,",num2.Split(",")[1]));
+            var add = 1 - numDecimal;
+            num2 = Convert.ToString(Convert.ToDouble(num2) + add);
+        }
     }
 
     private void FloorPressed()
@@ -565,9 +573,18 @@ public class Science_panel : Panel
         if (current_num == numbers.RESULT)
             num1 = GetResAsFirst();
 
+        if (current_num == numbers.RESULT)
+            num1 = GetResAsFirst();
+
         if (current_num == numbers.ONE)
-            num1 = Convert.ToString(Math.Floor(Convert.ToDouble(num1)));
+        {
+            var numDecimal = Convert.ToDouble(String.Concat("0,",num1.Split(",")[1]));
+            num1 = Convert.ToString(Convert.ToDouble(num1) - numDecimal);
+        }
         else if (current_num == numbers.TWO)
-            num2 = Convert.ToString(Math.Floor(Convert.ToDouble(num2)));        
+        {
+            var numDecimal = Convert.ToDouble(String.Concat("0,",num2.Split(",")[1]));
+            num2 = Convert.ToString(Convert.ToDouble(num2) - numDecimal);
+        }
     }
 }
