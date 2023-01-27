@@ -1,6 +1,7 @@
 using Godot;
 using System;
 using Godot.Collections;
+using System.Globalization;
 
 public class Science_panel : Panel
 {
@@ -46,6 +47,8 @@ public class Science_panel : Panel
 
     public override void _Ready()
     {
+        CultureInfo.DefaultThreadCurrentCulture = new CultureInfo("en-US");
+
         rnd = new Random();
 
         label_action = GetNode<Label>("Display_normal/label_action");
@@ -278,13 +281,13 @@ public class Science_panel : Panel
 
         if (current_num == numbers.ONE)
         {
-            if (StringExtensions.Find(num1,",") == -1)
-                num1 += ",";
+            if (StringExtensions.Find(num1,".") == -1)
+                num1 += ".";
         }
         else if (current_num == numbers.TWO)
         {
-            if (StringExtensions.Find(num2,",") == -1)
-                num2 += ",";
+            if (StringExtensions.Find(num2,".") == -1)
+                num2 += ".";
         }
     }
 
@@ -556,15 +559,11 @@ public class Science_panel : Panel
 
         if (current_num == numbers.ONE)
         {
-            var numDecimal = Convert.ToDouble(String.Concat("0,",num1.Split(",")[1]));
-            var add = 1 - numDecimal;
-            num1 = Convert.ToString(Convert.ToDouble(num1) + add);
+            num1 = Convert.ToString(Math.Ceiling(Convert.ToDouble(num1)));
         }
         else if (current_num == numbers.TWO)
         {
-            var numDecimal = Convert.ToDouble(String.Concat("0,",num2.Split(",")[1]));
-            var add = 1 - numDecimal;
-            num2 = Convert.ToString(Convert.ToDouble(num2) + add);
+            num2 = Convert.ToString(Math.Ceiling(Convert.ToDouble(num2)));
         }
     }
 
@@ -578,13 +577,11 @@ public class Science_panel : Panel
 
         if (current_num == numbers.ONE)
         {
-            var numDecimal = Convert.ToDouble(String.Concat("0,",num1.Split(",")[1]));
-            num1 = Convert.ToString(Convert.ToDouble(num1) - numDecimal);
+            num1 = Convert.ToString(Math.Floor(Convert.ToDouble(num1)));
         }
         else if (current_num == numbers.TWO)
         {
-            var numDecimal = Convert.ToDouble(String.Concat("0,",num2.Split(",")[1]));
-            num2 = Convert.ToString(Convert.ToDouble(num2) - numDecimal);
+            num2 = Convert.ToString(Math.Floor(Convert.ToDouble(num2)));
         }
     }
 }

@@ -1,6 +1,7 @@
 using Godot;
 using System;
 using Godot.Collections;
+using System.Globalization;
 
 public sealed class Normal_panel : Panel
 {
@@ -38,6 +39,8 @@ public sealed class Normal_panel : Panel
 
     public override void _Ready()
     {
+        CultureInfo.DefaultThreadCurrentCulture = new CultureInfo("en-US");
+
         label_action = GetNode<Label>("Display_normal/label_action");
         label_num = GetNode<Label>("Display_normal/label_num");
     }
@@ -81,9 +84,6 @@ public sealed class Normal_panel : Panel
 
     private string DoEquasion()
     {
-        num1 = num1.Replace(".",",");
-        num2 = num2.Replace(".",",");
-
         if (current_operation == operations.ADD)
             return Convert.ToString(Convert.ToDouble(num1) + Convert.ToDouble(num2));
         else if (current_operation == operations.SUBTRACT)
@@ -125,9 +125,6 @@ public sealed class Normal_panel : Panel
         if (current_num == numbers.TWO)
         {
             var res = DoEquasion();
-            num1 = num1.Replace(",",".");
-            num2 = num2.Replace(",",".");
-            res = res.Replace(",",".");
             ResetToDefault();
 
             num1 = res;
