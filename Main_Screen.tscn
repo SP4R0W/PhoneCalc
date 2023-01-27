@@ -1753,10 +1753,10 @@ margin_top = 348.0
 margin_right = 960.0
 margin_bottom = 430.0
 custom_fonts/font = SubResource( 9 )
-text = "Karaty"
+text = "Gramy"
 align = 2
 items = [ "Karaty", null, false, 0, null, "Gramy", null, false, 1, null, "Kilogramy", null, false, 2, null, "Tony", null, false, 3, null, "Uncje", null, false, 4, null, "Funty", null, false, 5, null ]
-selected = 0
+selected = 1
 
 [node name="Button_panel_normal" type="GridContainer" parent="Mass_Panel"]
 anchor_left = 0.5
