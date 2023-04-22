@@ -2,6 +2,7 @@ using Godot;
 using System;
 using System.Text;
 using System.Collections.Generic;
+using System.Globalization;
 
 public class Currency_Panel : Panel
 {
@@ -44,7 +45,7 @@ public class Currency_Panel : Panel
 
     private string textValue = "0";
     private string convertedValue = "0";
-    
+
     private types type1 = types.PLN;
     private types type2 = types.USD;
 
@@ -57,6 +58,8 @@ public class Currency_Panel : Panel
 
     public override void _Ready()
     {
+        CultureInfo.DefaultThreadCurrentCulture = new CultureInfo("en-US");
+
         UpdateCurrency();
 
         cur1Label = GetNode<Label>("Display_normal/label_cur");
@@ -119,7 +122,7 @@ public class Currency_Panel : Panel
             }
 
             if (Enum.IsDefined(typeof(types),index))
-            {  
+            {
                 var value = (types)index;
                 values.Add(value,rates);
             }
@@ -137,7 +140,7 @@ public class Currency_Panel : Panel
     private decimal CalculateValue()
     {
         var value = values[type1][type2];
-        
+
         return Convert.ToDecimal(textValue) * value;
     }
 
@@ -183,9 +186,9 @@ public class Currency_Panel : Panel
         if (textValue == "0")
             textValue = "";
 
-        if (StringExtensions.Find(textValue,",") != -1)
+        if (StringExtensions.Find(textValue,".") != -1)
         {
-            var split = textValue.Split(',');
+            var split = textValue.Split(".");
             if (split[1].Length > 1)
                 return;
         }
@@ -198,8 +201,8 @@ public class Currency_Panel : Panel
         if (!canWork)
             return;
 
-        if (StringExtensions.Find(Convert.ToString(textValue),",") == -1)
-            textValue += ",";
+        if (StringExtensions.Find(Convert.ToString(textValue),".") == -1)
+            textValue += ".";
     }
 
     private void ZeroPressed()

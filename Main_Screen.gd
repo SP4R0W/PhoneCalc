@@ -86,6 +86,18 @@ func _on_Currency_pressed():
 	$Science_panel.hide()
 	
 	$Currency_Panel.show()
+	$Volume_Panel.hide()
+	$Length_Panel.hide()	
+	$Mass_Panel.hide()		
+	$Temperature_Panel.hide()
+	$Energy_Panel.hide()		
+	$Area_Panel.hide()	
+	$Velocity_Panel.hide()
+	$Time_Panel.hide()
+	$Power_Panel.hide()
+	$Data_Panel.hide()
+	$Pressure_Panel.hide()
+	$Angle_Panel.hide()
 	
 func _on_Volume_pressed():
 	calc_type = calculators.CONVERT
@@ -95,8 +107,19 @@ func _on_Volume_pressed():
 	$Normal_panel.hide()
 	$Science_panel.hide()
 	
+	$Currency_Panel.hide()
 	$Volume_Panel.show()
-
+	$Length_Panel.hide()	
+	$Mass_Panel.hide()		
+	$Temperature_Panel.hide()
+	$Energy_Panel.hide()		
+	$Area_Panel.hide()	
+	$Velocity_Panel.hide()
+	$Time_Panel.hide()
+	$Power_Panel.hide()
+	$Data_Panel.hide()
+	$Pressure_Panel.hide()
+	$Angle_Panel.hide()
 
 func _on_Length_pressed():
 	calc_type = calculators.CONVERT
@@ -106,7 +129,20 @@ func _on_Length_pressed():
 	$Normal_panel.hide()
 	$Science_panel.hide()
 	
-	$Length_Panel.show()
+	$Currency_Panel.hide()
+	$Volume_Panel.hide()
+	$Length_Panel.show()	
+	$Mass_Panel.hide()		
+	$Temperature_Panel.hide()
+	$Energy_Panel.hide()		
+	$Area_Panel.hide()	
+	$Velocity_Panel.hide()
+	$Time_Panel.hide()
+	$Power_Panel.hide()
+	$Data_Panel.hide()
+	$Pressure_Panel.hide()
+	$Angle_Panel.hide()
+
 
 func _on_Mass_pressed():
 	calc_type = calculators.CONVERT
@@ -116,7 +152,19 @@ func _on_Mass_pressed():
 	$Normal_panel.hide()
 	$Science_panel.hide()
 	
-	$Mass_Panel.show()
+	$Currency_Panel.hide()
+	$Volume_Panel.hide()
+	$Length_Panel.hide()	
+	$Mass_Panel.show()		
+	$Temperature_Panel.hide()
+	$Energy_Panel.hide()		
+	$Area_Panel.hide()	
+	$Velocity_Panel.hide()
+	$Time_Panel.hide()
+	$Power_Panel.hide()
+	$Data_Panel.hide()
+	$Pressure_Panel.hide()
+	$Angle_Panel.hide()
 
 func _on_Temperature_pressed():
 	calc_type = calculators.CONVERT
@@ -126,7 +174,19 @@ func _on_Temperature_pressed():
 	$Normal_panel.hide()
 	$Science_panel.hide()
 	
+	$Currency_Panel.hide()
+	$Volume_Panel.hide()
+	$Length_Panel.hide()	
+	$Mass_Panel.hide()		
 	$Temperature_Panel.show()
+	$Energy_Panel.hide()		
+	$Area_Panel.hide()	
+	$Velocity_Panel.hide()
+	$Time_Panel.hide()
+	$Power_Panel.hide()
+	$Data_Panel.hide()
+	$Pressure_Panel.hide()
+	$Angle_Panel.hide()
 	
 func _on_Energy_pressed():
 	calc_type = calculators.CONVERT
@@ -136,7 +196,19 @@ func _on_Energy_pressed():
 	$Normal_panel.hide()
 	$Science_panel.hide()
 	
-	$Energy_Panel.show()
+	$Currency_Panel.hide()
+	$Volume_Panel.hide()
+	$Length_Panel.hide()	
+	$Mass_Panel.hide()		
+	$Temperature_Panel.hide()
+	$Energy_Panel.show()		
+	$Area_Panel.hide()	
+	$Velocity_Panel.hide()
+	$Time_Panel.hide()
+	$Power_Panel.hide()
+	$Data_Panel.hide()
+	$Pressure_Panel.hide()
+	$Angle_Panel.hide()
 
 func _on_Surface_pressed():
 	calc_type = calculators.CONVERT
@@ -146,7 +218,19 @@ func _on_Surface_pressed():
 	$Normal_panel.hide()
 	$Science_panel.hide()
 	
-	$Area_Panel.show()
+	$Currency_Panel.hide()
+	$Volume_Panel.hide()
+	$Length_Panel.hide()	
+	$Mass_Panel.hide()		
+	$Temperature_Panel.hide()
+	$Energy_Panel.hide()		
+	$Area_Panel.show()	
+	$Velocity_Panel.hide()
+	$Time_Panel.hide()
+	$Power_Panel.hide()
+	$Data_Panel.hide()
+	$Pressure_Panel.hide()
+	$Angle_Panel.hide()
 	
 func _on_Velocity_pressed():
 	calc_type = calculators.CONVERT
@@ -156,7 +240,19 @@ func _on_Velocity_pressed():
 	$Normal_panel.hide()
 	$Science_panel.hide()
 	
+	$Currency_Panel.hide()
+	$Volume_Panel.hide()
+	$Length_Panel.hide()	
+	$Mass_Panel.hide()		
+	$Temperature_Panel.hide()
+	$Energy_Panel.hide()		
+	$Area_Panel.hide()	
 	$Velocity_Panel.show()
+	$Time_Panel.hide()
+	$Power_Panel.hide()
+	$Data_Panel.hide()
+	$Pressure_Panel.hide()
+	$Angle_Panel.hide()
 	
 func _on_Time_pressed():
 	calc_type = calculators.CONVERT
@@ -166,7 +262,19 @@ func _on_Time_pressed():
 	$Normal_panel.hide()
 	$Science_panel.hide()
 	
+	$Currency_Panel.hide()
+	$Volume_Panel.hide()
+	$Length_Panel.hide()	
+	$Mass_Panel.hide()		
+	$Temperature_Panel.hide()
+	$Energy_Panel.hide()		
+	$Area_Panel.hide()	
+	$Velocity_Panel.hide()
 	$Time_Panel.show()
+	$Power_Panel.hide()
+	$Data_Panel.hide()
+	$Pressure_Panel.hide()
+	$Angle_Panel.hide()
 	
 func _on_Power_pressed():
 	calc_type = calculators.CONVERT
@@ -176,7 +284,19 @@ func _on_Power_pressed():
 	$Normal_panel.hide()
 	$Science_panel.hide()
 	
+	$Currency_Panel.hide()
+	$Volume_Panel.hide()
+	$Length_Panel.hide()	
+	$Mass_Panel.hide()		
+	$Temperature_Panel.hide()
+	$Energy_Panel.hide()		
+	$Area_Panel.hide()	
+	$Velocity_Panel.hide()
+	$Time_Panel.hide()
 	$Power_Panel.show()
+	$Data_Panel.hide()
+	$Pressure_Panel.hide()
+	$Angle_Panel.hide()
 	
 func _on_Data_pressed():
 	calc_type = calculators.CONVERT
@@ -186,7 +306,19 @@ func _on_Data_pressed():
 	$Normal_panel.hide()
 	$Science_panel.hide()
 	
+	$Currency_Panel.hide()
+	$Volume_Panel.hide()
+	$Length_Panel.hide()	
+	$Mass_Panel.hide()		
+	$Temperature_Panel.hide()
+	$Energy_Panel.hide()		
+	$Area_Panel.hide()	
+	$Velocity_Panel.hide()
+	$Time_Panel.hide()
+	$Power_Panel.hide()
 	$Data_Panel.show()
+	$Pressure_Panel.hide()
+	$Angle_Panel.hide()
 
 func _on_Pressure_pressed():
 	calc_type = calculators.CONVERT
@@ -196,7 +328,19 @@ func _on_Pressure_pressed():
 	$Normal_panel.hide()
 	$Science_panel.hide()
 	
+	$Currency_Panel.hide()
+	$Volume_Panel.hide()
+	$Length_Panel.hide()	
+	$Mass_Panel.hide()		
+	$Temperature_Panel.hide()
+	$Energy_Panel.hide()		
+	$Area_Panel.hide()	
+	$Velocity_Panel.hide()
+	$Time_Panel.hide()
+	$Power_Panel.hide()
+	$Data_Panel.hide()
 	$Pressure_Panel.show()
+	$Angle_Panel.hide()
 
 func _on_Angle_pressed():
 	calc_type = calculators.CONVERT
@@ -206,5 +350,17 @@ func _on_Angle_pressed():
 	$Normal_panel.hide()
 	$Science_panel.hide()
 	
+	$Currency_Panel.hide()
+	$Volume_Panel.hide()
+	$Length_Panel.hide()	
+	$Mass_Panel.hide()		
+	$Temperature_Panel.hide()
+	$Energy_Panel.hide()		
+	$Area_Panel.hide()	
+	$Velocity_Panel.hide()
+	$Time_Panel.hide()
+	$Power_Panel.hide()
+	$Data_Panel.hide()
+	$Pressure_Panel.hide()
 	$Angle_Panel.show()
 

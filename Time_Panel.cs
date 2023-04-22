@@ -1,6 +1,7 @@
 using Godot;
 using System;
 using Godot.Collections;
+using System.Globalization;
 
 public class Time_Panel : Panel
 {
@@ -28,7 +29,7 @@ public class Time_Panel : Panel
 
     private string textValue = "0";
     private double convertedValue = 0;
-    
+
     private types type1 = types.MICRO;
     private types type2 = types.MILI;
 
@@ -120,6 +121,8 @@ public class Time_Panel : Panel
 
     public override void _Ready()
     {
+        CultureInfo.DefaultThreadCurrentCulture = new CultureInfo("en-US");
+
         cur1Label = GetNode<Label>("Display_normal/label_cur");
         cur2Label = GetNode<Label>("Display_normal/label_convert");
     }
@@ -165,12 +168,12 @@ public class Time_Panel : Panel
 
         CalculateValue();
     }
-    
+
     private void DotPressed()
     {
-        if (StringExtensions.Find(textValue,",") == -1)
+        if (StringExtensions.Find(textValue,".") == -1)
         {
-            textValue += ",";
+            textValue += ".";
         }
     }
 

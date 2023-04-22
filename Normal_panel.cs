@@ -1,6 +1,7 @@
 using Godot;
 using System;
 using Godot.Collections;
+using System.Globalization;
 
 public sealed class Normal_panel : Panel
 {
@@ -38,6 +39,8 @@ public sealed class Normal_panel : Panel
 
     public override void _Ready()
     {
+        CultureInfo.DefaultThreadCurrentCulture = new CultureInfo("en-US");
+
         label_action = GetNode<Label>("Display_normal/label_action");
         label_num = GetNode<Label>("Display_normal/label_num");
     }
@@ -226,13 +229,13 @@ public sealed class Normal_panel : Panel
 
         if (current_num == numbers.ONE)
         {
-            if (StringExtensions.Find(num1,",") == -1)
-                num1 += ",";
+            if (StringExtensions.Find(num1,".") == -1)
+                num1 += ".";
         }
         else if (current_num == numbers.TWO)
         {
-            if (StringExtensions.Find(num2,",") == -1)
-                num2 += ",";
+            if (StringExtensions.Find(num2,".") == -1)
+                num2 += ".";
         }
     }
 
@@ -246,7 +249,7 @@ public sealed class Normal_panel : Panel
         else if (current_num == numbers.TWO)
         {
             num2 = Convert.ToString(Convert.ToDouble(num2) * -1);
-        }        
+        }
     }
 
     private void EqlPressed()
@@ -295,8 +298,8 @@ public sealed class Normal_panel : Panel
             if (Convert.ToDouble(num1) < 0)
                 return;
 
-            num2 = Convert.ToString(Math.Sqrt(Convert.ToDouble(num2))); 
-        }      
+            num2 = Convert.ToString(Math.Sqrt(Convert.ToDouble(num2)));
+        }
     }
 
     private void PowPressed()
@@ -307,7 +310,7 @@ public sealed class Normal_panel : Panel
         if (current_num == numbers.ONE)
             num1 = Convert.ToString(Math.Pow(Convert.ToDouble(num1),2));
         else if (current_num == numbers.TWO)
-            num2 = Convert.ToString(Math.Pow(Convert.ToDouble(num2),2));        
+            num2 = Convert.ToString(Math.Pow(Convert.ToDouble(num2),2));
     }
 
     private void DivXPressed()
@@ -318,7 +321,7 @@ public sealed class Normal_panel : Panel
         if (current_num == numbers.ONE)
             num1 = Convert.ToString(1/Convert.ToDouble(num1));
         else if (current_num == numbers.TWO)
-            num2 = Convert.ToString(1/Convert.ToDouble(num2));        
+            num2 = Convert.ToString(1/Convert.ToDouble(num2));
     }
 
     private void PercentagePressed()
@@ -332,6 +335,6 @@ public sealed class Normal_panel : Panel
             string res = GetResAsFirst();
 
             num1 = Convert.ToString(Convert.ToDouble(res) * (Convert.ToDouble(res)/100));
-        }        
+        }
     }
 }
