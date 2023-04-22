@@ -1,9 +1,0 @@
-D:\Programming\Godot\PhoneCalc\.mono\temp\bin\ExportRelease\PhoneCalc.dll
-D:\Programming\Godot\PhoneCalc\.mono\temp\bin\ExportRelease\PhoneCalc.pdb
-D:\Programming\Godot\PhoneCalc\.mono\temp\obj\ExportRelease\PhoneCalc.csproj.AssemblyReference.cache
-D:\Programming\Godot\PhoneCalc\.mono\temp\obj\ExportRelease\PhoneCalc.GeneratedMSBuildEditorConfig.editorconfig
-D:\Programming\Godot\PhoneCalc\.mono\temp\obj\ExportRelease\PhoneCalc.AssemblyInfoInputs.cache
-D:\Programming\Godot\PhoneCalc\.mono\temp\obj\ExportRelease\PhoneCalc.AssemblyInfo.cs
-D:\Programming\Godot\PhoneCalc\.mono\temp\obj\ExportRelease\PhoneCalc.csproj.CoreCompileInputs.cache
-D:\Programming\Godot\PhoneCalc\.mono\temp\obj\ExportRelease\PhoneCalc.dll
-D:\Programming\Godot\PhoneCalc\.mono\temp\obj\ExportRelease\PhoneCalc.pdb
