@@ -1,8 +1,8 @@
-[gd_scene load_steps=35 format=2]
+[gd_scene load_steps=37 format=2]
 
 [ext_resource path="res://Main_Screen.gd" type="Script" id=1]
 [ext_resource path="res://Normal_panel.cs" type="Script" id=2]
-[ext_resource path="res://Button_Font.tres" type="DynamicFont" id=3]
+[ext_resource path="res://assets/Button_Font.tres" type="DynamicFont" id=3]
 [ext_resource path="res://assets/Roboto-Regular.ttf" type="DynamicFontData" id=4]
 [ext_resource path="res://assets/hamburger.png" type="Texture" id=5]
 [ext_resource path="res://assets/Cambria Math.ttf" type="DynamicFontData" id=6]
@@ -21,6 +21,7 @@
 [ext_resource path="res://Mass_Panel.cs" type="Script" id=19]
 [ext_resource path="res://Date_Panel.cs" type="Script" id=20]
 [ext_resource path="res://Currency_Panel.cs" type="Script" id=21]
+[ext_resource path="res://assets/Dark.theme" type="Theme" id=22]
 
 [sub_resource type="DynamicFont" id=2]
 size = 75
@@ -81,6 +82,12 @@ size = 64
 use_mipmaps = true
 use_filter = true
 font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=14]
+size = 72
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 6 )
 
 [sub_resource type="DynamicFont" id=1]
 size = 92
@@ -784,6 +791,7 @@ custom_constants/separation = 100
 margin_top = 110.0
 margin_right = 960.0
 margin_bottom = 210.0
+grow_horizontal = 2
 rect_min_size = Vector2( 0, 100 )
 
 [node name="Day1" type="Label" parent="Date_Panel/Display_normal/Labels1"]
@@ -793,6 +801,7 @@ margin_left = 80.0
 margin_top = -36.0
 margin_right = 160.0
 margin_bottom = 36.0
+grow_horizontal = 2
 custom_fonts/font = SubResource( 10 )
 text = "30"
 align = 1
@@ -807,8 +816,9 @@ margin_left = -199.5
 margin_top = -36.0
 margin_right = 199.5
 margin_bottom = 36.0
+grow_horizontal = 2
 custom_fonts/font = SubResource( 10 )
-text = "Października"
+text = "October"
 align = 1
 valign = 1
 
@@ -821,6 +831,7 @@ margin_left = -215.0
 margin_top = -36.0
 margin_right = -55.0
 margin_bottom = 36.0
+grow_horizontal = 2
 custom_fonts/font = SubResource( 10 )
 text = "2023"
 align = 1
@@ -838,33 +849,36 @@ margin_left = 30.0
 margin_right = 230.0
 margin_bottom = 100.0
 rect_min_size = Vector2( 200, 100 )
+theme = ExtResource( 22 )
 min_value = 1.0
 max_value = 30.0
 value = 30.0
 align = 1
-prefix = "Dzien"
+prefix = "Day"
 
 [node name="Month1" type="SpinBox" parent="Date_Panel/Display_normal/SpinBox1"]
 margin_left = 380.0
 margin_right = 580.0
 margin_bottom = 100.0
 rect_min_size = Vector2( 200, 100 )
+theme = ExtResource( 22 )
 min_value = 1.0
 max_value = 12.0
 value = 12.0
 align = 1
-prefix = "Miesiac"
+prefix = "Month"
 
 [node name="Year1" type="SpinBox" parent="Date_Panel/Display_normal/SpinBox1"]
 margin_left = 730.0
 margin_right = 930.0
 margin_bottom = 100.0
 rect_min_size = Vector2( 200, 100 )
+theme = ExtResource( 22 )
 min_value = 1601.0
 max_value = 2550.0
 value = 2023.0
 align = 1
-prefix = "Rok"
+prefix = "Year"
 
 [node name="HSeparator" type="HSeparator" parent="Date_Panel/Display_normal"]
 modulate = Color( 1, 1, 1, 0 )
@@ -886,6 +900,7 @@ margin_left = 80.0
 margin_top = -36.0
 margin_right = 160.0
 margin_bottom = 36.0
+grow_horizontal = 2
 custom_fonts/font = SubResource( 10 )
 text = "30"
 align = 1
@@ -900,8 +915,9 @@ margin_left = -199.5
 margin_top = -36.0
 margin_right = 199.5
 margin_bottom = 36.0
+grow_horizontal = 2
 custom_fonts/font = SubResource( 10 )
-text = "Października"
+text = "October"
 align = 1
 valign = 1
 
@@ -914,6 +930,7 @@ margin_left = -215.0
 margin_top = -36.0
 margin_right = -55.0
 margin_bottom = 36.0
+grow_horizontal = 2
 custom_fonts/font = SubResource( 10 )
 text = "2023"
 align = 1
@@ -931,33 +948,36 @@ margin_left = 30.0
 margin_right = 230.0
 margin_bottom = 100.0
 rect_min_size = Vector2( 200, 100 )
+theme = ExtResource( 22 )
 min_value = 1.0
 max_value = 30.0
 value = 30.0
 align = 1
-prefix = "Dzien"
+prefix = "Day"
 
 [node name="Month2" type="SpinBox" parent="Date_Panel/Display_normal/SpinBox2"]
 margin_left = 380.0
 margin_right = 580.0
 margin_bottom = 100.0
 rect_min_size = Vector2( 200, 100 )
+theme = ExtResource( 22 )
 min_value = 1.0
 max_value = 12.0
 value = 12.0
 align = 1
-prefix = "Miesiac"
+prefix = "Month"
 
 [node name="Year2" type="SpinBox" parent="Date_Panel/Display_normal/SpinBox2"]
 margin_left = 730.0
 margin_right = 930.0
 margin_bottom = 100.0
 rect_min_size = Vector2( 200, 100 )
+theme = ExtResource( 22 )
 min_value = 1601.0
 max_value = 2550.0
 value = 2023.0
 align = 1
-prefix = "Rok"
+prefix = "Year"
 
 [node name="Labels3" type="Panel" parent="Date_Panel/Display_normal"]
 margin_top = 610.0
@@ -968,12 +988,13 @@ rect_min_size = Vector2( 0, 100 )
 [node name="Years" type="Label" parent="Date_Panel/Display_normal/Labels3"]
 anchor_top = 0.5
 anchor_bottom = 0.5
-margin_left = 55.0
+margin_left = 40.0
 margin_top = -36.0
-margin_right = 188.0
+margin_right = 206.0
 margin_bottom = 36.0
+grow_horizontal = 2
 custom_fonts/font = SubResource( 10 )
-text = "Lata"
+text = "Years"
 align = 1
 valign = 1
 
@@ -986,8 +1007,9 @@ margin_left = -145.0
 margin_top = -36.0
 margin_right = 122.0
 margin_bottom = 36.0
+grow_horizontal = 2
 custom_fonts/font = SubResource( 10 )
-text = "Miesiące"
+text = "Months"
 align = 1
 valign = 1
 
@@ -1000,8 +1022,9 @@ margin_left = -190.0
 margin_top = -36.0
 margin_right = -82.0
 margin_bottom = 36.0
+grow_horizontal = 2
 custom_fonts/font = SubResource( 10 )
-text = "Dni"
+text = "Days"
 align = 1
 valign = 1
 
@@ -1017,6 +1040,7 @@ margin_left = 30.0
 margin_right = 230.0
 margin_bottom = 100.0
 rect_min_size = Vector2( 200, 100 )
+theme = ExtResource( 22 )
 max_value = 999.0
 align = 1
 
@@ -1025,6 +1049,7 @@ margin_left = 380.0
 margin_right = 580.0
 margin_bottom = 100.0
 rect_min_size = Vector2( 200, 100 )
+theme = ExtResource( 22 )
 max_value = 999.0
 align = 1
 
@@ -1033,6 +1058,7 @@ margin_left = 730.0
 margin_right = 930.0
 margin_bottom = 100.0
 rect_min_size = Vector2( 200, 100 )
+theme = ExtResource( 22 )
 max_value = 999.0
 align = 1
 
@@ -1056,7 +1082,8 @@ margin_top = -20.0
 margin_right = 76.0
 margin_bottom = 20.0
 custom_fonts/font = SubResource( 11 )
-text = "Różnica dat "
+text = "Difference"
+align = 2
 
 [node name="Add" type="CheckButton" parent="Date_Panel/Display_normal/Options"]
 anchor_left = 0.5
@@ -1068,7 +1095,8 @@ margin_top = -20.5
 margin_right = 84.0
 margin_bottom = 20.5
 custom_fonts/font = SubResource( 11 )
-text = "Dodaj "
+text = "Add "
+align = 2
 
 [node name="Sub" type="CheckButton" parent="Date_Panel/Display_normal/Options"]
 anchor_left = 1.0
@@ -1079,7 +1107,8 @@ margin_left = -203.0
 margin_top = -20.5
 margin_bottom = 20.5
 custom_fonts/font = SubResource( 11 )
-text = "Odejmij  "
+text = "Subtract  "
+align = 2
 
 [node name="HSeparator4" type="HSeparator" parent="Date_Panel/Display_normal"]
 modulate = Color( 1, 1, 1, 0 )
@@ -1101,7 +1130,7 @@ margin_top = -16.5
 margin_right = 434.0
 margin_bottom = 16.5
 custom_fonts/font = SubResource( 12 )
-text = "Różnica między datami wynosi:"
+text = "The difference between dates is:"
 
 [node name="HSeparator5" type="HSeparator" parent="Date_Panel/Display_normal"]
 modulate = Color( 1, 1, 1, 0 )
@@ -1115,7 +1144,7 @@ margin_top = 1330.0
 margin_right = 960.0
 margin_bottom = 1408.0
 custom_fonts/font = SubResource( 13 )
-text = "Ustaw datę 1 na dzisiejszą"
+text = "Set date 1 to current"
 
 [node name="HSeparator6" type="HSeparator" parent="Date_Panel/Display_normal"]
 modulate = Color( 1, 1, 1, 0 )
@@ -1129,7 +1158,7 @@ margin_top = 1453.0
 margin_right = 960.0
 margin_bottom = 1531.0
 custom_fonts/font = SubResource( 13 )
-text = "Ustaw datę 2 na dzisiejszą"
+text = "Set date 2 to current"
 
 [node name="Currency_Panel" type="Panel" parent="."]
 visible = false
@@ -1160,10 +1189,11 @@ valign = 2
 margin_top = 200.0
 margin_right = 960.0
 margin_bottom = 282.0
+theme = ExtResource( 22 )
 custom_fonts/font = SubResource( 9 )
-text = "Polska - Złoty"
+text = "Poland - PLN"
 align = 2
-items = [ "Polska - Złoty", null, false, 0, null, "USA - Dolar Amerykański", null, false, 1, null, "Unia Europejska - Euro", null, false, 2, null, "Wielka Brytania - Funt", null, false, 3, null, "Chiny - Juan", null, false, 4, null, "Japonia - Jen", null, false, 5, null, "Rosja - Rubel", null, false, 6, null, "Ukraina - Hrywna", null, false, 7, null ]
+items = [ "Poland - PLN", null, false, 0, null, "USA - USD", null, false, 1, null, "EU - Euro", null, false, 2, null, "UK - British Pound", null, false, 3, null, "China - Yuan", null, false, 4, null, "Japan - Yen", null, false, 5, null, "Russia - Rouble", null, false, 6, null, "Ukraine - Hryvnia", null, false, 7, null ]
 selected = 0
 
 [node name="label_convert" type="Label" parent="Currency_Panel/Display_normal"]
@@ -1179,10 +1209,11 @@ valign = 2
 margin_top = 420.0
 margin_right = 960.0
 margin_bottom = 502.0
+theme = ExtResource( 22 )
 custom_fonts/font = SubResource( 9 )
-text = "USA - Dolar Amerykański"
+text = "USA - USD"
 align = 2
-items = [ "Polska - Złoty", null, false, 0, null, "USA - Dolar Amerykański", null, false, 1, null, "Unia Europejska - Euro", null, false, 2, null, "Wielka Brytania - Funt", null, false, 3, null, "Chiny - Juan", null, false, 4, null, "Japonia - Jen", null, false, 5, null, "Rosja - Rubel", null, false, 6, null, "Ukraina - Hrywna", null, false, 7, null ]
+items = [ "Poland - PLN", null, false, 0, null, "USA - USD", null, false, 1, null, "EU - Euro", null, false, 2, null, "UK - British Pound", null, false, 3, null, "China - Yuan", null, false, 4, null, "Japan - Yen", null, false, 5, null, "Russia - Rouble", null, false, 6, null, "Ukraine - Hryvnia", null, false, 7, null ]
 selected = 1
 
 [node name="Value" type="Label" parent="Currency_Panel/Display_normal"]
@@ -1203,8 +1234,10 @@ margin_left = -380.0
 margin_top = -95.0
 margin_right = 370.0
 margin_bottom = 12.0
-custom_fonts/font = ExtResource( 3 )
-text = "Zaktualizuj kursy"
+grow_horizontal = 2
+grow_vertical = 2
+custom_fonts/font = SubResource( 14 )
+text = "Update exchange rates"
 
 [node name="Button_panel_normal" type="GridContainer" parent="Currency_Panel"]
 anchor_left = 0.5
@@ -1365,10 +1398,11 @@ valign = 2
 margin_top = 128.0
 margin_right = 960.0
 margin_bottom = 210.0
+theme = ExtResource( 22 )
 custom_fonts/font = SubResource( 9 )
-text = "Mililitry"
+text = "Mililitres"
 align = 2
-items = [ "Mililitry", null, false, 0, null, "Cm sześcienne", null, false, 1, null, "Litry", null, false, 2, null, "Metry sześcienne", null, false, 3, null, "Łyżeczki (USA)", null, false, 4, null, "Łyżki stołowe (USA)", null, false, 5, null, "Kubki (USA)", null, false, 6, null, "Galony (USA)", null, false, 7, null, "Łyżeczki (UK)", null, false, 8, null, "Łyżki stołowe (UK)", null, false, 9, null, "Galony (UK)", null, false, 10, null, "Uncje (US)", null, false, 11, null, "Uncje (UK)", null, false, 12, null ]
+items = [ "Mililitres", null, false, 0, null, "Cubic Centimetres", null, false, 1, null, "Liters", null, false, 2, null, "Cubic Metres", null, false, 3, null, "Spoons (USA)", null, false, 4, null, "Table Spoons (USA)", null, false, 5, null, "Cups (USA)", null, false, 6, null, "Gallons (USA)", null, false, 7, null, "Spoons (UK)", null, false, 8, null, "Table Spoons(UK)", null, false, 9, null, "Gallons (UK)", null, false, 10, null, "Ounces (US)", null, false, 11, null, "Ounces (UK)", null, false, 12, null ]
 selected = 0
 
 [node name="label_convert" type="Label" parent="Volume_Panel/Display_normal"]
@@ -1380,14 +1414,15 @@ text = "0"
 align = 2
 valign = 2
 
-[node name="OptionButton2" type="OptionButton" parent="Volume_Panel/Display_normal"]
+[node name="OptionButton3" type="OptionButton" parent="Volume_Panel/Display_normal"]
 margin_top = 348.0
 margin_right = 960.0
 margin_bottom = 430.0
+theme = ExtResource( 22 )
 custom_fonts/font = SubResource( 9 )
-text = "Cm sześcienne"
+text = "Cubic Centimetres"
 align = 2
-items = [ "Mililitry", null, false, 0, null, "Cm sześcienne", null, false, 1, null, "Litry", null, false, 2, null, "Metry sześcienne", null, false, 3, null, "Łyżeczki (USA)", null, false, 4, null, "Łyżki stołowe (USA)", null, false, 5, null, "Kubki (USA)", null, false, 6, null, "Galony (USA)", null, false, 7, null, "Łyżeczki (UK)", null, false, 8, null, "Łyżki stołowe (UK)", null, false, 9, null, "Galony (UK)", null, false, 10, null, "Uncje (US)", null, false, 11, null, "Uncje (UK)", null, false, 12, null ]
+items = [ "Mililitres", null, false, 0, null, "Cubic Centimetres", null, false, 1, null, "Liters", null, false, 2, null, "Cubic Metres", null, false, 3, null, "Spoons (USA)", null, false, 4, null, "Table Spoons (USA)", null, false, 5, null, "Cups (USA)", null, false, 6, null, "Gallons (USA)", null, false, 7, null, "Spoons (UK)", null, false, 8, null, "Table Spoons(UK)", null, false, 9, null, "Gallons (UK)", null, false, 10, null, "Ounces (US)", null, false, 11, null, "Ounces (UK)", null, false, 12, null ]
 selected = 1
 
 [node name="Button_panel_normal" type="GridContainer" parent="Volume_Panel"]
@@ -1549,10 +1584,11 @@ valign = 2
 margin_top = 128.0
 margin_right = 960.0
 margin_bottom = 210.0
+theme = ExtResource( 22 )
 custom_fonts/font = SubResource( 9 )
-text = "Nanometry"
+text = "Nanometres"
 align = 2
-items = [ "Nanometry", null, false, 0, null, "Mikrony", null, false, 1, null, "Milimetry", null, false, 2, null, "Centymetry", null, false, 3, null, "Metry", null, false, 4, null, "Kilometry", null, false, 5, null, "Cale", null, false, 6, null, "Stopy", null, false, 7, null, "Jardy", null, false, 8, null, "Mile", null, false, 9, null, "Mile morskie", null, false, 10, null ]
+items = [ "Nanometres", null, false, 0, null, "Microns", null, false, 1, null, "Milimetres", null, false, 2, null, "Centimetres", null, false, 3, null, "Metres", null, false, 4, null, "Kilometres", null, false, 5, null, "Inches", null, false, 6, null, "Feet", null, false, 7, null, "Yards", null, false, 8, null, "Miles", null, false, 9, null, "Nautical Miles", null, false, 10, null ]
 selected = 0
 
 [node name="label_convert" type="Label" parent="Length_Panel/Display_normal"]
@@ -1564,14 +1600,15 @@ text = "0"
 align = 2
 valign = 2
 
-[node name="OptionButton2" type="OptionButton" parent="Length_Panel/Display_normal"]
+[node name="OptionButton3" type="OptionButton" parent="Length_Panel/Display_normal"]
 margin_top = 348.0
 margin_right = 960.0
 margin_bottom = 430.0
+theme = ExtResource( 22 )
 custom_fonts/font = SubResource( 9 )
-text = "Mikrony"
+text = "Microns"
 align = 2
-items = [ "Nanometry", null, false, 0, null, "Mikrony", null, false, 1, null, "Milimetry", null, false, 2, null, "Centymetry", null, false, 3, null, "Metry", null, false, 4, null, "Kilometry", null, false, 5, null, "Cale", null, false, 6, null, "Stopy", null, false, 7, null, "Jardy", null, false, 8, null, "Mile", null, false, 9, null, "Mile morskie", null, false, 10, null ]
+items = [ "Nanometres", null, false, 0, null, "Microns", null, false, 1, null, "Milimetres", null, false, 2, null, "Centimetres", null, false, 3, null, "Metres", null, false, 4, null, "Kilometres", null, false, 5, null, "Inches", null, false, 6, null, "Feet", null, false, 7, null, "Yards", null, false, 8, null, "Miles", null, false, 9, null, "Nautical Miles", null, false, 10, null ]
 selected = 1
 
 [node name="Button_panel_normal" type="GridContainer" parent="Length_Panel"]
@@ -1733,10 +1770,11 @@ valign = 2
 margin_top = 128.0
 margin_right = 960.0
 margin_bottom = 210.0
+theme = ExtResource( 22 )
 custom_fonts/font = SubResource( 9 )
-text = "Karaty"
+text = "Carats"
 align = 2
-items = [ "Karaty", null, false, 0, null, "Gramy", null, false, 1, null, "Kilogramy", null, false, 2, null, "Tony", null, false, 3, null, "Uncje", null, false, 4, null, "Funty", null, false, 5, null ]
+items = [ "Carats", null, false, 0, null, "Grams", null, false, 1, null, "Kilograms", null, false, 2, null, "Tons", null, false, 3, null, "Ounces", null, false, 4, null, "Pounds", null, false, 5, null ]
 selected = 0
 
 [node name="label_convert" type="Label" parent="Mass_Panel/Display_normal"]
@@ -1748,14 +1786,15 @@ text = "0"
 align = 2
 valign = 2
 
-[node name="OptionButton4" type="OptionButton" parent="Mass_Panel/Display_normal"]
+[node name="OptionButton5" type="OptionButton" parent="Mass_Panel/Display_normal"]
 margin_top = 348.0
 margin_right = 960.0
 margin_bottom = 430.0
+theme = ExtResource( 22 )
 custom_fonts/font = SubResource( 9 )
-text = "Gramy"
+text = "Grams"
 align = 2
-items = [ "Karaty", null, false, 0, null, "Gramy", null, false, 1, null, "Kilogramy", null, false, 2, null, "Tony", null, false, 3, null, "Uncje", null, false, 4, null, "Funty", null, false, 5, null ]
+items = [ "Carats", null, false, 0, null, "Grams", null, false, 1, null, "Kilograms", null, false, 2, null, "Tons", null, false, 3, null, "Ounces", null, false, 4, null, "Pounds", null, false, 5, null ]
 selected = 1
 
 [node name="Button_panel_normal" type="GridContainer" parent="Mass_Panel"]
@@ -1917,10 +1956,11 @@ valign = 2
 margin_top = 128.0
 margin_right = 960.0
 margin_bottom = 210.0
+theme = ExtResource( 22 )
 custom_fonts/font = SubResource( 9 )
-text = "Celsjusz"
+text = "Celsius"
 align = 2
-items = [ "Celsjusz", null, false, 0, null, "Fahrenheit", null, false, 1, null, "Kelwin", null, false, 2, null ]
+items = [ "Celsius", null, false, 0, null, "Fahrenheit", null, false, 1, null, "Kelvin", null, false, 2, null ]
 selected = 0
 
 [node name="label_convert" type="Label" parent="Temperature_Panel/Display_normal"]
@@ -1932,14 +1972,15 @@ text = "0"
 align = 2
 valign = 2
 
-[node name="OptionButton2" type="OptionButton" parent="Temperature_Panel/Display_normal"]
+[node name="OptionButton3" type="OptionButton" parent="Temperature_Panel/Display_normal"]
 margin_top = 348.0
 margin_right = 960.0
 margin_bottom = 430.0
+theme = ExtResource( 22 )
 custom_fonts/font = SubResource( 9 )
 text = "Fahrenheit"
 align = 2
-items = [ "Celsjusz", null, false, 0, null, "Fahrenheit", null, false, 1, null, "Kelwin", null, false, 2, null ]
+items = [ "Celsius", null, false, 0, null, "Fahrenheit", null, false, 1, null, "Kelvin", null, false, 2, null ]
 selected = 1
 
 [node name="Button_panel_normal" type="GridContainer" parent="Temperature_Panel"]
@@ -2104,10 +2145,11 @@ valign = 2
 margin_top = 128.0
 margin_right = 960.0
 margin_bottom = 210.0
+theme = ExtResource( 22 )
 custom_fonts/font = SubResource( 9 )
-text = "Dżule"
+text = "Joule"
 align = 2
-items = [ "Dżule", null, false, 0, null, "Kilodżule", null, false, 1, null, "Kalorie", null, false, 2, null, "Kilokalorie", null, false, 3, null, "Stopofunty", null, false, 4, null, "Jednostki BTU", null, false, 5, null ]
+items = [ "Joule", null, false, 0, null, "Kilojoule", null, false, 1, null, "Calories", null, false, 2, null, "Kilocalories", null, false, 3, null, "Pound-foot", null, false, 4, null, "BTU", null, false, 5, null ]
 selected = 0
 
 [node name="label_convert" type="Label" parent="Energy_Panel/Display_normal"]
@@ -2119,14 +2161,15 @@ text = "0"
 align = 2
 valign = 2
 
-[node name="OptionButton4" type="OptionButton" parent="Energy_Panel/Display_normal"]
+[node name="OptionButton5" type="OptionButton" parent="Energy_Panel/Display_normal"]
 margin_top = 348.0
 margin_right = 960.0
 margin_bottom = 430.0
+theme = ExtResource( 22 )
 custom_fonts/font = SubResource( 9 )
-text = "Kilodżule"
+text = "Kilojoule"
 align = 2
-items = [ "Dżule", null, false, 0, null, "Kilodżule", null, false, 1, null, "Kalorie", null, false, 2, null, "Kilokalorie", null, false, 3, null, "Stopofunty", null, false, 4, null, "Jednostki BTU", null, false, 5, null ]
+items = [ "Joule", null, false, 0, null, "Kilojoule", null, false, 1, null, "Calories", null, false, 2, null, "Kilocalories", null, false, 3, null, "Pound-foot", null, false, 4, null, "BTU", null, false, 5, null ]
 selected = 1
 
 [node name="Button_panel_normal" type="GridContainer" parent="Energy_Panel"]
@@ -2288,10 +2331,11 @@ valign = 2
 margin_top = 128.0
 margin_right = 960.0
 margin_bottom = 210.0
+theme = ExtResource( 22 )
 custom_fonts/font = SubResource( 9 )
-text = "Milimetry kwadratowe"
+text = "Square Milimetres"
 align = 2
-items = [ "Milimetry kwadratowe", null, false, 0, null, "Centymentry kwadratowe", null, false, 1, null, "Metry kwadratowe", null, false, 2, null, "Kilometry kwadratowe", null, false, 3, null, "Mile kwadratowe", null, false, 4, null, "Ary", null, false, 5, null, "Hektary", null, false, 6, null ]
+items = [ "Square Milimetres", null, false, 0, null, "Square Centimetres", null, false, 1, null, "Square Metres", null, false, 2, null, "Square Kilometres", null, false, 3, null, "Square Miles", null, false, 4, null, "Are", null, false, 5, null, "Hectares", null, false, 6, null ]
 selected = 0
 
 [node name="label_convert" type="Label" parent="Area_Panel/Display_normal"]
@@ -2303,14 +2347,15 @@ text = "0"
 align = 2
 valign = 2
 
-[node name="OptionButton4" type="OptionButton" parent="Area_Panel/Display_normal"]
+[node name="OptionButton5" type="OptionButton" parent="Area_Panel/Display_normal"]
 margin_top = 348.0
 margin_right = 960.0
 margin_bottom = 430.0
+theme = ExtResource( 22 )
 custom_fonts/font = SubResource( 9 )
-text = "Centymentry kwadratowe"
+text = "Square Centimetres"
 align = 2
-items = [ "Milimetry kwadratowe", null, false, 0, null, "Centymentry kwadratowe", null, false, 1, null, "Metry kwadratowe", null, false, 2, null, "Kilometry kwadratowe", null, false, 3, null, "Mile kwadratowe", null, false, 4, null, "Ary", null, false, 5, null, "Hektary", null, false, 6, null ]
+items = [ "Square Milimetres", null, false, 0, null, "Square Centimetres", null, false, 1, null, "Square Metres", null, false, 2, null, "Square Kilometres", null, false, 3, null, "Square Miles", null, false, 4, null, "Are", null, false, 5, null, "Hectares", null, false, 6, null ]
 selected = 1
 
 [node name="Button_panel_normal" type="GridContainer" parent="Area_Panel"]
@@ -2472,10 +2517,11 @@ valign = 2
 margin_top = 128.0
 margin_right = 960.0
 margin_bottom = 210.0
+theme = ExtResource( 22 )
 custom_fonts/font = SubResource( 9 )
 text = "Cm/s"
 align = 2
-items = [ "Cm/s", null, false, 0, null, "m/s", null, false, 1, null, "Km/h", null, false, 2, null, "Stopy/s", null, false, 3, null, "Mile/h", null, false, 4, null ]
+items = [ "Cm/s", null, false, 0, null, "M/s", null, false, 1, null, "Km/h", null, false, 2, null, "Feet/s", null, false, 3, null, "Miles/h", null, false, 4, null ]
 selected = 0
 
 [node name="label_convert" type="Label" parent="Velocity_Panel/Display_normal"]
@@ -2491,10 +2537,11 @@ valign = 2
 margin_top = 348.0
 margin_right = 960.0
 margin_bottom = 430.0
+theme = ExtResource( 22 )
 custom_fonts/font = SubResource( 9 )
-text = "m/s"
+text = "M/s"
 align = 2
-items = [ "Cm/s", null, false, 0, null, "m/s", null, false, 1, null, "Km/h", null, false, 2, null, "Stopy/s", null, false, 3, null, "Mile/h", null, false, 4, null ]
+items = [ "Cm/s", null, false, 0, null, "M/s", null, false, 1, null, "Km/h", null, false, 2, null, "Feet/s", null, false, 3, null, "Miles/h", null, false, 4, null ]
 selected = 1
 
 [node name="Button_panel_normal" type="GridContainer" parent="Velocity_Panel"]
@@ -2656,10 +2703,11 @@ valign = 2
 margin_top = 128.0
 margin_right = 960.0
 margin_bottom = 210.0
+theme = ExtResource( 22 )
 custom_fonts/font = SubResource( 9 )
-text = "Mikrosekundy"
+text = "Microseconds"
 align = 2
-items = [ "Mikrosekundy", null, false, 0, null, "Milisekundy", null, false, 1, null, "Sekundy", null, false, 2, null, "Minuty", null, false, 3, null, "Godziny", null, false, 4, null, "Dni", null, false, 5, null, "Tygodnie", null, false, 6, null, "Lata", null, false, 7, null ]
+items = [ "Microseconds", null, false, 0, null, "Miliseconds", null, false, 1, null, "Seconds", null, false, 2, null, "Minutes", null, false, 3, null, "Hours", null, false, 4, null, "Days", null, false, 5, null, "Weeks", null, false, 6, null, "Years", null, false, 7, null ]
 selected = 0
 
 [node name="label_convert" type="Label" parent="Time_Panel/Display_normal"]
@@ -2671,14 +2719,15 @@ text = "0"
 align = 2
 valign = 2
 
-[node name="OptionButton6" type="OptionButton" parent="Time_Panel/Display_normal"]
+[node name="OptionButton7" type="OptionButton" parent="Time_Panel/Display_normal"]
 margin_top = 348.0
 margin_right = 960.0
 margin_bottom = 430.0
+theme = ExtResource( 22 )
 custom_fonts/font = SubResource( 9 )
-text = "Milisekundy"
+text = "Miliseconds"
 align = 2
-items = [ "Mikrosekundy", null, false, 0, null, "Milisekundy", null, false, 1, null, "Sekundy", null, false, 2, null, "Minuty", null, false, 3, null, "Godziny", null, false, 4, null, "Dni", null, false, 5, null, "Tygodnie", null, false, 6, null, "Lata", null, false, 7, null ]
+items = [ "Microseconds", null, false, 0, null, "Miliseconds", null, false, 1, null, "Seconds", null, false, 2, null, "Minutes", null, false, 3, null, "Hours", null, false, 4, null, "Days", null, false, 5, null, "Weeks", null, false, 6, null, "Years", null, false, 7, null ]
 selected = 1
 
 [node name="Button_panel_normal" type="GridContainer" parent="Time_Panel"]
@@ -2840,10 +2889,11 @@ valign = 2
 margin_top = 128.0
 margin_right = 960.0
 margin_bottom = 210.0
+theme = ExtResource( 22 )
 custom_fonts/font = SubResource( 9 )
-text = "Waty"
+text = "Watts"
 align = 2
-items = [ "Waty", null, false, 0, null, "Kilowaty", null, false, 1, null, "Koń mechaniczny", null, false, 2, null, "Stopofunty/minutę", null, false, 3, null, "BTU/min", null, false, 4, null ]
+items = [ "Watts", null, false, 0, null, "Kilowatts", null, false, 1, null, "Horsepower", null, false, 2, null, "Pount-feet/minute", null, false, 3, null, "BTU/minute", null, false, 4, null ]
 selected = 0
 
 [node name="label_convert" type="Label" parent="Power_Panel/Display_normal"]
@@ -2855,14 +2905,15 @@ text = "0"
 align = 2
 valign = 2
 
-[node name="OptionButton2" type="OptionButton" parent="Power_Panel/Display_normal"]
+[node name="OptionButton3" type="OptionButton" parent="Power_Panel/Display_normal"]
 margin_top = 348.0
 margin_right = 960.0
 margin_bottom = 430.0
+theme = ExtResource( 22 )
 custom_fonts/font = SubResource( 9 )
-text = "Kilowaty"
+text = "Kilowatts"
 align = 2
-items = [ "Waty", null, false, 0, null, "Kilowaty", null, false, 1, null, "Koń mechaniczny", null, false, 2, null, "Stopofunty/minutę", null, false, 3, null, "BTU/min", null, false, 4, null ]
+items = [ "Watts", null, false, 0, null, "Kilowatts", null, false, 1, null, "Horsepower", null, false, 2, null, "Pount-feet/minute", null, false, 3, null, "BTU/minute", null, false, 4, null ]
 selected = 1
 
 [node name="Button_panel_normal" type="GridContainer" parent="Power_Panel"]
@@ -3027,10 +3078,11 @@ valign = 2
 margin_top = 128.0
 margin_right = 960.0
 margin_bottom = 210.0
+theme = ExtResource( 22 )
 custom_fonts/font = SubResource( 9 )
-text = "Bity"
+text = "Bits"
 align = 2
-items = [ "Bity", null, false, 0, null, "Bajty", null, false, 1, null, "Kilobity", null, false, 2, null, "Kibibity", null, false, 3, null, "Kilobajty", null, false, 4, null, "Kibibajty", null, false, 5, null, "Megabity", null, false, 6, null, "Mebibity", null, false, 7, null, "Megabajty", null, false, 8, null, "Mebibajty", null, false, 9, null, "Gigabity", null, false, 10, null, "Gibibity", null, false, 11, null, "Gigabajty", null, false, 12, null, "Gibibajty", null, false, 13, null, "Terabity", null, false, 14, null, "Tebibity", null, false, 15, null, "Terabajty", null, false, 16, null, "Tebibajty", null, false, 17, null ]
+items = [ "Bits", null, false, 0, null, "Bytes", null, false, 1, null, "Kilobytes", null, false, 2, null, "Kibibits", null, false, 3, null, "Kilobytes", null, false, 4, null, "Kibibytes", null, false, 5, null, "Megabits", null, false, 6, null, "Mebibits", null, false, 7, null, "Megabytes", null, false, 8, null, "Mebibytes", null, false, 9, null, "Gigabits", null, false, 10, null, "Gibibits", null, false, 11, null, "Gigabytes", null, false, 12, null, "Gibibytes", null, false, 13, null, "Terabits", null, false, 14, null, "Tebibity", null, false, 15, null, "Terabytes", null, false, 16, null, "Tebibytes", null, false, 17, null ]
 selected = 0
 
 [node name="label_convert" type="Label" parent="Data_Panel/Display_normal"]
@@ -3042,14 +3094,15 @@ text = "0"
 align = 2
 valign = 2
 
-[node name="OptionButton5" type="OptionButton" parent="Data_Panel/Display_normal"]
+[node name="OptionButton4" type="OptionButton" parent="Data_Panel/Display_normal"]
 margin_top = 348.0
 margin_right = 960.0
 margin_bottom = 430.0
+theme = ExtResource( 22 )
 custom_fonts/font = SubResource( 9 )
-text = "Bajty"
+text = "Bytes"
 align = 2
-items = [ "Bity", null, false, 0, null, "Bajty", null, false, 1, null, "Kilobity", null, false, 2, null, "Kibibity", null, false, 3, null, "Kilobajty", null, false, 4, null, "Kibibajty", null, false, 5, null, "Megabity", null, false, 6, null, "Mebibity", null, false, 7, null, "Megabajty", null, false, 8, null, "Mebibajty", null, false, 9, null, "Gigabity", null, false, 10, null, "Gibibity", null, false, 11, null, "Gigabajty", null, false, 12, null, "Gibibajty", null, false, 13, null, "Terabity", null, false, 14, null, "Tebibity", null, false, 15, null, "Terabajty", null, false, 16, null, "Tebibajty", null, false, 17, null ]
+items = [ "Bits", null, false, 0, null, "Bytes", null, false, 1, null, "Kilobytes", null, false, 2, null, "Kibibits", null, false, 3, null, "Kilobytes", null, false, 4, null, "Kibibytes", null, false, 5, null, "Megabits", null, false, 6, null, "Mebibits", null, false, 7, null, "Megabytes", null, false, 8, null, "Mebibytes", null, false, 9, null, "Gigabits", null, false, 10, null, "Gibibits", null, false, 11, null, "Gigabytes", null, false, 12, null, "Gibibytes", null, false, 13, null, "Terabits", null, false, 14, null, "Tebibity", null, false, 15, null, "Terabytes", null, false, 16, null, "Tebibytes", null, false, 17, null ]
 selected = 1
 
 [node name="Button_panel_normal" type="GridContainer" parent="Data_Panel"]
@@ -3211,10 +3264,11 @@ valign = 2
 margin_top = 128.0
 margin_right = 960.0
 margin_bottom = 210.0
+theme = ExtResource( 22 )
 custom_fonts/font = SubResource( 9 )
-text = "Atmosfery"
+text = "Atmosphere"
 align = 2
-items = [ "Atmosfery", null, false, 0, null, "Bary", null, false, 1, null, "Kilopaskale", null, false, 2, null, "Milimetry słupa rtęci", null, false, 3, null, "Paskale", null, false, 4, null, "Funty na cal kwadratowy", null, false, 5, null ]
+items = [ "Atmosphere", null, false, 0, null, "Bars", null, false, 1, null, "Kilopascal", null, false, 2, null, "Milimetre of mercury", null, false, 3, null, "Pascals", null, false, 4, null, "PSI", null, false, 5, null ]
 selected = 0
 
 [node name="label_convert" type="Label" parent="Pressure_Panel/Display_normal"]
@@ -3226,14 +3280,15 @@ text = "0"
 align = 2
 valign = 2
 
-[node name="OptionButton2" type="OptionButton" parent="Pressure_Panel/Display_normal"]
+[node name="OptionButton3" type="OptionButton" parent="Pressure_Panel/Display_normal"]
 margin_top = 348.0
 margin_right = 960.0
 margin_bottom = 430.0
+theme = ExtResource( 22 )
 custom_fonts/font = SubResource( 9 )
-text = "Bary"
+text = "Bars"
 align = 2
-items = [ "Atmosfery", null, false, 0, null, "Bary", null, false, 1, null, "Kilopaskale", null, false, 2, null, "Milimetry słupa rtęci", null, false, 3, null, "Paskale", null, false, 4, null, "Funty na cal kwadratowy", null, false, 5, null ]
+items = [ "Atmosphere", null, false, 0, null, "Bars", null, false, 1, null, "Kilopascal", null, false, 2, null, "Milimetre of mercury", null, false, 3, null, "Pascals", null, false, 4, null, "PSI", null, false, 5, null ]
 selected = 1
 
 [node name="Button_panel_normal" type="GridContainer" parent="Pressure_Panel"]
@@ -3395,10 +3450,11 @@ valign = 2
 margin_top = 128.0
 margin_right = 960.0
 margin_bottom = 210.0
+theme = ExtResource( 22 )
 custom_fonts/font = SubResource( 9 )
-text = "Stopnie"
+text = "Degrees"
 align = 2
-items = [ "Stopnie", null, false, 0, null, "Radiany", null, false, 1, null, "Gradiany", null, false, 2, null ]
+items = [ "Degrees", null, false, 0, null, "Radians", null, false, 1, null, "Gradians", null, false, 2, null ]
 selected = 0
 
 [node name="label_convert" type="Label" parent="Angle_Panel/Display_normal"]
@@ -3414,10 +3470,11 @@ valign = 2
 margin_top = 348.0
 margin_right = 960.0
 margin_bottom = 430.0
+theme = ExtResource( 22 )
 custom_fonts/font = SubResource( 9 )
-text = "Radiany"
+text = "Radians"
 align = 2
-items = [ "Stopnie", null, false, 0, null, "Radiany", null, false, 1, null, "Gradiany", null, false, 2, null ]
+items = [ "Degrees", null, false, 0, null, "Radians", null, false, 1, null, "Gradians", null, false, 2, null ]
 selected = 1
 
 [node name="Button_panel_normal" type="GridContainer" parent="Angle_Panel"]
@@ -3606,7 +3663,7 @@ custom_constants/separation = 50
 margin_right = 464.0
 margin_bottom = 85.0
 custom_fonts/font = SubResource( 7 )
-text = "Kalkulatory:"
+text = "Calculators:"
 align = 1
 valign = 1
 
@@ -3620,28 +3677,28 @@ custom_constants/separation = 25
 margin_right = 464.0
 margin_bottom = 71.0
 custom_fonts/font = SubResource( 8 )
-text = "Standardowy"
+text = "Standard"
 
 [node name="Science" type="Button" parent="Hamburger_panel/Container/Calculator_buttons"]
 margin_top = 96.0
 margin_right = 464.0
 margin_bottom = 167.0
 custom_fonts/font = SubResource( 8 )
-text = "Naukowy"
+text = "Science"
 
 [node name="Date" type="Button" parent="Hamburger_panel/Container/Calculator_buttons"]
 margin_top = 192.0
 margin_right = 464.0
 margin_bottom = 263.0
 custom_fonts/font = SubResource( 8 )
-text = "Daty"
+text = "Dates"
 
 [node name="Label2" type="Label" parent="Hamburger_panel/Container"]
 margin_top = 448.0
 margin_right = 464.0
 margin_bottom = 533.0
 custom_fonts/font = SubResource( 7 )
-text = "Konwertery:"
+text = "Converters:"
 align = 1
 valign = 1
 
@@ -3662,91 +3719,91 @@ custom_constants/separation = 30
 margin_right = 452.0
 margin_bottom = 71.0
 custom_fonts/font = SubResource( 8 )
-text = "Waluta"
+text = "Currency"
 
 [node name="Volume" type="Button" parent="Hamburger_panel/Container/Converters/VBoxContainer"]
 margin_top = 101.0
 margin_right = 452.0
 margin_bottom = 172.0
 custom_fonts/font = SubResource( 8 )
-text = "Objętość"
+text = "Volume"
 
 [node name="Length" type="Button" parent="Hamburger_panel/Container/Converters/VBoxContainer"]
 margin_top = 202.0
 margin_right = 452.0
 margin_bottom = 273.0
 custom_fonts/font = SubResource( 8 )
-text = "Długość"
+text = "Length"
 
 [node name="Mass" type="Button" parent="Hamburger_panel/Container/Converters/VBoxContainer"]
 margin_top = 303.0
 margin_right = 452.0
 margin_bottom = 374.0
 custom_fonts/font = SubResource( 8 )
-text = "Ciężar i masa"
+text = "Mass"
 
 [node name="Temperature" type="Button" parent="Hamburger_panel/Container/Converters/VBoxContainer"]
 margin_top = 404.0
 margin_right = 452.0
 margin_bottom = 475.0
 custom_fonts/font = SubResource( 8 )
-text = "Temperatura"
+text = "Temperature"
 
 [node name="Energy" type="Button" parent="Hamburger_panel/Container/Converters/VBoxContainer"]
 margin_top = 505.0
 margin_right = 452.0
 margin_bottom = 576.0
 custom_fonts/font = SubResource( 8 )
-text = "Energia"
+text = "Energy"
 
 [node name="Surface" type="Button" parent="Hamburger_panel/Container/Converters/VBoxContainer"]
 margin_top = 606.0
 margin_right = 452.0
 margin_bottom = 677.0
 custom_fonts/font = SubResource( 8 )
-text = "Powierzchnia"
+text = "Surface"
 
 [node name="Velocity" type="Button" parent="Hamburger_panel/Container/Converters/VBoxContainer"]
 margin_top = 707.0
 margin_right = 452.0
 margin_bottom = 778.0
 custom_fonts/font = SubResource( 8 )
-text = "Prędkość"
+text = "Speed"
 
 [node name="Time" type="Button" parent="Hamburger_panel/Container/Converters/VBoxContainer"]
 margin_top = 808.0
 margin_right = 452.0
 margin_bottom = 879.0
 custom_fonts/font = SubResource( 8 )
-text = "Czas"
+text = "Time"
 
 [node name="Power" type="Button" parent="Hamburger_panel/Container/Converters/VBoxContainer"]
 margin_top = 909.0
 margin_right = 452.0
 margin_bottom = 980.0
 custom_fonts/font = SubResource( 8 )
-text = "Zasilanie"
+text = "Power"
 
 [node name="Data" type="Button" parent="Hamburger_panel/Container/Converters/VBoxContainer"]
 margin_top = 1010.0
 margin_right = 452.0
 margin_bottom = 1081.0
 custom_fonts/font = SubResource( 8 )
-text = "Dane"
+text = "Data"
 
 [node name="Pressure" type="Button" parent="Hamburger_panel/Container/Converters/VBoxContainer"]
 margin_top = 1111.0
 margin_right = 452.0
 margin_bottom = 1182.0
 custom_fonts/font = SubResource( 8 )
-text = "Ciśnienie"
+text = "Pressure"
 
 [node name="Angle" type="Button" parent="Hamburger_panel/Container/Converters/VBoxContainer"]
 margin_top = 1212.0
 margin_right = 452.0
 margin_bottom = 1283.0
 custom_fonts/font = SubResource( 8 )
-text = "Kąt"
+text = "Angle"
 
 [node name="Tween" type="Tween" parent="Hamburger_panel"]
 
@@ -3839,7 +3896,7 @@ text = "Kąt"
 [connection signal="pressed" from="Currency_Panel/Button_panel_normal/0_button" to="Currency_Panel" method="ZeroPressed"]
 [connection signal="pressed" from="Currency_Panel/Button_panel_normal/dot_button" to="Currency_Panel" method="DotPressed"]
 [connection signal="item_selected" from="Volume_Panel/Display_normal/OptionButton" to="Volume_Panel" method="SelectCur1"]
-[connection signal="item_selected" from="Volume_Panel/Display_normal/OptionButton2" to="Volume_Panel" method="SelectCur2"]
+[connection signal="item_selected" from="Volume_Panel/Display_normal/OptionButton3" to="Volume_Panel" method="SelectCur2"]
 [connection signal="pressed" from="Volume_Panel/Button_panel_normal/C_button" to="Volume_Panel" method="CPressed"]
 [connection signal="pressed" from="Volume_Panel/Button_panel_normal/Del_button" to="Volume_Panel" method="DelPressed"]
 [connection signal="pressed" from="Volume_Panel/Button_panel_normal/7_button" to="Volume_Panel" method="SevenPressed"]
@@ -3854,7 +3911,7 @@ text = "Kąt"
 [connection signal="pressed" from="Volume_Panel/Button_panel_normal/0_button" to="Volume_Panel" method="ZeroPressed"]
 [connection signal="pressed" from="Volume_Panel/Button_panel_normal/dot_button" to="Volume_Panel" method="DotPressed"]
 [connection signal="item_selected" from="Length_Panel/Display_normal/OptionButton" to="Length_Panel" method="SelectCur1"]
-[connection signal="item_selected" from="Length_Panel/Display_normal/OptionButton2" to="Length_Panel" method="SelectCur2"]
+[connection signal="item_selected" from="Length_Panel/Display_normal/OptionButton3" to="Length_Panel" method="SelectCur2"]
 [connection signal="pressed" from="Length_Panel/Button_panel_normal/C_button" to="Length_Panel" method="CPressed"]
 [connection signal="pressed" from="Length_Panel/Button_panel_normal/Del_button" to="Length_Panel" method="DelPressed"]
 [connection signal="pressed" from="Length_Panel/Button_panel_normal/7_button" to="Length_Panel" method="SevenPressed"]
@@ -3869,7 +3926,7 @@ text = "Kąt"
 [connection signal="pressed" from="Length_Panel/Button_panel_normal/0_button" to="Length_Panel" method="ZeroPressed"]
 [connection signal="pressed" from="Length_Panel/Button_panel_normal/dot_button" to="Length_Panel" method="DotPressed"]
 [connection signal="item_selected" from="Mass_Panel/Display_normal/OptionButton3" to="Mass_Panel" method="SelectCur1"]
-[connection signal="item_selected" from="Mass_Panel/Display_normal/OptionButton4" to="Mass_Panel" method="SelectCur2"]
+[connection signal="item_selected" from="Mass_Panel/Display_normal/OptionButton5" to="Mass_Panel" method="SelectCur2"]
 [connection signal="pressed" from="Mass_Panel/Button_panel_normal/C_button" to="Mass_Panel" method="CPressed"]
 [connection signal="pressed" from="Mass_Panel/Button_panel_normal/Del_button" to="Mass_Panel" method="DelPressed"]
 [connection signal="pressed" from="Mass_Panel/Button_panel_normal/7_button" to="Mass_Panel" method="SevenPressed"]
@@ -3884,7 +3941,7 @@ text = "Kąt"
 [connection signal="pressed" from="Mass_Panel/Button_panel_normal/0_button" to="Mass_Panel" method="ZeroPressed"]
 [connection signal="pressed" from="Mass_Panel/Button_panel_normal/dot_button" to="Mass_Panel" method="DotPressed"]
 [connection signal="item_selected" from="Temperature_Panel/Display_normal/OptionButton" to="Temperature_Panel" method="SelectCur1"]
-[connection signal="item_selected" from="Temperature_Panel/Display_normal/OptionButton2" to="Temperature_Panel" method="SelectCur2"]
+[connection signal="item_selected" from="Temperature_Panel/Display_normal/OptionButton3" to="Temperature_Panel" method="SelectCur2"]
 [connection signal="pressed" from="Temperature_Panel/Button_panel_normal/C_button" to="Temperature_Panel" method="CPressed"]
 [connection signal="pressed" from="Temperature_Panel/Button_panel_normal/Del_button" to="Temperature_Panel" method="DelPressed"]
 [connection signal="pressed" from="Temperature_Panel/Button_panel_normal/7_button" to="Temperature_Panel" method="SevenPressed"]
@@ -3900,7 +3957,7 @@ text = "Kąt"
 [connection signal="pressed" from="Temperature_Panel/Button_panel_normal/0_button" to="Temperature_Panel" method="ZeroPressed"]
 [connection signal="pressed" from="Temperature_Panel/Button_panel_normal/dot_button" to="Temperature_Panel" method="DotPressed"]
 [connection signal="item_selected" from="Energy_Panel/Display_normal/OptionButton3" to="Energy_Panel" method="SelectCur1"]
-[connection signal="item_selected" from="Energy_Panel/Display_normal/OptionButton4" to="Energy_Panel" method="SelectCur2"]
+[connection signal="item_selected" from="Energy_Panel/Display_normal/OptionButton5" to="Energy_Panel" method="SelectCur2"]
 [connection signal="pressed" from="Energy_Panel/Button_panel_normal/C_button" to="Energy_Panel" method="CPressed"]
 [connection signal="pressed" from="Energy_Panel/Button_panel_normal/Del_button" to="Energy_Panel" method="DelPressed"]
 [connection signal="pressed" from="Energy_Panel/Button_panel_normal/7_button" to="Energy_Panel" method="SevenPressed"]
@@ -3915,7 +3972,7 @@ text = "Kąt"
 [connection signal="pressed" from="Energy_Panel/Button_panel_normal/0_button" to="Energy_Panel" method="ZeroPressed"]
 [connection signal="pressed" from="Energy_Panel/Button_panel_normal/dot_button" to="Energy_Panel" method="DotPressed"]
 [connection signal="item_selected" from="Area_Panel/Display_normal/OptionButton3" to="Area_Panel" method="SelectCur1"]
-[connection signal="item_selected" from="Area_Panel/Display_normal/OptionButton4" to="Area_Panel" method="SelectCur2"]
+[connection signal="item_selected" from="Area_Panel/Display_normal/OptionButton5" to="Area_Panel" method="SelectCur2"]
 [connection signal="pressed" from="Area_Panel/Button_panel_normal/C_button" to="Area_Panel" method="CPressed"]
 [connection signal="pressed" from="Area_Panel/Button_panel_normal/Del_button" to="Area_Panel" method="DelPressed"]
 [connection signal="pressed" from="Area_Panel/Button_panel_normal/7_button" to="Area_Panel" method="SevenPressed"]
@@ -3945,7 +4002,7 @@ text = "Kąt"
 [connection signal="pressed" from="Velocity_Panel/Button_panel_normal/0_button" to="Velocity_Panel" method="ZeroPressed"]
 [connection signal="pressed" from="Velocity_Panel/Button_panel_normal/dot_button" to="Velocity_Panel" method="DotPressed"]
 [connection signal="item_selected" from="Time_Panel/Display_normal/OptionButton5" to="Time_Panel" method="SelectCur1"]
-[connection signal="item_selected" from="Time_Panel/Display_normal/OptionButton6" to="Time_Panel" method="SelectCur2"]
+[connection signal="item_selected" from="Time_Panel/Display_normal/OptionButton7" to="Time_Panel" method="SelectCur2"]
 [connection signal="pressed" from="Time_Panel/Button_panel_normal/C_button" to="Time_Panel" method="CPressed"]
 [connection signal="pressed" from="Time_Panel/Button_panel_normal/Del_button" to="Time_Panel" method="DelPressed"]
 [connection signal="pressed" from="Time_Panel/Button_panel_normal/7_button" to="Time_Panel" method="SevenPressed"]
@@ -3960,7 +4017,7 @@ text = "Kąt"
 [connection signal="pressed" from="Time_Panel/Button_panel_normal/0_button" to="Time_Panel" method="ZeroPressed"]
 [connection signal="pressed" from="Time_Panel/Button_panel_normal/dot_button" to="Time_Panel" method="DotPressed"]
 [connection signal="item_selected" from="Power_Panel/Display_normal/OptionButton" to="Power_Panel" method="SelectCur1"]
-[connection signal="item_selected" from="Power_Panel/Display_normal/OptionButton2" to="Power_Panel" method="SelectCur2"]
+[connection signal="item_selected" from="Power_Panel/Display_normal/OptionButton3" to="Power_Panel" method="SelectCur2"]
 [connection signal="pressed" from="Power_Panel/Button_panel_normal/C_button" to="Power_Panel" method="CPressed"]
 [connection signal="pressed" from="Power_Panel/Button_panel_normal/Del_button" to="Power_Panel" method="DelPressed"]
 [connection signal="pressed" from="Power_Panel/Button_panel_normal/7_button" to="Power_Panel" method="SevenPressed"]
@@ -3976,7 +4033,7 @@ text = "Kąt"
 [connection signal="pressed" from="Power_Panel/Button_panel_normal/0_button" to="Power_Panel" method="ZeroPressed"]
 [connection signal="pressed" from="Power_Panel/Button_panel_normal/dot_button" to="Power_Panel" method="DotPressed"]
 [connection signal="item_selected" from="Data_Panel/Display_normal/OptionButton3" to="Data_Panel" method="SelectCur1"]
-[connection signal="item_selected" from="Data_Panel/Display_normal/OptionButton5" to="Data_Panel" method="SelectCur2"]
+[connection signal="item_selected" from="Data_Panel/Display_normal/OptionButton4" to="Data_Panel" method="SelectCur2"]
 [connection signal="pressed" from="Data_Panel/Button_panel_normal/C_button" to="Data_Panel" method="CPressed"]
 [connection signal="pressed" from="Data_Panel/Button_panel_normal/Del_button" to="Data_Panel" method="DelPressed"]
 [connection signal="pressed" from="Data_Panel/Button_panel_normal/7_button" to="Data_Panel" method="SevenPressed"]
@@ -3991,7 +4048,7 @@ text = "Kąt"
 [connection signal="pressed" from="Data_Panel/Button_panel_normal/0_button" to="Data_Panel" method="ZeroPressed"]
 [connection signal="pressed" from="Data_Panel/Button_panel_normal/dot_button" to="Data_Panel" method="DotPressed"]
 [connection signal="item_selected" from="Pressure_Panel/Display_normal/OptionButton" to="Pressure_Panel" method="SelectCur1"]
-[connection signal="item_selected" from="Pressure_Panel/Display_normal/OptionButton2" to="Pressure_Panel" method="SelectCur2"]
+[connection signal="item_selected" from="Pressure_Panel/Display_normal/OptionButton3" to="Pressure_Panel" method="SelectCur2"]
 [connection signal="pressed" from="Pressure_Panel/Button_panel_normal/C_button" to="Pressure_Panel" method="CPressed"]
 [connection signal="pressed" from="Pressure_Panel/Button_panel_normal/Del_button" to="Pressure_Panel" method="DelPressed"]
 [connection signal="pressed" from="Pressure_Panel/Button_panel_normal/7_button" to="Pressure_Panel" method="SevenPressed"]

@@ -5,17 +5,17 @@ using System.Globalization;
 
 public class Science_panel : Panel
 {
-    private string num1 = "0";
-    private string num2 = "0";
-    private string result = "0";
+    string num1 = "0";
+    string num2 = "0";
+    string result = "0";
 
-    private enum numbers {
+    enum numbers {
         ONE,
         TWO,
         RESULT
     }
 
-    private enum operations {
+    enum operations {
         ADD,
         SUBTRACT,
         MULTIPLY,
@@ -27,23 +27,23 @@ public class Science_panel : Panel
         NONE
     }
 
-    private Dictionary<operations,string> operation_signs = new Dictionary<operations, string>(){
+    Dictionary<operations,string> operation_signs = new Dictionary<operations, string>(){
         {operations.ADD,"+"},
         {operations.SUBTRACT,"-"},
         {operations.MULTIPLY,"x"},
         {operations.DIVIDE,"/"},
-        {operations.MOD,"reszta z dzielenia"},
-	    {operations.ROOT,"pierwiastek stopnia"},
+        {operations.MOD,"remainder"},
+	    {operations.ROOT,"root of degree"},
 	    {operations.POWER,"^"},
-        {operations.LOG,"logarytm o podstawie"},
+        {operations.LOG,"log base"},
     };
 
-    private numbers current_num = numbers.ONE;
-    private operations current_operation = operations.NONE;
+    numbers current_num = numbers.ONE;
+    operations current_operation = operations.NONE;
 
-    private Label label_action;
-    private Label label_num;
-    private Random rnd;
+    Label label_action;
+    Label label_num;
+    Random rnd;
 
     public override void _Ready()
     {
@@ -74,7 +74,7 @@ public class Science_panel : Panel
         }
     }
 
-    private void ResetToDefault()
+    void ResetToDefault()
     {
         num1 = "0";
         num2 = "0";
@@ -84,7 +84,7 @@ public class Science_panel : Panel
         current_operation = operations.NONE;
     }
 
-    private string GetResAsFirst()
+    string GetResultAsFirst()
     {
         string res = result;
         ResetToDefault();
@@ -92,7 +92,7 @@ public class Science_panel : Panel
         return res;
     }
 
-    private string DoEquasion()
+    string DoEquasion()
     {
         if (current_operation == operations.ADD)
             return Convert.ToString(Convert.ToDouble(num1) + Convert.ToDouble(num2));
@@ -115,7 +115,7 @@ public class Science_panel : Panel
         return "0";
     }
 
-    private void AddNum(string number)
+    void AddNum(string number)
     {
         if (current_num == numbers.RESULT)
             ResetToDefault();
@@ -139,7 +139,7 @@ public class Science_panel : Panel
         }
     }
 
-    private void SetEquasion(operations operation)
+    void SetEquasion(operations operation)
     {
         if (current_num == numbers.TWO)
         {
@@ -151,13 +151,13 @@ public class Science_panel : Panel
             current_num = numbers.TWO;
         }
         else if (current_num == numbers.RESULT)
-            num1 = GetResAsFirst();
+            num1 = GetResultAsFirst();
 
         current_operation = operation;
         current_num = numbers.TWO;
     }
 
-    private void CEPressed()
+    void CEPressed()
     {
         if (current_num == numbers.ONE)
             num1 = "0";
@@ -167,15 +167,15 @@ public class Science_panel : Panel
             ResetToDefault();
     }
 
-    private void CPressed()
+    void CPressed()
     {
         ResetToDefault();
     }
 
-    private void DelPressed()
+    void DelPressed()
     {
         if (current_num == numbers.RESULT)
-            num1 = GetResAsFirst();
+            num1 = GetResultAsFirst();
 
         if (current_num == numbers.ONE)
         {
@@ -191,7 +191,7 @@ public class Science_panel : Panel
         }
     }
 
-    private void RandPressed()
+    void RandPressed()
     {
         if (current_num == numbers.RESULT)
             ResetToDefault();
@@ -202,7 +202,7 @@ public class Science_panel : Panel
             num2 = Convert.ToString(rnd.NextDouble());
     }
 
-    private void PIPressed()
+    void PIPressed()
     {
         if (current_num == numbers.RESULT)
             ResetToDefault();
@@ -213,7 +213,7 @@ public class Science_panel : Panel
             num2 = Convert.ToString(Math.PI);
     }
 
-    private void EPressed()
+    void EPressed()
     {
         if (current_num == numbers.RESULT)
             ResetToDefault();
@@ -224,60 +224,60 @@ public class Science_panel : Panel
             num2 = Convert.ToString(Math.E);
     }
 
-    private void ZeroPressed()
+    void ZeroPressed()
     {
         AddNum("0");
     }
 
-    private void OnePressed()
+    void OnePressed()
     {
         AddNum("1");
     }
 
-    private void TwoPressed()
+    void TwoPressed()
     {
         AddNum("2");
     }
 
-    private void ThreePressed()
+    void ThreePressed()
     {
         AddNum("3");
     }
 
-    private void FourPressed()
+    void FourPressed()
     {
         AddNum("4");
     }
 
-    private void FivePressed()
+    void FivePressed()
     {
         AddNum("5");
     }
 
-    private void SixPressed()
+    void SixPressed()
     {
         AddNum("6");
     }
 
-    private void SevenPressed()
+    void SevenPressed()
     {
         AddNum("7");
     }
 
-    private void EightPressed()
+    void EightPressed()
     {
         AddNum("8");
     }
 
-    private void NinePressed()
+    void NinePressed()
     {
         AddNum("9");
     }
 
-    private void DotPressed()
+    void DotPressed()
     {
         if (current_num == numbers.RESULT)
-            num1 = GetResAsFirst();
+            num1 = GetResultAsFirst();
 
         if (current_num == numbers.ONE)
         {
@@ -291,10 +291,10 @@ public class Science_panel : Panel
         }
     }
 
-    private void PlusMinPressed()
+    void PlusMinPressed()
     {
         if (current_num == numbers.RESULT)
-            num1 = GetResAsFirst();
+            num1 = GetResultAsFirst();
 
         if (current_num == numbers.ONE)
             num1 = Convert.ToString(Convert.ToDouble(num1) * -1);
@@ -304,7 +304,7 @@ public class Science_panel : Panel
         }
     }
 
-    private void EqlPressed()
+    void EqlPressed()
     {
         if (current_num == numbers.ONE)
             return;
@@ -313,50 +313,50 @@ public class Science_panel : Panel
         result = DoEquasion();
     }
 
-    private void AddPressed()
+    void AddPressed()
     {
         SetEquasion(operations.ADD);
     }
 
-    private void SubPressed()
+    void SubPressed()
     {
         SetEquasion(operations.SUBTRACT);
     }
 
-    private void MulPressed()
+    void MulPressed()
     {
         SetEquasion(operations.MULTIPLY);
     }
 
-    private void DivPressed()
+    void DivPressed()
     {
         SetEquasion(operations.DIVIDE);
     }
 
-    private void ModPressed()
+    void ModPressed()
     {
         SetEquasion(operations.MOD);
     }
 
-    private void PowPressed()
+    void PowPressed()
     {
         SetEquasion(operations.POWER);
     }
 
-    private void RootPressed()
+    void RootPressed()
     {
         SetEquasion(operations.ROOT);
     }
 
-    private void LogPressed()
+    void LogPressed()
     {
         SetEquasion(operations.LOG);
     }
 
-    private void AbsPressed()
+    void AbsPressed()
     {
         if (current_num == numbers.RESULT)
-            num1 = GetResAsFirst();
+            num1 = GetResultAsFirst();
 
         if (current_num == numbers.ONE)
             num1 = Convert.ToString(Math.Abs(Convert.ToDouble(num1)));
@@ -364,10 +364,12 @@ public class Science_panel : Panel
             num2 = Convert.ToString(Math.Abs(Convert.ToDouble(num2)));
     }
 
-    private void NPressed()
+    void NPressed()
     {
+        // Factorials
+
         if (current_num == numbers.RESULT)
-            num1 = GetResAsFirst();
+            num1 = GetResultAsFirst();
 
         if (current_num == numbers.ONE)
         {
@@ -378,9 +380,7 @@ public class Science_panel : Panel
             double fact = Convert.ToDouble(num1);
 
             for (int i = 1;i<=fact;i++)
-            {
                 a *= i;
-            }
 
             num1 = Convert.ToString(a);
         }
@@ -393,18 +393,16 @@ public class Science_panel : Panel
             double fact = Convert.ToDouble(num2);
 
             for (int i = 1;i<=fact;i++)
-            {
                 a *= i;
-            }
 
             num2 = Convert.ToString(a);
         }
     }
 
-    private void Pow2Pressed()
+    void Pow2Pressed()
     {
         if (current_num == numbers.RESULT)
-            num1 = GetResAsFirst();
+            num1 = GetResultAsFirst();
 
         if (current_num == numbers.ONE)
             num1 = Convert.ToString(Math.Pow(Convert.ToDouble(num1),2));
@@ -412,10 +410,10 @@ public class Science_panel : Panel
             num2 = Convert.ToString(Math.Pow(Convert.ToDouble(num2),2));
     }
 
-    private void Pow3Pressed()
+    void Pow3Pressed()
     {
         if (current_num == numbers.RESULT)
-            num1 = GetResAsFirst();
+            num1 = GetResultAsFirst();
 
         if (current_num == numbers.ONE)
             num1 = Convert.ToString(Math.Pow(Convert.ToDouble(num1),3));
@@ -423,10 +421,10 @@ public class Science_panel : Panel
             num2 = Convert.ToString(Math.Pow(Convert.ToDouble(num2),3));
     }
 
-    private void DivXPressed()
+    void DivXPressed()
     {
         if (current_num == numbers.RESULT)
-            num1 = GetResAsFirst();
+            num1 = GetResultAsFirst();
 
         if (current_num == numbers.ONE)
             num1 = Convert.ToString(1/Convert.ToDouble(num1));
@@ -434,10 +432,10 @@ public class Science_panel : Panel
             num2 = Convert.ToString(1/Convert.ToDouble(num2));
     }
 
-    private void CqrtPressed()
+    void CqrtPressed()
     {
         if (current_num == numbers.RESULT)
-            num1 = GetResAsFirst();
+            num1 = GetResultAsFirst();
 
         if (current_num == numbers.ONE)
             num1 = Convert.ToString(Math.Pow(Convert.ToDouble(num1),(double) 1/3));
@@ -445,10 +443,10 @@ public class Science_panel : Panel
             num2 = Convert.ToString(Math.Pow(Convert.ToDouble(num2),(double) 1/3));
     }
 
-    private void SqrtPressed()
+    void SqrtPressed()
     {
         if (current_num == numbers.RESULT)
-            num1 = GetResAsFirst();
+            num1 = GetResultAsFirst();
 
         if (current_num == numbers.ONE)
         {
@@ -466,10 +464,10 @@ public class Science_panel : Panel
         }
     }
 
-    private void TwoPowPressed()
+    void TwoPowPressed()
     {
         if (current_num == numbers.RESULT)
-            num1 = GetResAsFirst();
+            num1 = GetResultAsFirst();
 
         if (current_num == numbers.ONE)
             num1 = Convert.ToString(Math.Pow(2,Convert.ToDouble(num1)));
@@ -477,10 +475,10 @@ public class Science_panel : Panel
             num2 = Convert.ToString(Math.Pow(2,Convert.ToDouble(num2)));
     }
 
-    private void TenPowPressed()
+    void TenPowPressed()
     {
         if (current_num == numbers.RESULT)
-            num1 = GetResAsFirst();
+            num1 = GetResultAsFirst();
 
         if (current_num == numbers.ONE)
             num1 = Convert.ToString(Math.Pow(10,Convert.ToDouble(num1)));
@@ -488,10 +486,10 @@ public class Science_panel : Panel
             num2 = Convert.ToString(Math.Pow(10,Convert.ToDouble(num2)));
     }
 
-    private void Log10Pressed()
+    void Log10Pressed()
     {
         if (current_num == numbers.RESULT)
-            num1 = GetResAsFirst();
+            num1 = GetResultAsFirst();
 
         if (current_num == numbers.ONE)
         {
@@ -509,10 +507,10 @@ public class Science_panel : Panel
         }
     }
 
-    private void LogEPressed()
+    void LogEPressed()
     {
         if (current_num == numbers.RESULT)
-            num1 = GetResAsFirst();
+            num1 = GetResultAsFirst();
 
         if (current_num == numbers.ONE)
         {
@@ -530,10 +528,10 @@ public class Science_panel : Panel
         }
     }
 
-    private void EXPressed()
+    void EXPressed()
     {
         if (current_num == numbers.RESULT)
-            num1 = GetResAsFirst();
+            num1 = GetResultAsFirst();
 
         if (current_num == numbers.ONE)
             num1 = Convert.ToString(Math.Pow(Math.E,Convert.ToDouble(num1)));
@@ -541,10 +539,10 @@ public class Science_panel : Panel
             num2 = Convert.ToString(Math.Pow(Math.E,Convert.ToDouble(num2)));
     }
 
-    private void RoundPressed()
+    void RoundPressed()
     {
         if (current_num == numbers.RESULT)
-            num1 = GetResAsFirst();
+            num1 = GetResultAsFirst();
 
         if (current_num == numbers.ONE)
             num1 = Convert.ToString(Math.Round(Convert.ToDouble(num1)));
@@ -552,36 +550,28 @@ public class Science_panel : Panel
             num2 = Convert.ToString(Math.Round(Convert.ToDouble(num2)));
     }
 
-    private void CeilPressed()
+    void CeilPressed()
     {
         if (current_num == numbers.RESULT)
-            num1 = GetResAsFirst();
+            num1 = GetResultAsFirst();
 
         if (current_num == numbers.ONE)
-        {
             num1 = Convert.ToString(Math.Ceiling(Convert.ToDouble(num1)));
-        }
         else if (current_num == numbers.TWO)
-        {
             num2 = Convert.ToString(Math.Ceiling(Convert.ToDouble(num2)));
-        }
     }
 
-    private void FloorPressed()
+    void FloorPressed()
     {
         if (current_num == numbers.RESULT)
-            num1 = GetResAsFirst();
+            num1 = GetResultAsFirst();
 
         if (current_num == numbers.RESULT)
-            num1 = GetResAsFirst();
+            num1 = GetResultAsFirst();
 
         if (current_num == numbers.ONE)
-        {
             num1 = Convert.ToString(Math.Floor(Convert.ToDouble(num1)));
-        }
         else if (current_num == numbers.TWO)
-        {
             num2 = Convert.ToString(Math.Floor(Convert.ToDouble(num2)));
-        }
     }
 }

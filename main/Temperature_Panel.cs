@@ -11,23 +11,24 @@ public class Temperature_Panel : Panel
         KELVIN
     }
 
-    private Dictionary<int,types> temperature_ids = new Dictionary<int, types>(){
+    Dictionary<int,types> temperature_ids = new Dictionary<int, types>(){
         {0,types.CELSIUS},
         {1,types.FAHRENHEIT},
         {2,types.KELVIN},
     };
 
-    private string textValue = "0";
-    private double convertedValue = 0;
+    string textValue = "0";
+    double convertedValue = 0;
 
-    private types type1 = types.CELSIUS;
-    private types type2 = types.FAHRENHEIT;
+    types type1 = types.CELSIUS;
+    types type2 = types.FAHRENHEIT;
 
-    private Label cur1Label;
-    private Label cur2Label;
+    Label cur1Label;
+    Label cur2Label;
 
     public override void _Ready()
     {
+        // This is enforcing . as decimal points. In some regions, the system may expect a comma and thus break our entire app when calculating numbers with decimal points.
         CultureInfo.DefaultThreadCurrentCulture = new CultureInfo("en-US");
 
         cur1Label = GetNode<Label>("Display_normal/label_cur");
@@ -40,138 +41,122 @@ public class Temperature_Panel : Panel
         cur2Label.Text = Convert.ToString(convertedValue);
     }
 
-    private void CalculateValue()
+    void ConvertValue()
     {
         if ((type1 == types.CELSIUS && type2 == types.CELSIUS) ||
         (type1 == types.FAHRENHEIT && type2 == types.FAHRENHEIT) ||
         (type1 == types.KELVIN && type2 == types.KELVIN))
-        {
             convertedValue = Convert.ToDouble(textValue);
-        }
         else if (type1 == types.CELSIUS && type2 == types.FAHRENHEIT)
-        {
             convertedValue = (Convert.ToDouble(textValue) * 1.8) + 32;
-        }
         else if (type1 == types.FAHRENHEIT && type2 == types.CELSIUS)
-        {
             convertedValue = (Convert.ToDouble(textValue) - 32) / 1.8;
-        }
         else if (type1 == types.CELSIUS && type2 == types.KELVIN)
-        {
             convertedValue = Convert.ToDouble(textValue) + 273.15;
-        }
         else if (type1 == types.KELVIN && type2 == types.CELSIUS)
-        {
             convertedValue = Convert.ToDouble(textValue) - 273.15;
-        }
         else if (type1 == types.FAHRENHEIT && type2 == types.KELVIN)
-        {
             convertedValue = (Convert.ToDouble(textValue) + 459.67) * ((double) 5/9);
-        }
         else if (type1 == types.KELVIN && type2 == types.FAHRENHEIT)
-        {
             convertedValue = (Convert.ToDouble(textValue) * ((double) 9/5)) - 459.67;
-        }
     }
 
-    private void SelectCur1(int index)
+    void SelectCur1(int index)
     {
         type1 = temperature_ids[index];
 
-        CalculateValue();
+        ConvertValue();
     }
 
-    private void SelectCur2(int index)
+    void SelectCur2(int index)
     {
         type2 = temperature_ids[index];
 
-        CalculateValue();
+        ConvertValue();
     }
 
-    private void CPressed()
+    void CPressed()
     {
         textValue = "0";
 
-        CalculateValue();
+        ConvertValue();
     }
 
-    private void DelPressed()
+    void DelPressed()
     {
         textValue = StringExtensions.Substr(textValue,0,textValue.Length - 1);
         if (textValue == "")
             textValue = "0";
 
-        CalculateValue();
+        ConvertValue();
     }
 
-    private void DotPressed()
+    void DotPressed()
     {
         if (StringExtensions.Find(textValue,".") == -1)
-        {
             textValue += ".";
-        }
     }
 
-    private void PlusMinPressed()
+    void PlusMinPressed()
     {
         textValue = Convert.ToString(Convert.ToDouble(textValue) * -1);
     }
 
-    private void AddNum(string number)
+    void AddNum(string number)
     {
         if (textValue == "0")
             textValue = "";
 
         textValue += number;
-        CalculateValue();
+        ConvertValue();
     }
 
-    private void ZeroPressed()
+    void ZeroPressed()
     {
         AddNum("0");
     }
 
-    private void OnePressed()
+    void OnePressed()
     {
         AddNum("1");
     }
 
-    private void TwoPressed()
+    void TwoPressed()
     {
         AddNum("2");
     }
 
-    private void ThreePressed()
+    void ThreePressed()
     {
         AddNum("3");
     }
 
-    private void FourPressed()
+    void FourPressed()
     {
         AddNum("4");
     }
 
-    private void FivePressed()
+    void FivePressed()
     {
         AddNum("5");
     }
 
-    private void SixPressed()
+    void SixPressed()
     {
         AddNum("6");
     }
 
-    private void SevenPressed()
+    void SevenPressed()
     {
         AddNum("7");
     }
 
-    private void EightPressed()
+    void EightPressed()
     {
         AddNum("8");
     }
 
-    private void NinePressed()
+    void NinePressed()
     {
         AddNum("9");
     }

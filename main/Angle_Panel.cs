@@ -11,23 +11,24 @@ public class Angle_Panel : Panel
         GRADS
     }
 
-    private Dictionary<int,types> ids = new Dictionary<int, types>(){
+    Dictionary<int,types> ids = new Dictionary<int, types>(){
         {0,types.DEGREES},
         {1,types.RADIANS},
         {2,types.GRADS},
     };
 
-    private string textValue = "0";
-    private double convertedValue = 0;
+    string textValue = "0";
+    double convertedValue = 0;
 
-    private types type1 = types.DEGREES;
-    private types type2 = types.RADIANS;
+    types type1 = types.DEGREES;
+    types type2 = types.RADIANS;
 
-    private Label cur1Label;
-    private Label cur2Label;
+    Label cur1Label;
+    Label cur2Label;
 
     public override void _Ready()
     {
+        // This is enforcing . as decimal points. In some regions, the system may expect a comma and thus break our entire app when calculating numbers with decimal points.
         CultureInfo.DefaultThreadCurrentCulture = new CultureInfo("en-US");
 
         cur1Label = GetNode<Label>("Display_normal/label_cur");
@@ -40,138 +41,122 @@ public class Angle_Panel : Panel
         cur2Label.Text = Convert.ToString(convertedValue);
     }
 
-    private void CalculateValue()
+    void ConvertValue()
     {
         if ((type1 == types.DEGREES && type2 == types.DEGREES) ||
         (type1 == types.RADIANS && type2 == types.RADIANS) ||
         (type1 == types.GRADS && type2 == types.GRADS))
-        {
             convertedValue = Convert.ToDouble(textValue);
-        }
         else if (type1 == types.DEGREES && type2 == types.RADIANS)
-        {
             convertedValue = (Convert.ToDouble(textValue) * 0.017453);
-        }
         else if (type1 == types.RADIANS && type2 == types.DEGREES)
-        {
             convertedValue = (Convert.ToDouble(textValue) * 57.29578);
-        }
         else if (type1 == types.DEGREES && type2 == types.GRADS)
-        {
             convertedValue = (Convert.ToDouble(textValue) * 1.111111);
-        }
         else if (type1 == types.GRADS && type2 == types.DEGREES)
-        {
             convertedValue = (Convert.ToDouble(textValue) * 0.9);
-        }
         else if (type1 == types.RADIANS && type2 == types.GRADS)
-        {
             convertedValue = (Convert.ToDouble(textValue) * 63.661977);
-        }
         else if (type1 == types.GRADS && type2 == types.RADIANS)
-        {
             convertedValue = (Convert.ToDouble(textValue) * 0.015708);
-        }
     }
 
-    private void SelectCur1(int index)
+    void SelectCur1(int index)
     {
         type1 = ids[index];
 
-        CalculateValue();
+        ConvertValue();
     }
 
-    private void SelectCur2(int index)
+    void SelectCur2(int index)
     {
         type2 = ids[index];
 
-        CalculateValue();
+        ConvertValue();
     }
 
-    private void CPressed()
+    void CPressed()
     {
         textValue = "0";
 
-        CalculateValue();
+        ConvertValue();
     }
 
-    private void DelPressed()
+    void DelPressed()
     {
         textValue = StringExtensions.Substr(textValue,0,textValue.Length - 1);
         if (textValue == "")
             textValue = "0";
 
-        CalculateValue();
+        ConvertValue();
     }
 
-    private void DotPressed()
+    void DotPressed()
     {
         if (StringExtensions.Find(textValue,".") == -1)
-        {
             textValue += ".";
-        }
     }
 
-    private void PlusMinPressed()
+    void PlusMinPressed()
     {
         textValue = Convert.ToString(Convert.ToDouble(textValue) * -1);
     }
 
-    private void AddNum(string number)
+    void AddNum(string number)
     {
         if (textValue == "0")
             textValue = "";
 
         textValue += number;
-        CalculateValue();
+        ConvertValue();
     }
 
-    private void ZeroPressed()
+    void ZeroPressed()
     {
         AddNum("0");
     }
 
-    private void OnePressed()
+    void OnePressed()
     {
         AddNum("1");
     }
 
-    private void TwoPressed()
+    void TwoPressed()
     {
         AddNum("2");
     }
 
-    private void ThreePressed()
+    void ThreePressed()
     {
         AddNum("3");
     }
 
-    private void FourPressed()
+    void FourPressed()
     {
         AddNum("4");
     }
 
-    private void FivePressed()
+    void FivePressed()
     {
         AddNum("5");
     }
 
-    private void SixPressed()
+    void SixPressed()
     {
         AddNum("6");
     }
 
-    private void SevenPressed()
+    void SevenPressed()
     {
         AddNum("7");
     }
 
-    private void EightPressed()
+    void EightPressed()
     {
         AddNum("8");
     }
 
-    private void NinePressed()
+    void NinePressed()
     {
         AddNum("9");
     }

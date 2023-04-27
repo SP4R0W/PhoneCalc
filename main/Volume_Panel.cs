@@ -22,7 +22,7 @@ public class Volume_Panel : Panel
         OUNCES_UK,
     }
 
-    private Dictionary<int,types> length_ids = new Dictionary<int, types>(){
+    Dictionary<int,types> length_ids = new Dictionary<int, types>(){
         {0,types.MILILITERS},
         {1,types.CM},
         {2,types.LITERS},
@@ -38,16 +38,17 @@ public class Volume_Panel : Panel
         {12,types.OUNCES_UK},
     };
 
-    private string textValue = "0";
-    private double convertedValue = 0;
+    string textValue = "0";
+    double convertedValue = 0;
 
-    private types type1 = types.MILILITERS;
-    private types type2 = types.CM;
+    types type1 = types.MILILITERS;
+    types type2 = types.CM;
 
-    private Label cur1Label;
-    private Label cur2Label;
+    Label cur1Label;
+    Label cur2Label;
 
-    private Dictionary<types,Dictionary<types,double>> length_values = new Dictionary<types, Dictionary<types, double>>(){
+    // Hard coded values
+    Dictionary<types,Dictionary<types,double>> length_values = new Dictionary<types, Dictionary<types, double>>(){
         {types.MILILITERS,new Dictionary<types, double>(){
             {types.MILILITERS,1},
             {types.CM,1},
@@ -247,6 +248,7 @@ public class Volume_Panel : Panel
 
     public override void _Ready()
     {
+        // This is enforcing . as decimal points. In some regions, the system may expect a comma and thus break our entire app when calculating numbers with decimal points.
         CultureInfo.DefaultThreadCurrentCulture = new CultureInfo("en-US");
 
         cur1Label = GetNode<Label>("Display_normal/label_cur");
@@ -259,34 +261,34 @@ public class Volume_Panel : Panel
         cur2Label.Text = Convert.ToString(convertedValue);
     }
 
-    private void CalculateValue()
+    void CalculateValue()
     {
         double value = length_values[type1][type2];
         convertedValue = Convert.ToDouble(textValue) * value;
     }
 
-    private void SelectCur1(int index)
+    void SelectCur1(int index)
     {
         type1 = length_ids[index];
 
         CalculateValue();
     }
 
-    private void SelectCur2(int index)
+    void SelectCur2(int index)
     {
         type2 = length_ids[index];
 
         CalculateValue();
     }
 
-    private void CPressed()
+    void CPressed()
     {
         textValue = "0";
 
         CalculateValue();
     }
 
-    private void DelPressed()
+    void DelPressed()
     {
         textValue = StringExtensions.Substr(textValue,0,textValue.Length - 1);
         if (textValue == "")
@@ -295,15 +297,13 @@ public class Volume_Panel : Panel
         CalculateValue();
     }
 
-    private void DotPressed()
+    void DotPressed()
     {
         if (StringExtensions.Find(textValue,".") == -1)
-        {
             textValue += ".";
-        }
     }
 
-    private void AddNum(string number)
+    void AddNum(string number)
     {
         if (textValue == "0")
             textValue = "";
@@ -312,52 +312,52 @@ public class Volume_Panel : Panel
         CalculateValue();
     }
 
-    private void ZeroPressed()
+    void ZeroPressed()
     {
         AddNum("0");
     }
 
-    private void OnePressed()
+    void OnePressed()
     {
         AddNum("1");
     }
 
-    private void TwoPressed()
+    void TwoPressed()
     {
         AddNum("2");
     }
 
-    private void ThreePressed()
+    void ThreePressed()
     {
         AddNum("3");
     }
 
-    private void FourPressed()
+    void FourPressed()
     {
         AddNum("4");
     }
 
-    private void FivePressed()
+    void FivePressed()
     {
         AddNum("5");
     }
 
-    private void SixPressed()
+    void SixPressed()
     {
         AddNum("6");
     }
 
-    private void SevenPressed()
+    void SevenPressed()
     {
         AddNum("7");
     }
 
-    private void EightPressed()
+    void EightPressed()
     {
         AddNum("8");
     }
 
-    private void NinePressed()
+    void NinePressed()
     {
         AddNum("9");
     }

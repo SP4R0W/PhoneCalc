@@ -4,28 +4,28 @@ using Godot.Collections;
 
 public class Date_Panel : Panel
 {
-    private enum operations {
+    enum operations {
         DIFF,
         ADD,
         SUB
     }
 
-    private Dictionary<double,string> months = new Dictionary<double, string>(){
-        {1,"Stycznia"},
-        {2,"Lutego"},
-        {3,"Marca"},
-        {4,"Kwietnia"},
-        {5,"Maja"},
-        {6,"Czerwca"},
-        {7,"Lipca"},
-        {8,"Sierpnia"},
-        {9,"Września"},
-        {10,"Października"},
-        {11,"Listopada"},
-        {12,"Grudnia"},
+    Dictionary<double,string> months = new Dictionary<double, string>(){
+        {1,"January"},
+        {2,"February"},
+        {3,"March"},
+        {4,"April"},
+        {5,"May"},
+        {6,"June"},
+        {7,"July"},
+        {8,"August"},
+        {9,"September"},
+        {10,"October"},
+        {11,"November"},
+        {12,"December"},
     };
 
-    private Dictionary<double,double> month_days = new Dictionary<double, double>(){
+    Dictionary<double,double> month_days = new Dictionary<double, double>(){
         {1,31},
         {2,28},
         {3,31},
@@ -40,33 +40,33 @@ public class Date_Panel : Panel
         {12,31},
     };
 
-    private Label year1;
-    private Label year2;
-    private Label month1;
-    private Label month2;
-    private Label day1;
-    private Label day2;
+    Label year1;
+    Label year2;
+    Label month1;
+    Label month2;
+    Label day1;
+    Label day2;
 
-    private Label valueLabel;
+    Label valueLabel;
 
-    private SpinBox spinYear1;
-    private SpinBox spinYear2;
-    private SpinBox spinMonth1;
-    private SpinBox spinMonth2;
-    private SpinBox spinDay1;
-    private SpinBox spinDay2;
-    private SpinBox spinYears;
-    private SpinBox spinMonths;
-    private SpinBox spinDays;
+    SpinBox spinYear1;
+    SpinBox spinYear2;
+    SpinBox spinMonth1;
+    SpinBox spinMonth2;
+    SpinBox spinDay1;
+    SpinBox spinDay2;
+    SpinBox spinYears;
+    SpinBox spinMonths;
+    SpinBox spinDays;
 
-    private CheckButton diff;
-    private CheckButton add;
-    private CheckButton sub;
+    CheckButton diff;
+    CheckButton add;
+    CheckButton sub;
 
-    private DateTime date1 = new DateTime();
-    private DateTime date2 = new DateTime();
+    DateTime date1 = new DateTime();
+    DateTime date2 = new DateTime();
 
-    private operations operation = operations.DIFF;
+    operations operation = operations.DIFF;
 
     public override void _Ready()
     {
@@ -76,7 +76,7 @@ public class Date_Panel : Panel
         month2 = GetNode<Label>("Display_normal/Labels2/Month2");
         day1 = GetNode<Label>("Display_normal/Labels1/Day1");
         day2 = GetNode<Label>("Display_normal/Labels2/Day2");
-        
+
         valueLabel = GetNode<Label>("Display_normal/Value_Panel/Value");
 
         spinYear1 = GetNode<SpinBox>("Display_normal/SpinBox1/Year1");
@@ -141,7 +141,7 @@ public class Date_Panel : Panel
         CalculateValue();
     }
 
-    private void SetCurrentDate1()
+    void SetCurrentDate1()
     {
         date1 = DateTime.Now;
         spinDay1.Value = date1.Day;
@@ -149,7 +149,7 @@ public class Date_Panel : Panel
         spinYear1.Value = date1.Year;
     }
 
-    private void SetCurrentDate2()
+    void SetCurrentDate2()
     {
         date2 = DateTime.Now;
         spinDay2.Value = date2.Day;
@@ -157,7 +157,7 @@ public class Date_Panel : Panel
         spinYear2.Value = date2.Year;
     }
 
-    private void CalculateValue()
+    void CalculateValue()
     {
         switch (operation)
         {
@@ -173,33 +173,33 @@ public class Date_Panel : Panel
         }
     }
 
-    private void CalculateDifference()
+    void CalculateDifference()
     {
         TimeSpan value = date1 - date2;
-        valueLabel.Text = String.Format("Różnica między datami wynosi: {0} dni",Math.Abs(value.Days));
+        valueLabel.Text = String.Format("The difference between dates is: {0} days",Math.Abs(value.Days));
     }
 
-    private void CalculateAdd()
+    void CalculateAdd()
     {
         DateTime dateCopy = date1;
         dateCopy = dateCopy.AddYears(Convert.ToInt32(spinYears.Value));
         dateCopy = dateCopy.AddMonths(Convert.ToInt32(spinMonths.Value));
         dateCopy = dateCopy.AddDays(Convert.ToInt32(spinDays.Value));
 
-        valueLabel.Text = String.Format("Data: {0}",dateCopy.ToShortDateString());
+        valueLabel.Text = String.Format("Date: {0}",dateCopy.ToShortDateString());
     }
 
-    private void CalculateSub()
+    void CalculateSub()
     {
         DateTime dateCopy = date1;
         dateCopy = dateCopy.AddYears(Convert.ToInt32(spinYears.Value) * -1);
         dateCopy = dateCopy.AddMonths(Convert.ToInt32(spinMonths.Value) * -1);
         dateCopy = dateCopy.AddDays(Convert.ToInt32(spinDays.Value) * -1);
 
-        valueLabel.Text = String.Format("Data: {0}",dateCopy.ToShortDateString());
+        valueLabel.Text = String.Format("Date: {0}",dateCopy.ToShortDateString());
     }
 
-    private void Difference()
+    void Difference()
     {
         diff.Pressed = true;
         add.Pressed = false;
@@ -213,7 +213,7 @@ public class Date_Panel : Panel
         GetNode<HBoxContainer>("Display_normal/SpinBox3").Visible = false;
     }
 
-    private void Add()
+    void Add()
     {
         add.Pressed = true;
         diff.Pressed = false;
@@ -227,7 +227,7 @@ public class Date_Panel : Panel
         GetNode<HBoxContainer>("Display_normal/SpinBox3").Visible = true;
     }
 
-    private void Sub()
+    void Sub()
     {
         sub.Pressed = true;
         diff.Pressed = false;
