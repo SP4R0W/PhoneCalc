@@ -6,17 +6,17 @@ using System.Globalization;
 public sealed class Normal_panel : Panel
 {
 
-    private string num1 = "0";
-    private string num2 = "0";
-    private string result = "0";
+    string num1 = "0";
+    string num2 = "0";
+    string result = "0";
 
-    private enum numbers {
+    enum numbers {
         ONE,
         TWO,
         RESULT
     }
 
-    private enum operations {
+    enum operations {
         ADD,
         SUBTRACT,
         MULTIPLY,
@@ -24,21 +24,22 @@ public sealed class Normal_panel : Panel
         NONE
     }
 
-    private Dictionary<operations,string> operation_signs = new Dictionary<operations, string>(){
+    Dictionary<operations,string> operation_signs = new Dictionary<operations, string>(){
         {operations.ADD,"+"},
         {operations.SUBTRACT,"-"},
         {operations.MULTIPLY,"x"},
         {operations.DIVIDE,"/"}
     };
 
-    private numbers current_num = numbers.ONE;
-    private operations current_operation = operations.NONE;
+    numbers current_num = numbers.ONE;
+    operations current_operation = operations.NONE;
 
-    private Label label_action;
-    private Label label_num;
+    Label label_action;
+    Label label_num;
 
     public override void _Ready()
     {
+        // This is enforcing . as decimal points. In some regions, the system may expect a comma and thus break our entire app when calculating numbers with decimal points.
         CultureInfo.DefaultThreadCurrentCulture = new CultureInfo("en-US");
 
         label_action = GetNode<Label>("Display_normal/label_action");
@@ -64,7 +65,7 @@ public sealed class Normal_panel : Panel
         }
     }
 
-    private void ResetToDefault()
+    void ResetToDefault()
     {
         num1 = "0";
         num2 = "0";
@@ -74,7 +75,7 @@ public sealed class Normal_panel : Panel
         current_operation = operations.NONE;
     }
 
-    private string GetResAsFirst()
+    string GetResAsFirst()
     {
         string res = result;
         ResetToDefault();
@@ -82,7 +83,7 @@ public sealed class Normal_panel : Panel
         return res;
     }
 
-    private string DoEquasion()
+    string DoEquasion()
     {
         if (current_operation == operations.ADD)
             return Convert.ToString(Convert.ToDouble(num1) + Convert.ToDouble(num2));
@@ -96,7 +97,7 @@ public sealed class Normal_panel : Panel
         return "0";
     }
 
-    private void AddNum(string number)
+    void AddNum(string number)
     {
         if (current_num == numbers.RESULT)
             ResetToDefault();
@@ -120,7 +121,7 @@ public sealed class Normal_panel : Panel
         }
     }
 
-    private void SetEquasion(operations operation)
+    void SetEquasion(operations operation)
     {
         if (current_num == numbers.TWO)
         {
@@ -138,7 +139,7 @@ public sealed class Normal_panel : Panel
         current_num = numbers.TWO;
     }
 
-    private void CEPressed()
+    void CEPressed()
     {
         if (current_num == numbers.ONE)
             num1 = "0";
@@ -148,12 +149,12 @@ public sealed class Normal_panel : Panel
             ResetToDefault();
     }
 
-    private void CPressed()
+    void CPressed()
     {
         ResetToDefault();
     }
 
-    private void DelPressed()
+    void DelPressed()
     {
         if (current_num == numbers.RESULT)
             num1 = GetResAsFirst();
@@ -172,57 +173,57 @@ public sealed class Normal_panel : Panel
         }
     }
 
-    private void ZeroPressed()
+    void ZeroPressed()
     {
         AddNum("0");
     }
 
-    private void OnePressed()
+    void OnePressed()
     {
         AddNum("1");
     }
 
-    private void TwoPressed()
+    void TwoPressed()
     {
         AddNum("2");
     }
 
-    private void ThreePressed()
+    void ThreePressed()
     {
         AddNum("3");
     }
 
-    private void FourPressed()
+    void FourPressed()
     {
         AddNum("4");
     }
 
-    private void FivePressed()
+    void FivePressed()
     {
         AddNum("5");
     }
 
-    private void SixPressed()
+    void SixPressed()
     {
         AddNum("6");
     }
 
-    private void SevenPressed()
+    void SevenPressed()
     {
         AddNum("7");
     }
 
-    private void EightPressed()
+    void EightPressed()
     {
         AddNum("8");
     }
 
-    private void NinePressed()
+    void NinePressed()
     {
         AddNum("9");
     }
 
-    private void DotPressed()
+    void DotPressed()
     {
         if (current_num == numbers.RESULT)
             num1 = GetResAsFirst();
@@ -239,7 +240,7 @@ public sealed class Normal_panel : Panel
         }
     }
 
-    private void PlusMinPressed()
+    void PlusMinPressed()
     {
         if (current_num == numbers.RESULT)
             num1 = GetResAsFirst();
@@ -252,7 +253,7 @@ public sealed class Normal_panel : Panel
         }
     }
 
-    private void EqlPressed()
+    void EqlPressed()
     {
         if (current_num == numbers.ONE)
             return;
@@ -261,27 +262,27 @@ public sealed class Normal_panel : Panel
         result = DoEquasion();
     }
 
-    private void AddPressed()
+    void AddPressed()
     {
         SetEquasion(operations.ADD);
     }
 
-    private void SubPressed()
+    void SubPressed()
     {
         SetEquasion(operations.SUBTRACT);
     }
 
-    private void MulPressed()
+    void MulPressed()
     {
         SetEquasion(operations.MULTIPLY);
     }
 
-    private void DivPressed()
+    void DivPressed()
     {
         SetEquasion(operations.DIVIDE);
     }
 
-    private void SqrPressed()
+    void SqrPressed()
     {
         if (current_num == numbers.RESULT)
             num1 = GetResAsFirst();
@@ -302,7 +303,7 @@ public sealed class Normal_panel : Panel
         }
     }
 
-    private void PowPressed()
+    void PowPressed()
     {
         if (current_num == numbers.RESULT)
             num1 = GetResAsFirst();
@@ -313,7 +314,7 @@ public sealed class Normal_panel : Panel
             num2 = Convert.ToString(Math.Pow(Convert.ToDouble(num2),2));
     }
 
-    private void DivXPressed()
+    void DivXPressed()
     {
         if (current_num == numbers.RESULT)
             num1 = GetResAsFirst();
@@ -324,7 +325,7 @@ public sealed class Normal_panel : Panel
             num2 = Convert.ToString(1/Convert.ToDouble(num2));
     }
 
-    private void PercentagePressed()
+    void PercentagePressed()
     {
         if (current_num == numbers.ONE)
             num1 = "0";

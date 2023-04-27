@@ -6,7 +6,7 @@ using System.Globalization;
 
 public class Currency_Panel : Panel
 {
-    private enum types {
+    enum types {
         PLN,
         USD,
         EUR,
@@ -17,11 +17,11 @@ public class Currency_Panel : Panel
         UAH,
     }
 
-    private Dictionary<types,Dictionary<types,decimal>> values = new Dictionary<types, Dictionary<types, decimal>>(){
+    Dictionary<types,Dictionary<types,decimal>> values = new Dictionary<types, Dictionary<types, decimal>>(){
 
     };
 
-    private Dictionary<types,string> suffixes = new Dictionary<types, string>(){
+    Dictionary<types,string> suffixes = new Dictionary<types, string>(){
         {types.PLN,"PLN"},
         {types.USD,"USD"},
         {types.EUR,"EUR"},
@@ -32,7 +32,7 @@ public class Currency_Panel : Panel
         {types.UAH,"UAH"},
     };
 
-    private Dictionary<int,types> ids = new Dictionary<int, types>(){
+    Dictionary<int,types> ids = new Dictionary<int, types>(){
         {0,types.PLN},
         {1,types.USD},
         {2,types.EUR},
@@ -43,21 +43,25 @@ public class Currency_Panel : Panel
         {7,types.UAH},
     };
 
-    private string textValue = "0";
-    private string convertedValue = "0";
+    string textValue = "0";
+    string convertedValue = "0";
 
-    private types type1 = types.PLN;
-    private types type2 = types.USD;
+    types type1 = types.PLN;
+    types type2 = types.USD;
 
-    private Label cur1Label;
-    private Label cur2Label;
-    private Label valueLabel;
+    Label cur1Label;
+    Label cur2Label;
+    Label valueLabel;
 
-    private int index = 0;
-    private bool canWork = false;
+    int index = 0;
+    bool canWork = false;
+
+    const string EXCHANGE_RATES_SITE = "https://api.exchangerate.host/latest?base={0}&symbols=PLN,USD,EUR,GBP,CNY,JPY,RUB,UAH";
+    const int SUCCESS = 200;
 
     public override void _Ready()
     {
+        // This is enforcing . as decimal points. In some regions, the system may expect a comma and thus break our entire app when calculating numbers with decimal points.
         CultureInfo.DefaultThreadCurrentCulture = new CultureInfo("en-US");
 
         UpdateCurrency();
@@ -71,13 +75,11 @@ public class Currency_Panel : Panel
     {
         if (!canWork)
         {
-            GetNode<Button>("Update_button").Text = "Aktualizowanie";
+            GetNode<Button>("Update_button").Text = "Updating...";
             return;
         }
-        else
-        {
-            GetNode<Button>("Update_button").Text = "Zaktualizuj kursy";
-        }
+
+        GetNode<Button>("Update_button").Text = "Update exchange rates";
 
         var calculatedValue = CalculateValue();
 
@@ -87,7 +89,7 @@ public class Currency_Panel : Panel
         valueLabel.Text = String.Format("1 {0} = {1} {2}",suffixes[type1],values[type1][type2],suffixes[type2]);
     }
 
-    private async void UpdateCurrency()
+    async void UpdateCurrency()
     {
         index = 0;
         canWork = false;
@@ -96,20 +98,22 @@ public class Currency_Panel : Panel
         var http = GetNode<HTTPRequest>("HTTPRequest");
         foreach (types currency in (types[]) Enum.GetValues(typeof(types)))
         {
+            // This is where we try and get the data from the site. This link can be easily modified to support more currencies.
             var cur = Convert.ToString(currency);
-            var site = String.Format("https://api.exchangerate.host/latest?base={0}&symbols=PLN,USD,EUR,GBP,CNY,JPY,RUB,UAH",cur);
+            var site = String.Format(EXCHANGE_RATES_SITE,cur);
             var error = http.Request(site);
             if (error == Error.Ok)
                 await ToSignal(http,"request_completed");
             else
-                GetNode<Button>("Update_button").Text = "Błąd sieci";
+                GetNode<Button>("Update_button").Text = "Network Error";
         }
     }
 
-    private void GetCurrencyData(int result, int response_code, string[] headers, byte[] body)
+    void GetCurrencyData(int result, int response_code, string[] headers, byte[] body)
     {
-        if (response_code == 200)
+        if (response_code == SUCCESS)
         {
+            // This is where we convert our data from request into more godot and c# friendly format
             JSONParseResult json = JSON.Parse(Encoding.UTF8.GetString(body));
             var parseResult = json.Result as Godot.Collections.Dictionary;
             var parseRates = parseResult["rates"] as Godot.Collections.Dictionary;
@@ -132,19 +136,17 @@ public class Currency_Panel : Panel
                 canWork = true;
         }
         else
-        {
-            GetNode<Button>("Update_button").Text = "Błąd sieci";
-        }
+            GetNode<Button>("Update_button").Text = "Network Error";
     }
 
-    private decimal CalculateValue()
+    decimal CalculateValue()
     {
         var value = values[type1][type2];
 
         return Convert.ToDecimal(textValue) * value;
     }
 
-    private void SelectCur1(int index)
+    void SelectCur1(int index)
     {
         if (!canWork)
             return;
@@ -152,7 +154,7 @@ public class Currency_Panel : Panel
         type1 = ids[index];
     }
 
-    private void SelectCur2(int index)
+    void SelectCur2(int index)
     {
         if (!canWork)
             return;
@@ -160,7 +162,7 @@ public class Currency_Panel : Panel
         type2 = ids[index];
     }
 
-    private void CPressed()
+    void CPressed()
     {
         if (!canWork)
             return;
@@ -168,7 +170,7 @@ public class Currency_Panel : Panel
         textValue = "0";
     }
 
-    private void DelPressed()
+    void DelPressed()
     {
         if (!canWork)
             return;
@@ -178,7 +180,7 @@ public class Currency_Panel : Panel
             textValue = "0";
     }
 
-    private void AddNum(string number)
+    void AddNum(string number)
     {
         if (!canWork)
             return;
@@ -196,7 +198,7 @@ public class Currency_Panel : Panel
         textValue += number;
     }
 
-    private void DotPressed()
+    void DotPressed()
     {
         if (!canWork)
             return;
@@ -205,52 +207,52 @@ public class Currency_Panel : Panel
             textValue += ".";
     }
 
-    private void ZeroPressed()
+    void ZeroPressed()
     {
         AddNum("0");
     }
 
-    private void OnePressed()
+    void OnePressed()
     {
         AddNum("1");
     }
 
-    private void TwoPressed()
+    void TwoPressed()
     {
         AddNum("2");
     }
 
-    private void ThreePressed()
+    void ThreePressed()
     {
         AddNum("3");
     }
 
-    private void FourPressed()
+    void FourPressed()
     {
         AddNum("4");
     }
 
-    private void FivePressed()
+    void FivePressed()
     {
         AddNum("5");
     }
 
-    private void SixPressed()
+    void SixPressed()
     {
         AddNum("6");
     }
 
-    private void SevenPressed()
+    void SevenPressed()
     {
         AddNum("7");
     }
 
-    private void EightPressed()
+    void EightPressed()
     {
         AddNum("8");
     }
 
-    private void NinePressed()
+    void NinePressed()
     {
         AddNum("9");
     }
